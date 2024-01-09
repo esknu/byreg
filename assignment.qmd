@@ -4,6 +4,28 @@ format: html
 editor: visual
 ---
 
+```{r}
+#| label: setup
+#| output: false
+#| message: false
+#| echo: false
+library(eurostat)
+library(dineq)
+library(readr)
+library(tidyverse)
+library(stringr)
+library(huxtable)
+library(vtable)
+library(ggplotify)
+library(grid)
+library(dplyr)
+library(gridExtra)
+library(ggplot2)
+library(broom)
+library(lmtest)
+library(plm)
+```
+
 ## Quarto.
 
 Quarto enables you to weave together content and executable code into a finished document.
@@ -26,3 +48,21 @@ You can add options to executable code like this
 ```
 
 The `echo: false` option disables the printing of code (only output is displayed).
+
+```{r}
+urban <- ilc_lvho01_custom_9256830_linear <- read_csv("ilc_lvho01__custom_9256830_linear.csv", 
+    na = "NA")
+urban <- urban |> 
+  select(-DATAFLOW, -`LAST UPDATE`, -freq, -building, -OBS_FLAG, -building, -incgrp) 
+
+urban <- urban |> 
+  select(country = geo, location = deg_urb, year = TIME_PERIOD, Population = OBS_VALUE)
+urban <- urban |> 
+mutate(location = recode(location,
+                           "DEG1" = "City",
+                           "DEG2" = "Suburb",
+                           "DEG3" = "Rural"))
+
+
+#deg1 = city, deg2 = towns and suburbs, deg3 = Rural areas
+```

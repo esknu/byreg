@@ -66,3 +66,16 @@ mutate(location = recode(location,
 
 #deg1 = city, deg2 = towns and suburbs, deg3 = Rural areas
 ```
+
+```{r}
+urban |> 
+  filter(
+    country == "IT"
+  ) |> 
+  ggplot(aes(
+    x = year,
+    y = Population,
+    color = location
+  )) +
+  geom_line()
+```

@@ -104,5 +104,8 @@ urb2 <- urb2 |>
 
 ```{r}
 datapt1 <- urb2 |> 
-  select(Year = year, Country = country, "Region Type" = location, Population = Pop)
+  select(Year = year, Country = country, "Region Type" = location, Population = Pop) |> 
+  filter(
+    str_sub(Country, start = 1L, end = 2L) %in% c("AT", "BE", "DE", "DK", "EE", "EL", "ES", "FI", "FR", "IE", "IT", "LU", "NO", "NL", "PL", "PT", "SE", "SI", "SK")
+  )
 ```

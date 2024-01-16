@@ -121,3 +121,24 @@ datapt1 |>
   ) +
   geom_smooth(level = 0.5, span = 1)
 ```
+
+```{r}
+# Assuming your data frame is datapt1
+datapt1 <- datapt1 %>%
+  # Group by Country and Region Type
+  group_by(Country, `Region Type`) %>%
+  # Calculate relative growth
+  mutate(Relative_Growth = Population / first(Population) * 100) %>%
+  ungroup()
+
+# Create a single graph with lines for each Region Type
+ggplot(datapt1, aes(x = Year, y = Relative_Growth, color = `Region Type`, group = `Region Type`)) +
+  geom_smooth(level = 0.5, span = 1, linetype = 1) +
+  geom_hline(yintercept = 100, linetype = "dashed", color = "black") +
+  labs(title = "Relative Population Growth from 2003",
+       x = "Year",
+       y = "Relative Growth (%)",
+       color = "Region Type") +
+  theme_minimal() +
+  scale_x_continuous(breaks = seq(2003, max(datapt1$Year), by = 1))
+```

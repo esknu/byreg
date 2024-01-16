@@ -109,3 +109,15 @@ datapt1 <- urb2 |>
     str_sub(Country, start = 1L, end = 2L) %in% c("AT", "BE", "DE", "DK", "EE", "EL", "ES", "FI", "FR", "IE", "IT", "LU", "NO", "NL", "PL", "PT", "SE", "SI", "SK")
   )
 ```
+
+```{r}
+datapt1 |> 
+  ggplot(
+    aes(
+      x = Year,
+      y = Population,
+      color = `Region Type`
+    )
+  ) +
+  geom_smooth(level = 0.5, span = 1)
+```

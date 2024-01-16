@@ -79,3 +79,8 @@ urban |>
   )) +
   geom_line()
 ```
+
+```{r}
+Pop <- demo_pjan_custom_9363002_linear <- read_csv("demo_pjan__custom_9363002_linear.csv", 
+    na = "NA")
+```

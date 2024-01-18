@@ -129,8 +129,8 @@ unemploymentrate <- read_csv("lfst_r_urgau__custom_9401924_linear.csv",
 
 ```{r}
 housingcost <- housingcost |> 
-  select(Year = TIME_PERIOD, Country = geo, Class = deg_urb, dHousing = OBS_VALUE) |> 
-  mutate(Class = recode(Class,
+  select(Year = TIME_PERIOD, Country = geo, "Region Type" = deg_urb, dHousing = OBS_VALUE) |> 
+  mutate(`Region Type` = recode(`Region Type`,
                            "DEG1" = "City",
                            "DEG2" = "Suburb",
                            "DEG3" = "Rural"))
@@ -143,8 +143,8 @@ employmentrate <- employmentrate |>
 
 ```{r}
 employmentrate <- employmentrate |> 
-  select(Year = TIME_PERIOD, Country = geo, Class = deg_urb, dEmployment = OBS_VALUE) |> 
-  mutate(Class = recode(Class,
+  select(Year = TIME_PERIOD, Country = geo, "Region Type" = deg_urb, dEmployment = OBS_VALUE) |> 
+  mutate(`Region Type` = recode(`Region Type`,
                            "DEG1" = "City",
                            "DEG2" = "Suburb",
                            "DEG3" = "Rural"))
@@ -152,14 +152,32 @@ employmentrate <- employmentrate |>
 
 ```{r}
 unemploymentrate <- unemploymentrate |> 
-  select(Year = TIME_PERIOD, Country = geo, Class = deg_urb, dUnemployed = OBS_VALUE) |> 
-  mutate(Class = recode(Class,
+  select(Year = TIME_PERIOD, Country = geo, "Region Type" = deg_urb, dUnemployed = OBS_VALUE) |> 
+  mutate(`Region Type` = recode(`Region Type`,
                            "DEG1" = "City",
                            "DEG2" = "Suburb",
                            "DEG3" = "Rural"))
 ```
 
 ### **Task 2: Application of Classification Methodology**
+
+```{r}
+merged <- 
+  merge(datapt1, unemploymentrate, by = c("Country", "Year", "Region Type"), na.rm = TRUE) %>%
+  filter(complete.cases(.))
+```
+
+```{r}
+merged <- merged %>% 
+  merge(unemploymentrate, by = c("Country", "Year", "Region Type"), na.rm = TRUE) %>%
+  filter(complete.cases(.))
+```
+
+```{r}
+merged <- merged %>%
+  merge(housingcost, by = c("Country", "Year", "Region Type"), na.rm = TRUE) %>%
+  filter(complete.cases(.))
+```
 
 ### **Task 3: Analysis and Visualization**
 

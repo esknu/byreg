@@ -123,7 +123,7 @@ housingcost <- read_csv("ilc_lvho07d__custom_9401957_linear.csv",
     na = "NA")
 employmentrate <- read_csv("lfst_r_erednu__custom_9401940_linear.csv", 
     na = "NA")
-unemploymentrate <- read_csv("lfst_r_urgau__custom_9401924_linear.csv", 
+unemploymentrate <- read_csv("unemployment.csv", 
     na = "NA")
 ```
 
@@ -177,6 +177,13 @@ merged <- merged %>%
 merged <- merged %>%
   merge(housingcost, by = c("Country", "Year", "Region Type"), na.rm = TRUE) %>%
   filter(complete.cases(.))
+```
+
+```{r}
+merged <- merged |> 
+  group_by(Country, Year) |> 
+  mutate(dmeanUnemployed = dUnemployed / sum(dUnemployed)) |> 
+  ungroup()
 ```
 
 ### **Task 3: Analysis and Visualization**

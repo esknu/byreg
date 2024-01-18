@@ -182,8 +182,51 @@ merged <- merged %>%
 ```{r}
 merged <- merged |> 
   group_by(Country, Year) |> 
-  mutate(dmeanUnemployed = dUnemployed / sum(dUnemployed)) |> 
+  mutate(dmeanUnemployed = round((dUnemployed / sum(dUnemployed)*100), digits = 3)) |>
   ungroup()
+
+merged <- merged |> 
+  group_by(Country, Year) |> 
+  mutate(dmeanEmployment = round((dEmployment / sum(dEmployment)*100), digits = 3)) |>
+  ungroup()
+
+merged <- merged |> 
+  group_by(Country, Year) |> 
+  mutate(dmeanHousing = round((dHousing / sum(dHousing)*100), digits = 3)) |>
+  ungroup()
+
+```
+
+```{r}
+merged <- merged %>%
+  mutate(Class = case_when(
+    dUnemployed > dmeanUnemployed & 
+      dEmployment > dmeanEmployment & 
+      dHousing > dmeanHousing ~ 1,
+    dUnemployed > dmeanUnemployed & 
+      dEmployment > dmeanEmployment & 
+      dHousing <= dmeanHousing ~ 2,
+    dUnemployed > dmeanUnemployed & 
+      dEmployment <= dmeanEmployment & 
+      dHousing > dmeanHousing ~ 3,
+    dUnemployed > dmeanUnemployed & 
+      dEmployment <= dmeanEmployment & 
+      dHousing <= dmeanHousing ~ 4,
+    dUnemployed <= dmeanUnemployed & 
+      dEmployment > dmeanEmployment & 
+      dHousing > dmeanHousing ~ 5,
+    dUnemployed <= dmeanUnemployed & 
+      dEmployment > dmeanEmployment & 
+      dHousing <= dmeanHousing ~ 6,
+    dUnemployed <= dmeanUnemployed & 
+      dEmployment <= dmeanEmployment & 
+      dHousing > dmeanHousing ~ 7,
+    dUnemployed <= dmeanUnemployed & 
+      dEmployment <= dmeanEmployment & 
+      dHousing <= dmeanHousing ~ 8,
+    TRUE ~ 0  # Default value if none of the conditions are met
+  ))
+
 ```
 
 ### **Task 3: Analysis and Visualization**

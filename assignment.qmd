@@ -231,6 +231,24 @@ merged <- merged %>%
 
 ### **Task 3: Analysis and Visualization**
 
+```{r}
+region_counts <- merged %>%
+  group_by(Class, RegionType) %>%
+  summarise(Count = n(), .groups = "drop")
+```
+
+```{r}
+all_classes <- as.factor(1:8)
+
+ggplot(region_counts, aes(x = Class, y = Count, fill = RegionType)) +
+    geom_bar(stat = "identity") +
+    scale_x_discrete(limits = all_classes) +
+    xlab("Class") +
+    ylab("Region Types") +
+    ggtitle("Stacked Bar Chart of Region Type Counts by Class") +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
 ### **Task 4: Interpretation and Relation to Course Literature**
 
 ## Appendix

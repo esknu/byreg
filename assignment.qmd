@@ -86,6 +86,47 @@ Pop <- demo_pjan_custom_9363002_linear <- read_csv("demo_pjan__custom_9363002_li
 ```
 
 ```{r}
+housingcost <- read_csv("ilc_lvho07d__custom_9401957_linear.csv", 
+    na = "NA")
+employmentrate <- read_csv("lfst_r_erednu__custom_9401940_linear.csv", 
+    na = "NA")
+unemploymentrate <- read_csv("lfst_r_urgau__custom_9401924_linear.csv", 
+    na = "NA")
+```
+
+```{r}
+housingcost <- housingcost |> 
+  select(Year = TIME_PERIOD, Country = geo, Class = deg_urb, dHousing = OBS_VALUE) |> 
+  mutate(Class = recode(Class,
+                           "DEG1" = "City",
+                           "DEG2" = "Suburb",
+                           "DEG3" = "Rural"))
+```
+
+```{r}
+employmentrate <- employmentrate |> 
+  filter(citizen == "TOTAL")
+```
+
+```{r}
+employmentrate <- employmentrate |> 
+  select(Year = TIME_PERIOD, Country = geo, Class = deg_urb, dEmployment = OBS_VALUE) |> 
+  mutate(Class = recode(Class,
+                           "DEG1" = "City",
+                           "DEG2" = "Suburb",
+                           "DEG3" = "Rural"))
+```
+
+```{r}
+unemploymentrate <- unemploymentrate |> 
+  select(Year = TIME_PERIOD, Country = geo, Class = deg_urb, dUnemployed = OBS_VALUE) |> 
+  mutate(Class = recode(Class,
+                           "DEG1" = "City",
+                           "DEG2" = "Suburb",
+                           "DEG3" = "Rural"))
+```
+
+```{r}
 Pop <- Pop |> 
   select(country = geo, year = TIME_PERIOD, Population = OBS_VALUE)
 ```

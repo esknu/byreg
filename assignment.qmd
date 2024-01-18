@@ -26,28 +26,9 @@ library(lmtest)
 library(plm)
 ```
 
-## Quarto.
+## **Part 1: Data Collection and Initial Analysis**
 
-Quarto enables you to weave together content and executable code into a finished document.
-To learn more about Quarto see <https://quarto.org>.
-
-## Running Code
-
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code.
-You can embed code like this:
-
-```{r}
-1 + 1
-```
-
-You can add options to executable code like this
-
-```{r}
-#| echo: false
-2 * 2
-```
-
-The `echo: false` option disables the printing of code (only output is displayed).
+### **Task 1 -- Data Gathering:**
 
 ```{r}
 urban <- ilc_lvho01_custom_9256830_linear <- read_csv("ilc_lvho01__custom_9256830_linear.csv", 
@@ -68,63 +49,11 @@ mutate(location = recode(location,
 ```
 
 ```{r}
-urban |> 
-  filter(
-    country == "IT"
-  ) |> 
-  ggplot(aes(
-    x = year,
-    y = Population,
-    color = location
-  )) +
-  geom_line()
-```
-
-```{r}
 Pop <- demo_pjan_custom_9363002_linear <- read_csv("demo_pjan__custom_9363002_linear.csv", 
     na = "NA")
 ```
 
-```{r}
-housingcost <- read_csv("ilc_lvho07d__custom_9401957_linear.csv", 
-    na = "NA")
-employmentrate <- read_csv("lfst_r_erednu__custom_9401940_linear.csv", 
-    na = "NA")
-unemploymentrate <- read_csv("lfst_r_urgau__custom_9401924_linear.csv", 
-    na = "NA")
-```
-
-```{r}
-housingcost <- housingcost |> 
-  select(Year = TIME_PERIOD, Country = geo, Class = deg_urb, dHousing = OBS_VALUE) |> 
-  mutate(Class = recode(Class,
-                           "DEG1" = "City",
-                           "DEG2" = "Suburb",
-                           "DEG3" = "Rural"))
-```
-
-```{r}
-employmentrate <- employmentrate |> 
-  filter(citizen == "TOTAL")
-```
-
-```{r}
-employmentrate <- employmentrate |> 
-  select(Year = TIME_PERIOD, Country = geo, Class = deg_urb, dEmployment = OBS_VALUE) |> 
-  mutate(Class = recode(Class,
-                           "DEG1" = "City",
-                           "DEG2" = "Suburb",
-                           "DEG3" = "Rural"))
-```
-
-```{r}
-unemploymentrate <- unemploymentrate |> 
-  select(Year = TIME_PERIOD, Country = geo, Class = deg_urb, dUnemployed = OBS_VALUE) |> 
-  mutate(Class = recode(Class,
-                           "DEG1" = "City",
-                           "DEG2" = "Suburb",
-                           "DEG3" = "Rural"))
-```
+### **Task 2 -- Data Analysis:**
 
 ```{r}
 Pop <- Pop |> 
@@ -169,26 +98,6 @@ datapt1 <- datapt1 %>%
   # Group by Country and Region Type
   group_by(Country, `Region Type`) %>%
   # Calculate relative growth
-  mutate(Relative_Growth = Population / first(Population) * 100) %>%
-  ungroup()
-
-# Create a single graph with lines for each Region Type
-ggplot(datapt1, aes(x = Year, y = Relative_Growth, color = `Region Type`, group = `Region Type`)) +
-  geom_smooth(level = 0.5, span = 1, linetype = 1) +
-  labs(title = "Relative Population Growth from 2003",
-       x = "Year",
-       y = "Relative Growth (%)",
-       color = "Region Type") +
-  theme_minimal() +
-  scale_x_continuous(breaks = seq(2003, max(datapt1$Year), by = 5)) + facet_wrap(~Country)
-```
-
-```{r}
-# Assuming your data frame is datapt1
-datapt1 <- datapt1 %>%
-  # Group by Country and Region Type
-  group_by(Country, `Region Type`) %>%
-  # Calculate relative growth
   mutate(Relative_Growth = Population / Population[Year == 2005]* 100) %>%
   ungroup()
 
@@ -205,17 +114,75 @@ ggplot(aes(x = Year, y = Relative_Growth, color = `Region Type`)) +
   scale_x_continuous(breaks = seq(2005, max(datapt1$Year), by = 5))
 ```
 
+## **Part 2: Advanced Analysis - Understanding the Impact of Economic Factors on Population Growth**
+
+### **Task 1: Gathering Additional Data**
+
 ```{r}
-datapt1 |>
-  ggplot(
-    aes(
-      x = Year,
-      y = Population / Population[Year == 2003] * 100,  # Relativ vekst i forhold til 2003
-      color = `Region Type`
-    )
-  ) +
-  geom_smooth(level = 0.5, span = 1) +
-  geom_hline(yintercept = 100, linetype = "dashed", color = "black") +  # Horisontal linje på 100
-  xlab("Year") +
-  ylab("Relative Growth (2003 = 100)")
+housingcost <- read_csv("ilc_lvho07d__custom_9401957_linear.csv", 
+    na = "NA")
+employmentrate <- read_csv("lfst_r_erednu__custom_9401940_linear.csv", 
+    na = "NA")
+unemploymentrate <- read_csv("lfst_r_urgau__custom_9401924_linear.csv", 
+    na = "NA")
+```
+
+```{r}
+housingcost <- housingcost |> 
+  select(Year = TIME_PERIOD, Country = geo, Class = deg_urb, dHousing = OBS_VALUE) |> 
+  mutate(Class = recode(Class,
+                           "DEG1" = "City",
+                           "DEG2" = "Suburb",
+                           "DEG3" = "Rural"))
+```
+
+```{r}
+employmentrate <- employmentrate |> 
+  filter(citizen == "TOTAL")
+```
+
+```{r}
+employmentrate <- employmentrate |> 
+  select(Year = TIME_PERIOD, Country = geo, Class = deg_urb, dEmployment = OBS_VALUE) |> 
+  mutate(Class = recode(Class,
+                           "DEG1" = "City",
+                           "DEG2" = "Suburb",
+                           "DEG3" = "Rural"))
+```
+
+```{r}
+unemploymentrate <- unemploymentrate |> 
+  select(Year = TIME_PERIOD, Country = geo, Class = deg_urb, dUnemployed = OBS_VALUE) |> 
+  mutate(Class = recode(Class,
+                           "DEG1" = "City",
+                           "DEG2" = "Suburb",
+                           "DEG3" = "Rural"))
+```
+
+### **Task 2: Application of Classification Methodology**
+
+### **Task 3: Analysis and Visualization**
+
+### **Task 4: Interpretation and Relation to Course Literature**
+
+## Appendix
+
+```{r}
+# Assuming your data frame is datapt1
+datapt1 <- datapt1 %>%
+  # Group by Country and Region Type
+  group_by(Country, `Region Type`) %>%
+  # Calculate relative growth
+  mutate(Relative_Growth = Population / first(Population) * 100) %>%
+  ungroup()
+
+# Create a single graph with lines for each Region Type
+ggplot(datapt1, aes(x = Year, y = Relative_Growth, color = `Region Type`, group = `Region Type`)) +
+  geom_smooth(level = 0.5, span = 1, linetype = 1) +
+  labs(title = "Relative Population Growth from 2003",
+       x = "Year",
+       y = "Relative Growth (%)",
+       color = "Region Type") +
+  theme_minimal() +
+  scale_x_continuous(breaks = seq(2003, max(datapt1$Year), by = 5)) + facet_wrap(~Country)
 ```

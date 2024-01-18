@@ -182,17 +182,17 @@ merged <- merged %>%
 ```{r}
 merged <- merged |> 
   group_by(Country, Year) |> 
-  mutate(dmeanUnemployed = round((dUnemployed / sum(dUnemployed)*100), digits = 3)) |>
+  mutate(dmeanUnemployed = mean(dUnemployed)) |>
   ungroup()
 
 merged <- merged |> 
   group_by(Country, Year) |> 
-  mutate(dmeanEmployment = round((dEmployment / sum(dEmployment)*100), digits = 3)) |>
+  mutate(dmeanEmployment = mean(dEmployment)) |>
   ungroup()
 
 merged <- merged |> 
   group_by(Country, Year) |> 
-  mutate(dmeanHousing = round((dHousing / sum(dHousing)*100), digits = 3)) |>
+  mutate(dmeanHousing = mean(dHousing)) |>
   ungroup()
 
 ```

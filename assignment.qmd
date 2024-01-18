@@ -169,7 +169,7 @@ merged <-
 
 ```{r}
 merged <- merged %>% 
-  merge(unemploymentrate, by = c("Country", "Year", "Region Type"), na.rm = TRUE) %>%
+  merge(employmentrate, by = c("Country", "Year", "Region Type"), na.rm = TRUE) %>%
   filter(complete.cases(.))
 ```
 

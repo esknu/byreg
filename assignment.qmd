@@ -129,7 +129,7 @@ unemploymentrate <- read_csv("unemployment.csv",
 
 ```{r}
 housingcost <- housingcost |> 
-  select(Year = TIME_PERIOD, Country = geo, "Region Type" = deg_urb, dHousing = OBS_VALUE) |> 
+  select(Year = TIME_PERIOD, Country = geo, "Region Type" = deg_urb, housingprices = OBS_VALUE) |> 
   mutate(`Region Type` = recode(`Region Type`,
                            "DEG1" = "City",
                            "DEG2" = "Suburb",
@@ -143,7 +143,7 @@ employmentrate <- employmentrate |>
 
 ```{r}
 employmentrate <- employmentrate |> 
-  select(Year = TIME_PERIOD, Country = geo, "Region Type" = deg_urb, dEmployment = OBS_VALUE) |> 
+  select(Year = TIME_PERIOD, Country = geo, "Region Type" = deg_urb, employmentrate = OBS_VALUE) |> 
   mutate(`Region Type` = recode(`Region Type`,
                            "DEG1" = "City",
                            "DEG2" = "Suburb",
@@ -152,7 +152,7 @@ employmentrate <- employmentrate |>
 
 ```{r}
 unemploymentrate <- unemploymentrate |> 
-  select(Year = TIME_PERIOD, Country = geo, "Region Type" = deg_urb, dUnemployed = OBS_VALUE) |> 
+  select(Year = TIME_PERIOD, Country = geo, "Region Type" = deg_urb, unemploymentrate = OBS_VALUE) |> 
   mutate(`Region Type` = recode(`Region Type`,
                            "DEG1" = "City",
                            "DEG2" = "Suburb",
@@ -182,17 +182,17 @@ merged <- merged %>%
 ```{r}
 merged <- merged |> 
   group_by(Country, Year) |> 
-  mutate(dmeanUnemployed = mean(dUnemployed)) |>
+  mutate(meanUnemployment = mean(unemploymentrate)) |>
   ungroup()
 
 merged <- merged |> 
   group_by(Country, Year) |> 
-  mutate(dmeanEmployment = mean(dEmployment)) |>
+  mutate(meanEmploymentrate = mean(employmentrate)) |>
   ungroup()
 
 merged <- merged |> 
   group_by(Country, Year) |> 
-  mutate(dmeanHousing = mean(dHousing)) |>
+  mutate(meanHousingprices = mean(housingprices)) |>
   ungroup()
 
 ```
@@ -200,30 +200,30 @@ merged <- merged |>
 ```{r}
 merged <- merged %>%
   mutate(Class = case_when(
-    dUnemployed > dmeanUnemployed & 
-      dEmployment > dmeanEmployment & 
-      dHousing > dmeanHousing ~ 1,
-    dUnemployed > dmeanUnemployed & 
-      dEmployment > dmeanEmployment & 
-      dHousing <= dmeanHousing ~ 2,
-    dUnemployed > dmeanUnemployed & 
-      dEmployment <= dmeanEmployment & 
-      dHousing > dmeanHousing ~ 3,
-    dUnemployed > dmeanUnemployed & 
-      dEmployment <= dmeanEmployment & 
-      dHousing <= dmeanHousing ~ 4,
-    dUnemployed <= dmeanUnemployed & 
-      dEmployment > dmeanEmployment & 
-      dHousing > dmeanHousing ~ 5,
-    dUnemployed <= dmeanUnemployed & 
-      dEmployment > dmeanEmployment & 
-      dHousing <= dmeanHousing ~ 6,
-    dUnemployed <= dmeanUnemployed & 
-      dEmployment <= dmeanEmployment & 
-      dHousing > dmeanHousing ~ 7,
-    dUnemployed <= dmeanUnemployed & 
-      dEmployment <= dmeanEmployment & 
-      dHousing <= dmeanHousing ~ 8,
+    unemploymentrate > meanUnemployment & 
+      employmentrate > meanEmploymentrate & 
+      housingprices > meanHousingprices ~ 1,
+    unemploymentrate > meanUnemployment & 
+      employmentrate > meanEmploymentrate & 
+      housingprices <= meanHousingprices ~ 2,
+    unemploymentrate > meanUnemployment & 
+      employmentrate <= meanEmploymentrate & 
+      housingprices > meanHousingprices ~ 3,
+    unemploymentrate > meanUnemployment & 
+      employmentrate <= meanEmploymentrate & 
+      housingprices <= meanHousingprices ~ 4,
+    unemploymentrate <= meanUnemployment & 
+      employmentrate > meanEmploymentrate & 
+      housingprices > meanHousingprices ~ 5,
+    unemploymentrate <= meanUnemployment & 
+      employmentrate > meanEmploymentrate & 
+      housingprices <= meanHousingprices ~ 6,
+    unemploymentrate <= meanUnemployment & 
+      employmentrate <= meanEmploymentrate & 
+      housingprices > meanHousingprices ~ 7,
+    unemploymentrate <= meanUnemployment & 
+      employmentrate <= meanEmploymentrate & 
+      housingprices <= meanHousingprices ~ 8,
     TRUE ~ 0  # Default value if none of the conditions are met
   ))
 

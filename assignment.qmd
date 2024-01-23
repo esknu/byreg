@@ -207,6 +207,30 @@ ggplot(aes(x = Year, y = Relative_Growth, color = `Region Type`)) +
   scale_x_continuous(breaks = seq(2005, max(datapt1$Year), by = 5))
 ```
 
+```{r}
+library(ggplot2)
+
+# Assuming your data frame is datapt1
+datapt1_filtered <- datapt1 %>%
+  filter(Country %in% c("DE", "NO", "EE")) %>%
+  group_by(Country, `Region Type`) %>%
+  mutate(Relative_Growth = Population / Population[Year == 2005] * 100) %>%
+  ungroup()
+
+# Create a facet plot with lines for each Region Type
+ggplot(datapt1_filtered, aes(x = Year, y = Relative_Growth, color = `Region Type`)) +
+  geom_smooth(level = 0.5, span = 1, linetype = 1) +
+  geom_hline(yintercept = 100, linetype = "dashed", color = "black") +
+  labs(title = "Relative Population Growth from 2003",
+       x = "Year",
+       y = "Relative Growth (%)",
+       color = "Region Type") +
+  theme_minimal() +
+  scale_x_continuous(breaks = seq(2005, max(datapt1$Year), by = 5)) +
+  facet_wrap(~Country, scales = "free_y")
+
+```
+
 ## **Part 2: Advanced Analysis - Understanding the Impact of Economic Factors on Population Growth**
 
 ### **Task 1: Gathering Additional Data**

@@ -249,7 +249,7 @@ ggplot(region_counts, aes(x = Class, y = Count, fill = `Region Type`)) +
 
 ### **Task 4: Interpretation and Relation to Course Literature**
 
-## Appendix
+## Ap pendix
 
 ```{r}
 # Assuming your data frame is datapt1

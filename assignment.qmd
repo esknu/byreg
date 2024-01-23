@@ -114,6 +114,99 @@ ggplot(aes(x = Year, y = Relative_Growth, color = `Region Type`)) +
   scale_x_continuous(breaks = seq(2005, max(datapt1$Year), by = 5))
 ```
 
+**Group 1: Urbanized Countries (Cities)**
+
+```{r}
+datapt2 <- urb2 |> 
+  select(Year = year, Country = country, "Region Type" = location, Population = Pop) |> 
+  filter(
+    str_sub(Country, start = 1L, end = 2L) %in% c("AT", "BE", "DE", "DK", "ES", "FI", "FR", "IT", "LU", "NL")
+  )
+```
+
+```{r}
+datapt2 <- datapt2 %>%
+  # Group by Country and Region Type
+  group_by(Country, `Region Type`) %>%
+  # Calculate relative growth
+  mutate(Relative_Growth = Population / Population[Year == 2005]* 100) %>%
+  ungroup()
+
+# Create a single graph with lines for each Region Type
+datapt1 |> 
+ggplot(aes(x = Year, y = Relative_Growth, color = `Region Type`)) +
+  geom_smooth(level = 0.5, span = 1, linetype = 1) +
+  geom_hline(yintercept = 100, linetype = "dashed", color = "black") +
+  labs(title = "Relative Population Growth from 2003",
+       x = "Year",
+       y = "Relative Growth (%)",
+       color = "Region Type") +
+  theme_minimal() +
+  scale_x_continuous(breaks = seq(2005, max(datapt1$Year), by = 5))
+```
+
+**Group 2: Intermediate Settlement Countries (Towns and Suburbs)**
+
+```{r}
+datapt3 <- urb2 |> 
+  select(Year = year, Country = country, "Region Type" = location, Population = Pop) |> 
+  filter(
+    str_sub(Country, start = 1L, end = 2L) %in% c("IE", "NO", "SE")
+  )
+```
+
+```{r}
+datapt3 <- datapt3 %>%
+  # Group by Country and Region Type
+  group_by(Country, `Region Type`) %>%
+  # Calculate relative growth
+  mutate(Relative_Growth = Population / Population[Year == 2005]* 100) %>%
+  ungroup()
+
+# Create a single graph with lines for each Region Type
+datapt1 |> 
+ggplot(aes(x = Year, y = Relative_Growth, color = `Region Type`)) +
+  geom_smooth(level = 0.5, span = 1, linetype = 1) +
+  geom_hline(yintercept = 100, linetype = "dashed", color = "black") +
+  labs(title = "Relative Population Growth from 2003",
+       x = "Year",
+       y = "Relative Growth (%)",
+       color = "Region Type") +
+  theme_minimal() +
+  scale_x_continuous(breaks = seq(2005, max(datapt1$Year), by = 5))
+```
+
+**Group 3: Rural Countries (Rural Areas)**
+
+```{r}
+datapt4 <- urb2 |> 
+  select(Year = year, Country = country, "Region Type" = location, Population = Pop) |> 
+  filter(
+    str_sub(Country, start = 1L, end = 2L) %in% c("EE", "EL", "PL", "PT", "SI", "SK")
+  )
+```
+
+```{r}
+datapt4 <- datapt4 %>%
+  # Group by Country and Region Type
+  group_by(Country, `Region Type`) %>%
+  # Calculate relative growth
+  mutate(Relative_Growth = Population / Population[Year == 2005]* 100) %>%
+  ungroup()
+
+# Create a single graph with lines for each Region Type
+datapt1 |> 
+ggplot(aes(x = Year, y = Relative_Growth, color = `Region Type`)) +
+  geom_smooth(level = 0.5, span = 1, linetype = 1) +
+  geom_hline(yintercept = 100, linetype = "dashed", color = "black") +
+  labs(title = "Relative Population Growth from 2003",
+       x = "Year",
+       y = "Relative Growth (%)",
+       color = "Region Type") +
+  theme_minimal() +
+  scale_x_continuous(breaks = seq(2005, max(datapt1$Year), by = 5))
+```
+
 ## **Part 2: Advanced Analysis - Understanding the Impact of Economic Factors on Population Growth**
 
 ### **Task 1: Gathering Additional Data**

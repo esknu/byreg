@@ -133,7 +133,7 @@ datapt2 <- datapt2 %>%
   ungroup()
 
 # Create a single graph with lines for each Region Type
-datapt1 |> 
+datapt2 |> 
 ggplot(aes(x = Year, y = Relative_Growth, color = `Region Type`)) +
   geom_smooth(level = 0.5, span = 1, linetype = 1) +
   geom_hline(yintercept = 100, linetype = "dashed", color = "black") +
@@ -164,7 +164,7 @@ datapt3 <- datapt3 %>%
   ungroup()
 
 # Create a single graph with lines for each Region Type
-datapt1 |> 
+datapt3 |> 
 ggplot(aes(x = Year, y = Relative_Growth, color = `Region Type`)) +
   geom_smooth(level = 0.5, span = 1, linetype = 1) +
   geom_hline(yintercept = 100, linetype = "dashed", color = "black") +
@@ -195,7 +195,7 @@ datapt4 <- datapt4 %>%
   ungroup()
 
 # Create a single graph with lines for each Region Type
-datapt1 |> 
+datapt4 |> 
 ggplot(aes(x = Year, y = Relative_Growth, color = `Region Type`)) +
   geom_smooth(level = 0.5, span = 1, linetype = 1) +
   geom_hline(yintercept = 100, linetype = "dashed", color = "black") +

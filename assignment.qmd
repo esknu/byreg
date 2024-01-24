@@ -355,7 +355,7 @@ Count <- merged %>%
   summarise(Count = n(), .groups = "drop")
 
 all_classes <- as.factor(1:8)
-merged |> 
+Count |> 
 ggplot(aes(x = Class, y = Count, fill = Region_Type)) +
     geom_bar(stat = "identity", position = "stack") +
     scale_x_discrete(limits = all_classes) +

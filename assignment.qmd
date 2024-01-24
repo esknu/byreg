@@ -350,7 +350,7 @@ merged <- merged %>%
 ### **Task 3: Analysis and Visualization**
 
 ```{r}
-merged <- merged %>%
+Count <- merged %>%
   group_by(Class, Region_Type) %>%
   summarise(Count = n(), .groups = "drop")
 

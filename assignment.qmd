@@ -76,7 +76,7 @@ urb2 <- urb2 |>
 datapt1 <- urb2 |> 
   select(Year = year, Country = country, Region_Type = location, Population = Pop) |> 
   filter(
-    str_sub(Country, start = 1L, end = 2L) %in% c("AT", "BE", "DE", "DK", "EE", "EL", "ES", "FI", "FR", "IE", "IT", "LU", "NO", "NL", "PL", "PT", "SE", "SI", "SK")
+    str_sub(Country, start = 1L, end = 2L) %in% c("AT", "BE", "DE", "DK", "ES", "FI", "FR", "IE", "IT", "NO", "NL", "PL", "PT", "SE", "SI", "SK")
   )
 ```
 
@@ -98,17 +98,17 @@ datapt1 <- datapt1 %>%
   # Group by Country and Region_Type
   group_by(Country, Region_Type) %>%
   # Calculate relative growth
-  mutate(Relative_Growth = Population / Population[Year == 2005]* 100/100) %>%
+  mutate(Relative_Growth = Population / Population[Year == 2005]* 100) %>%
   ungroup()
 
 # Create a single graph with lines for each Region Type
 datapt1 |> 
 ggplot(aes(x = Year, y = Relative_Growth, color = Region_Type)) +
   geom_smooth(level = 0.5, span = 0.25, linetype = 1, se = FALSE) +
-  geom_hline(yintercept = 1, linetype = "dashed", color = "black") +
+  geom_hline(yintercept = 100, linetype = "dashed", color = "black") +
   labs(title = "Relative Population Growth from 2005",
        x = "Year",
-       y = "Relative Growth (%)",
+       y = "Relative Growth",
        color = "Region_Type") +
   theme_minimal() +
   scale_x_continuous(breaks = seq(2005, max(datapt1$Year), by = 5)) +
@@ -119,15 +119,15 @@ ggplot(aes(x = Year, y = Relative_Growth, color = Region_Type)) +
 **Group 1: Urbanized Countries (Cities)**
 
 ```{r}
-datapt2 <- urb2 |> 
+City <- urb2 |> 
   select(Year = year, Country = country, Region_Type = location, Population = Pop) |> 
   filter(
-    str_sub(Country, start = 1L, end = 2L) %in% c("AT", "BE", "DE", "DK", "ES", "FI", "FR", "IT", "LU", "NL")
+    str_sub(Country, start = 1L, end = 2L) %in% c("AT", "BE", "DE", "DK", "ES", "FI", "FR", "IT", "NL")
   )
 ```
 
 ```{r}
-datapt2 <- datapt2 %>%
+City <- City %>%
   # Group by Country and Region Type
   group_by(Country, Region_Type) %>%
   # Calculate relative growth
@@ -135,13 +135,13 @@ datapt2 <- datapt2 %>%
   ungroup()
 
 # Create a single graph with lines for each Region Type
-datapt2 |> 
+City |> 
 ggplot(aes(x = Year, y = Relative_Growth, color = Region_Type)) +
   geom_smooth(level = 0.5, span = 1, linetype = 1) +
   geom_hline(yintercept = 100, linetype = "dashed", color = "black") +
   labs(title = "Relative Population Growth from 2003",
        x = "Year",
-       y = "Relative Growth (%)",
+       y = "Relative Growth",
        color = "Region_Type") +
   theme_minimal() +
   scale_x_continuous(breaks = seq(2005, max(datapt1$Year), by = 5))
@@ -150,7 +150,7 @@ ggplot(aes(x = Year, y = Relative_Growth, color = Region_Type)) +
 **Group 2: Intermediate Settlement Countries (Towns and Suburbs)**
 
 ```{r}
-datapt3 <- urb2 |> 
+Suburb <- urb2 |> 
   select(Year = year, Country = country, Region_Type = location, Population = Pop) |> 
   filter(
     str_sub(Country, start = 1L, end = 2L) %in% c("IE", "NO", "SE")
@@ -158,7 +158,7 @@ datapt3 <- urb2 |>
 ```
 
 ```{r}
-datapt3 <- datapt3 %>%
+Suburb <- Suburb %>%
   # Group by Country and Region Type
   group_by(Country, Region_Type) %>%
   # Calculate relative growth
@@ -166,13 +166,13 @@ datapt3 <- datapt3 %>%
   ungroup()
 
 # Create a single graph with lines for each Region Type
-datapt3 |> 
+Suburb |> 
 ggplot(aes(x = Year, y = Relative_Growth, color = Region_Type)) +
   geom_smooth(level = 0.5, span = 1, linetype = 1) +
   geom_hline(yintercept = 100, linetype = "dashed", color = "black") +
   labs(title = "Relative Population Growth from 2003",
        x = "Year",
-       y = "Relative Growth (%)",
+       y = "Relative Growth",
        color = "Region_Type") +
   theme_minimal() +
   scale_x_continuous(breaks = seq(2005, max(datapt1$Year), by = 5))
@@ -181,15 +181,15 @@ ggplot(aes(x = Year, y = Relative_Growth, color = Region_Type)) +
 **Group 3: Rural Countries (Rural Areas)**
 
 ```{r}
-datapt4 <- urb2 |> 
+Rural <- urb2 |> 
   select(Year = year, Country = country, Region_Type = location, Population = Pop) |> 
   filter(
-    str_sub(Country, start = 1L, end = 2L) %in% c("EE", "EL", "PL", "PT", "SI", "SK")
+    str_sub(Country, start = 1L, end = 2L) %in% c( "PL", "PT", "SI", "SK")
   )
 ```
 
 ```{r}
-datapt4 <- datapt4 %>%
+ Rural <- Rural %>%
   # Group by Country and Region Type
   group_by(Country, Region_Type) %>%
   # Calculate relative growth
@@ -197,13 +197,13 @@ datapt4 <- datapt4 %>%
   ungroup()
 
 # Create a single graph with lines for each Region Type
-datapt4 |> 
+Rural |> 
 ggplot(aes(x = Year, y = Relative_Growth, color = Region_Type)) +
   geom_smooth(level = 0.5, span = 1, linetype = 1) +
   geom_hline(yintercept = 100, linetype = "dashed", color = "black") +
   labs(title = "Relative Population Growth from 2003",
        x = "Year",
-       y = "Relative Growth (%)",
+       y = "Relative Growth",
        color = "Region_Type") +
   theme_minimal() +
   scale_x_continuous(breaks = seq(2005, max(datapt1$Year), by = 5))
@@ -225,7 +225,7 @@ ggplot(datapt1_filtered, aes(x = Year, y = Relative_Growth, color = Region_Type)
   geom_hline(yintercept = 100, linetype = "dashed", color = "black") +
   labs(title = "Relative Population Growth from 2003",
        x = "Year",
-       y = "Relative Growth (%)",
+       y = "Relative Growth",
        color = "Region_Type") +
   theme_minimal() +
   scale_x_continuous(breaks = seq(2005, max(datapt1$Year), by = 5)) +
@@ -383,7 +383,7 @@ ggplot(datapt1, aes(x = Year, y = Relative_Growth, color = Region_Type, group = 
   geom_smooth(level = 0.5, span = 1, linetype = 1) +
   labs(title = "Relative Population Growth from 2003",
        x = "Year",
-       y = "Relative Growth (%)",
+       y = "Relative Growth",
        color = "Region_Type") +
   theme_minimal() +
   scale_x_continuous(breaks = seq(2003, max(datapt1$Year), by = 5)) + facet_wrap(~Country)

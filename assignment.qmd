@@ -26,6 +26,10 @@ library(lmtest)
 library(plm)
 ```
 
+Formålet og motivasjonen for denne artikkelen er å se på mulige pådrivere som påvirker by-land-skillet i Europa.
+For å belyse dette skal vi kritisk undersøke hvordan faktorer påvirker by-land-skillet slik som arbeidsledighetsraten, sysselsettingsvekst og det lokale boligmarkedet påvirker mønstrene for befolkningsfordelingen og jobbskapingen på tvers av ulike europeiske land. 
+Vi skal henholdsvis se nærmere på landene Østerrike, Belgia, Tyskland, Danmark, Estland, Hellas, Spania, Finland, Frankrike, Irland, Italia, Luxembourg, Norge, Nederland, Polen, Portugal, Sverige, Slovenia, og Slovakia.
+
 ## **Part 1: Data Collection and Initial Analysis**
 
 ### **Task 1 -- Data Gathering:**
@@ -54,6 +58,16 @@ Pop <- demo_pjan_custom_9363002_linear <- read_csv("demo_pjan__custom_9363002_li
 ```
 
 ### **Task 2 -- Data Analysis:**
+
+For å se nærmere på by-land-skillet trekker vi ut 3 underkatogorier av variabelen \'Region Type\' i form av; 
+
+-   Byer (tett befolkede områder)
+
+-   Tettsteder og forsteder (områder med middels tetthet)
+
+-   Rurale områder (tynt befolkede områder)
+
+Vi skal nå analysere befolkningsveksttrender ved hjelp av disse kategoriene. 
 
 ```{r}
 Pop <- Pop |> 
@@ -92,6 +106,24 @@ datapt1 |>
   geom_smooth(level = 0.5, span = 1)
 ```
 
+Figur 1 viser gjennomsnittlig befolkningsvekst for de tre ulike regiontypene fra 2003 til 2022.
+Vi ser at byer har hatt den største veksten i populasjon fra 2003 til omtrent 2010, hvor den fra 2010 synker gradvis før den flater ut fra 2017 til 2022.
+Tettsteder og forsteder har en jevn stigning fra året 2003 til 2022.
+Rurale områder har en jevn stigning frem til 2015, før man har en slak nedgang frem til 2022. 
+
+Befolkningstrenden tyder på at frem til 2010 velger den største delen av befolkningen i Europa å bosette seg i byer, dvs.
+det har vært en økt sentralisering.
+Fra 2010 synker bosettingen i byer, som tyder på infrastrukturen i Europa har blitt bedre.
+Ved bruk av budrentemodellen kan dette tyde på at man får mer for pengene i kategoriene tettsteder/forsteder og rurale områder.
+Når vi ser på tettsteder/forsteder og rurale områder ser vi at disse to frem til 2016 tar over den største veksten i bosetting, hvor man fra 2016/2017 ser at det kun er tettsteder som har en vekst. 
+
+Det er verdt å merke seg at Figur 1 ikke er en særlig god fremstilling da dataene ikke har sitt opphav i 2003, hvor vi derfor bedre kan belyse dette med å sitte 2003 som et index år.
+Ved å gjøre dette vil vi da kunne se på den relative veksten i forhold til dette index året og vil da være mer representativt for en befolkningsvekst eller befolkningsnedgang i perioden 2003-2022.
+
+Figur 2 gir et mer nøyaktig bilde av de relative endringene i befolkningsutviklingen på tvers av de tre ulike kategoriene.
+Tidsseriene for kategoriene er skalert med en faktor som definerer befolkningen til å være 100 i 2003.
+Dermed representerer kurvene prosentvis befolkningsvekst over perioden.
+
 ```{r}
 # Assuming your data frame is datapt1
 datapt1 <- datapt1 %>%
@@ -115,6 +147,8 @@ ggplot(aes(x = Year, y = Relative_Growth, color = Region_Type)) +
   xlim(2005, 2022) +
   scale_y_continuous(breaks = seq(1, max(datapt1$Relative_Growth), by = 1))
 ```
+
+Figur 2 viser ​​​​gjennomsnittlig relativ befolkningsvekst, hvor 2003 = 100.
 
 **Group 1: Urbanized Countries (Cities)**
 

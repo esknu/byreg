@@ -238,7 +238,7 @@ ggplot(datapt1_filtered, aes(x = Year, y = Relative_Growth, color = Region_Type)
 ### **Task 1: Gathering Additional Data**
 
 ```{r}
-housingcost <- read_csv("ilc_lvho07d__custom_9401957_linear.csv", 
+housingprices <- read_csv("ilc_lvho07d__custom_9401957_linear.csv", 
     na = "NA")
 employmentrate <- read_csv("lfst_r_erednu__custom_9401940_linear.csv", 
     na = "NA")
@@ -247,8 +247,8 @@ unemploymentrate <- read_csv("unemployment.csv",
 ```
 
 ```{r}
-housingcost <- housingcost |> 
-  select(Year = TIME_PERIOD, Country = geo, Region_Type = deg_urb, dHousing = OBS_VALUE) |> 
+housingprices <- housingprices |> 
+  select(Year = TIME_PERIOD, Country = geo, Region_Type = deg_urb, housingprices = OBS_VALUE) |> 
   mutate(Region_Type = recode(Region_Type,
                            "DEG1" = "City",
                            "DEG2" = "Suburb",
@@ -262,7 +262,7 @@ employmentrate <- employmentrate |>
 
 ```{r}
 employmentrate <- employmentrate |> 
-  select(Year = TIME_PERIOD, Country = geo, Region_Type = deg_urb, dEmployment = OBS_VALUE) |> 
+  select(Year = TIME_PERIOD, Country = geo, Region_Type = deg_urb, employmentrate = OBS_VALUE) |> 
   mutate(Region_Type = recode(Region_Type,
                            "DEG1" = "City",
                            "DEG2" = "Suburb",
@@ -271,7 +271,7 @@ employmentrate <- employmentrate |>
 
 ```{r}
 unemploymentrate <- unemploymentrate |> 
-  select(Year = TIME_PERIOD, Country = geo, Region_Type = deg_urb, dUnemployed = OBS_VALUE) |> 
+  select(Year = TIME_PERIOD, Country = geo, Region_Type = deg_urb, unemploymentrate = OBS_VALUE) |> 
   mutate(Region_Type = recode(Region_Type,
                            "DEG1" = "City",
                            "DEG2" = "Suburb",
@@ -294,24 +294,24 @@ merged <- merged %>%
 
 ```{r}
 merged <- merged %>%
-  merge(housingcost, by = c("Country", "Year", "Region_Type"), na.rm = TRUE) %>%
+  merge(housingprices, by = c("Country", "Year", "Region_Type"), na.rm = TRUE) %>%
   filter(complete.cases(.))
 ```
 
 ```{r}
 merged <- merged |> 
   group_by(Country, Year) |> 
-  mutate(dmeanUnemployed = mean(dUnemployed)) |>
+  mutate(meanUnemployment = mean(unemploymentrate, na.rm = TRUE)) |>
   ungroup()
 
 merged <- merged |> 
   group_by(Country, Year) |> 
-  mutate(dmeanEmployment = mean(dEmployment)) |>
+  mutate(meanEmploymentrate = mean(employmentrate, na.rm = TRUE)) |>
   ungroup()
 
 merged <- merged |> 
   group_by(Country, Year) |> 
-  mutate(dmeanHousing = mean(dHousing)) |>
+  mutate(meanHousingprices = mean(housingprices, na.rm = TRUE)) |>
   ungroup()
 
 ```
@@ -319,45 +319,44 @@ merged <- merged |>
 ```{r}
 merged <- merged %>%
   mutate(Class = case_when(
-    dUnemployed > dmeanUnemployed & 
-      dEmployment > dmeanEmployment & 
-      dHousing > dmeanHousing ~ 1,
-    dUnemployed > dmeanUnemployed & 
-      dEmployment > dmeanEmployment & 
-      dHousing <= dmeanHousing ~ 2,
-    dUnemployed > dmeanUnemployed & 
-      dEmployment <= dmeanEmployment & 
-      dHousing > dmeanHousing ~ 3,
-    dUnemployed > dmeanUnemployed & 
-      dEmployment <= dmeanEmployment & 
-      dHousing <= dmeanHousing ~ 4,
-    dUnemployed <= dmeanUnemployed & 
-      dEmployment > dmeanEmployment & 
-      dHousing > dmeanHousing ~ 5,
-    dUnemployed <= dmeanUnemployed & 
-      dEmployment > dmeanEmployment & 
-      dHousing <= dmeanHousing ~ 6,
-    dUnemployed <= dmeanUnemployed & 
-      dEmployment <= dmeanEmployment & 
-      dHousing > dmeanHousing ~ 7,
-    dUnemployed <= dmeanUnemployed & 
-      dEmployment <= dmeanEmployment & 
-      dHousing <= dmeanHousing ~ 8,
+    unemploymentrate > meanUnemployment & 
+      employmentrate > meanEmploymentrate & 
+      housingprices > meanHousingprices ~ 1,
+    unemploymentrate > meanUnemployment & 
+      employmentrate > meanEmploymentrate & 
+      housingprices <= meanHousingprices ~ 2,
+    unemploymentrate > meanUnemployment & 
+      employmentrate <= meanEmploymentrate & 
+      housingprices > meanHousingprices ~ 3,
+    unemploymentrate > meanUnemployment & 
+      employmentrate <= meanEmploymentrate & 
+      housingprices <= meanHousingprices ~ 4,
+    unemploymentrate <= meanUnemployment & 
+      employmentrate > meanEmploymentrate & 
+      housingprices > meanHousingprices ~ 5,
+    unemploymentrate <= meanUnemployment & 
+      employmentrate > meanEmploymentrate & 
+      housingprices <= meanHousingprices ~ 6,
+    unemploymentrate <= meanUnemployment & 
+      employmentrate <= meanEmploymentrate & 
+      housingprices > meanHousingprices ~ 7,
+    unemploymentrate <= meanUnemployment & 
+      employmentrate <= meanEmploymentrate & 
+      housingprices <= meanHousingprices ~ 8,
     TRUE ~ 0  # Default value if none of the conditions are met
   ))
-
 ```
 
 ### **Task 3: Analysis and Visualization**
 
 ```{r}
-region_counts <- merged %>%
+merged <- merged %>%
   group_by(Class, Region_Type) %>%
   summarise(Count = n(), .groups = "drop")
 
 all_classes <- as.factor(1:8)
-
-ggplot(region_counts, aes(x = Class, y = Count, fill = Region_Type)) +
+merged |> 
+ggplot(aes(x = Class, y = Count, fill = Region_Type)) +
     geom_bar(stat = "identity", position = "stack") +
     scale_x_discrete(limits = all_classes) +
     xlab("Class") +

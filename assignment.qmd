@@ -59,7 +59,7 @@ Pop <- demo_pjan_custom_9363002_linear <- read_csv("demo_pjan__custom_9363002_li
 
 ### **Task 2 -- Data Analysis:**
 
-For å se nærmere på by-land-skillet trekker vi ut 3 underkatogorier av variabelen \'Region Type\' i form av; 
+For å se nærmere på by-land-skillet trekker vi ut 3 underkatogorier av variabelen 'Region Type' i form av; 
 
 -   Byer (tett befolkede områder)
 
@@ -149,6 +149,32 @@ ggplot(aes(x = Year, y = Relative_Growth, color = Region_Type)) +
 
 ***Espen*** Figur 2 viser ​​​​gjennomsnittlig relativ befolkningsvekst, hvor 2003 = 100.
 
+Videre skal vi utforske variasjoner for ulike europeiske land.
+Vi har gjort dette ved å dele det europeiske utvalget av land fra Eurostat inn i tre hovedgrupper for å muliggjøre en meningsfull sammenligning av variasjoner i forhold til bosettingsmønstre og utvikling.
+Disse gruppene er definert ut fra geografisk beliggenhet og generelle økonomiske kjennetegn.
+
+**Gruppe 1: Vesteuropeiske land**
+
+Denne gruppen omfatter land med høy grad av urbanisering og velutviklede økonomier.
+Landene i denne gruppen, inkludert Østerrike, Belgia, Tyskland, og Frankrike, kjennetegnes av tettpakkede byområder og generelt høy befolkningstetthet (<https://fn.no/verdenskart>).
+Denne inndelingen gir et grunnlag for å analysere lignende utviklingsmønstre og utfordringer knyttet til urban og regional utvikling.
+
+**Gruppe 2: Mellomeuropeiske land**
+
+Denne gruppen inkluderer land med en mellomgrad av urbanisering og varierte økonomiske forhold.
+Irland, Norge, og Sverige er eksempler på land i denne gruppen, som har en balanse mellom byutvikling og forsteder, samt en betydelig andel av befolkningen som bor i mindre tett befolkede områder.
+Analyse av disse landene kan bidra til å avdekke regionale forskjeller og tilpasninger til demografiske og økonomiske endringer.
+
+**Gruppe 3: Østeuropeiske land**
+
+Denne gruppen omfatter land med lavere urbanisering og økonomier i utvikling.
+Land som Estland, Hellas, Polen, og Portugal er eksempler på land i denne gruppen, preget av en overvekt av tynnere befolkede områder og landlige samfunn.
+Analyse av disse landene gir innsikt i spesifikke utfordringer knyttet til landlig utvikling og tilpasning til endringer i moderne samfunn.
+
+Det er viktig å merke seg at disse inndelingene er forenklede og bør tilpasses spesifikke forskningsspørsmål og tilgjengelig data, f.eks.
+for å unngå MAUP (Modifiable Areal Unit Problem).
+Faktorer som historisk kontekst, politiske systemer, og kulturelle påvirkninger kan ytterligere informere analysen av variansene innenfor hver landsgruppe.
+
 **Group 1: Urbanized Countries (Cities) Asbjørn**
 
 ```{r}
@@ -179,6 +205,17 @@ ggplot(aes(x = Year, y = Relative_Growth, color = Region_Type)) +
   theme_minimal() +
   scale_x_continuous(breaks = seq(2005, max(datapt1$Year), by = 5))
 ```
+
+Figur 3 viser gjennomsnittlig relativ befolkningsvekst for de tre ulike regiontypene fra 2005 til 2022 for gruppe 1: Vesteuropeiske land, hvor 2005 = 100.
+Populasjonen i rurale områder har opplevd en markant vekst fra 2005 til omtrent 2017, etterfulgt av en betydelig nedgang.
+Denne trenden kan tyde på perioder med økt attraktivitet for rural bosetting, etterfulgt av utfordringer eller endringer som fører til nedgangen.
+Tettsteder og forsteder har vist en jevn stigning i befolkningsvekst fra 2005 til 2022.
+Dette kan reflektere en pågående urbaniserings- og suburbaniseringsprosess, der disse områdene forblir attraktive for bosetting.
+Byområder har hatt en stabil befolkningsutvikling fra 2005 til omtrent 2010, etterfulgt av en nedgang frem til omtrent 2016.
+Deretter har det vært en moderat økning frem til 2022.
+Denne komplekse trenden kan indikere variasjoner i byenes attraktivitet eller endringer i byutviklingsmønstre over tid.
+
+Samlet sett gir figuren et bilde av dynamikken i befolkningsendringer i ulike regiontyper i Vesteuropeiske land, med spesiell vekt på den jevne veksten i tettsteder og forsteder og variabel utvikling i byområdene.
 
 **Group 2: Intermediate Settlement Countries (Towns and Suburbs) Marius**
 
@@ -400,7 +437,7 @@ ggplot(aes(x = Class, y = Count, fill = Region_Type)) +
 
 ### **Task 4: Interpretation and Relation to Course Literature**
 
-## Ap pendix
+## Appendix
 
 ```{r}
 # Assuming your data frame is datapt1

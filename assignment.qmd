@@ -248,7 +248,7 @@ ggplot(aes(x = Year, y = Relative_Growth, color = Region_Type)) +
   scale_x_continuous(breaks = seq(2005, max(datapt1$Year), by = 5))
 ```
 
-Figur 4 viser en gjennomsnittlig relativ befolkningsvekst for de tre ulike regiontypene «byer», «tettsteder og forstander», og «rurale områder» fra 2005 – 2022 for gruppe 2; Mellomliggende bosettingsland, hvor man har 2005 = 100 slik at den relative veksten har sitt utgangspunkt fra starten av perioden.
+Figur 4 viser en gjennomsnittlig relativ befolkningsvekst for de tre ulike regiontypene «byer», «tettsteder og forstander», og «rurale områder» fra 2005 -- 2022 for gruppe 2; Mellomliggende bosettingsland, hvor man har 2005 = 100 slik at den relative veksten har sitt utgangspunkt fra starten av perioden.
 Populasjonen i tettsteder og forstander viser en markant vekst fra 2010, hvor man ser at man har vekst i både byer, tettsteder og forsteder, men en nedgang i rurale områder.
 Fra gjennomgangen av dataene ser man at dersom man ikke hadde tatt med Sverige i denne gruppen hadde man fått en negativ relativ vekst i denne gruppen.
 Dette viser at i gruppe 2 er det en markant trend til bosetting i tettsteder og forstander, men at det også er en vis spredning i forhold til at man velger å sentralisere seg i byer.
@@ -441,6 +441,36 @@ ggplot(aes(x = Class, y = Count, fill = Region_Type)) +
 ```
 
 ### **Task 4: Interpretation and Relation to Course Literature**
+
+```{r}
+merged |> 
+  filter(Year >= 2005) |> 
+  ggplot(
+    aes(
+      x = Year,
+      y = Relative_Growth,
+      group = Class,
+      color = as.factor(Class)
+    )
+  ) +
+  geom_smooth(span = 1, se = FALSE) +
+  xlim(2005, 2022) 
+```
+
+```{r}
+merged |> 
+  filter(Year >= 2005) |> 
+  ggplot(
+    aes(
+      x = Year,
+      y = Population,
+      group = Class,
+      color = as.factor(Class)
+    )
+  ) +
+  geom_smooth(span = 1, se = FALSE) +
+  xlim(2005, 2022) 
+```
 
 ## Appendix
 

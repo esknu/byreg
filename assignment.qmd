@@ -474,20 +474,21 @@ merged |>
 
 ```{r}
 merged |> 
-  filter(Class == 5) |> 
+  filter(Class == c(1:4)) |> 
   ggplot(
     aes(
       x = Year,
-      y = Relative_Growth,
+      y = unemploymentrate,
       color = Region_Type
     )
   ) +
-    geom_smooth(span = 0.5, se = FALSE)
+    geom_smooth(span = 0.5, se = FALSE) 
 ```
 
 ```{r}
 merged |> 
   filter(Class == 5) |> 
+  arrange(Year) |> 
   tibble()
 ```
 

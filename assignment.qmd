@@ -472,6 +472,25 @@ merged |>
   xlim(2005, 2022) 
 ```
 
+```{r}
+merged |> 
+  filter(Class == 5) |> 
+  ggplot(
+    aes(
+      x = Year,
+      y = Relative_Growth,
+      color = Region_Type
+    )
+  ) +
+    geom_smooth(span = 0.5, se = FALSE)
+```
+
+```{r}
+merged |> 
+  filter(Class == 5) |> 
+  tibble()
+```
+
 ## Appendix
 
 ```{r}

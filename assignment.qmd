@@ -147,7 +147,7 @@ ggplot(aes(x = Year, y = Relative_Growth, color = Region_Type)) +
   xlim(2005, 2022) 
 ```
 
-***Espen*** Figur 2 viser ​​​​gjennomsnittlig relativ befolkningsvekst, hvor 2003 = 100.
+**Espen: Figur 2 viser ​​​​gjennomsnittlig relativ befolkningsvekst, hvor 2003 = 100.**
 
 Videre skal vi utforske variasjoner for ulike europeiske land.
 Vi har gjort dette ved å dele det europeiske utvalget av land fra Eurostat inn i tre hovedgrupper for å muliggjøre en meningsfull sammenligning av variasjoner i forhold til bosettingsmønstre og utvikling.
@@ -284,6 +284,12 @@ ggplot(aes(x = Year, y = Relative_Growth, color = Region_Type)) +
   scale_x_continuous(breaks = seq(2005, max(datapt1$Year), by = 5))
 ```
 
+Figur 5 viser den relative befolkningsveksten fra 2005, med basisår satt til 100.
+Byregionene viser en nedadgående trend i befolkningsvekst etter en periode med stabilitet, som kan indikere en utflytting eller mindre tilflytting til byene.
+Rurale områder har en svært liten endring, men med en svakt nedadgående trend, noe som kan speile en vedvarende netto utflytting.
+Tettsteder, derimot, viser en markant økning i befolkningstallene, noe som reflekterer en sterk suburbaniseringsprosess der flere velger å bosette seg i disse områdene.
+Samlet sett viser figur 5 ulike trender i befolkningsendringer i regiontyper, med en signifikant økning av befolkning i tettsteder, noe som står i kontrast til den nedadgående eller stabile utviklingen i by- og rurale områder.
+
 ```{r}
 library(ggplot2)
 
@@ -307,6 +313,40 @@ ggplot(datapt1_filtered, aes(x = Year, y = Relative_Growth, color = Region_Type)
   facet_wrap(~Country, scales = "free_y")
 
 ```
+
+### Teori - Del 1
+
+**Kap. 4: Williamson - Stages of development and disparities**
+
+På midten av 1960-tallet presenterte Williamson sin teori om regionale utviklingsfaser og forskjeller i et land.
+Teorien gikk ut på at utvikling er konsentrert og polarisert i de tidlige stadiene, før den senere sprer seg til mer perifere områder (tettsteder og forsteder, og rurale områder).
+Dette gir en kurve formet som en invertert U.
+
+Årsakene til de økende ulikhetene er; (1) utvandring av kompetent arbeidskraft fra svake til sterke områder, (2) kapitalstrøm til de rikere regionene, tiltrukket av høyere etterspørsel, tilgjengelighet av infrastruktur, tjenester, et potensielt marked og bedre miljøforhold for bedrifter, (3) allokering av en større del av offentlige investeringer til sterke områder, som svar på etterspørsel, og (4) begrenset handel mellom regioner, slik at i de tidlige stadiene utøver ikke de rike regionene trekkraft på det fattige (KILDE, s. 105).
+
+Til slutt vises mekanismer som virker i motsatt retning som fører til mindre ulikheter; (1) skaping av nye jobber i mindre utviklede regioner, med den konsekvensen at utvandring avtar eller til og med stopper opp, (2) klyngeulemper, som f.eks.
+høye boligpriser, forurensing, trafikk og bråk, (3) vekst i offentlige investeringer i svake områder, og (4) begynnelsen av trekkraft utøvet av det sterke området på det svake (KILDE, s. 105).
+
+I vår analyse de siste 20 årene i Europa ser vi at byområder har opplevd moderat vekst, noe som indikerer at det fremdeles finner en viss attraktivitet.
+Samtidig har forsteder og tettsteder vokst betydelig, noe som antyder en pågående urbaniserings- og suburbaniseringsprosess, hvor disse områdene blir mer attraktive for bosetting.
+Rurale områder har vist variabel utvikling, med markant vekst i noen perioder og svakt nedadgående trender i andre, reflekterende komplekse mønstre i befolkningsendringer.
+
+De observerte tendensene indikerer derfor ikke bare en reduksjon i regionale ulikheter, men også en dynamikk i hvilke typer områder som opplever vekst.
+Byer opprettholder sin appell, mens forsteder og tettsteder har blitt betydelig mer attraktive for bosetting.
+Rurale områder viser variabilitet og kan være påvirket av faktorer som økt suburbanisering og endringer i næringslivet.
+Dette gir en viss støtte til Williamson's teori om hvordan utvikling og regionale forskjeller utvikler seg over tid, samtidig som den gir innsikt i de spesifikke dynamikkene innenfor hver regiontype.
+
+**Kap. 4: Tilnærmingen til sentralitet/periferi**
+
+Sentralitets/periferitets-tilnærmingen betrakter avstanden fra sentrum av økonomiske aktiviteter som årsaken til forsinket utvikling.
+Enkelheten i denne tilnærmingen er også dens styrke.
+Den påpeker rett og slett at geografisk sentralitet i seg selv er en faktor som fremmer utvikling, mens periferi hindrer det. Faktorer som avgjør dette er; (1) tilgang til informasjon; informasjonsinnhenting er en stor kostnad, (2) teknologisk kunnskap, (3) tilgjengeligheten av markedene for varer og produksjonsfaktorer, (4) transportkostnader for ferdige varer, råvarer og halvfabrikata, og (5) forsinkelser i adopsjonen av innovasjoner (KILDE, s. 111).
+
+Våre funn indikerer en tendens til desentralisering i Europa, hvor byområder har opplevd moderat vekst, mens forsteder og tettsteder har hatt betydelig vekst.
+Rurale områder har vist variabel utvikling, med markert vekst i noen perioder og svake nedadgående trender i andre.
+Det kan være en forsinket utvikling i forsteder og tettsteder på grunn av avstanden til sentrum, men nå har utviklingen gjort disse områdene mer tilgjengelige og attraktive for bosetting.
+Den begrensede befolkningsveksten i rurale områder kan mest sannsynlig tilskrives deres større periferitet sammenlignet med forsteder og tettsteder.
+Slik sett støtter våre funn i stor grad sentralitets/periferitets-tilnærmingens teoretiske rammer, da avstand fra sentrum av økonomiske aktiviteter synes å påvirke utviklingen i ulike regiontyper.
 
 ## **Part 2: Advanced Analysis - Understanding the Impact of Economic Factors on Population Growth**
 

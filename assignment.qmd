@@ -32,8 +32,6 @@ Vi skal henholdsvis se nærmere på landene Østerrike, Belgia, Tyskland, Danmar
 
 ## **Part 1: Data Collection and Initial Analysis**
 
-### **Task 1 -- Data Gathering:**
-
 ```{r}
 #| echo: false
 #| output: FALSE
@@ -61,7 +59,44 @@ Pop <- demo_pjan_custom_9363002_linear <- read_csv("demo_pjan__custom_9363002_li
     na = "NA")
 ```
 
-### **Task 2 -- Data Analysis:**
+## Litteraturgjennomgang
+
+-   Artikler
+
+-   Teori:
+
+    -   Budrente
+        -   Fungerer til å forklare hvorfor folk bosetter seg i suburbs
+        -   Viktig å få med kritiske faktorer som: Fungerer dårlig på nasjonalt nivå, best på regionalt
+    -   Shift-share
+        -   Den generelle veksten - eks. politikere investerer i regioner
+        -   Industristruktur - hva regionen tjener penger på
+        -   Shift-effekter - De elementene som beskriver spesifikke årsaker til befolkningsvekst
+        -   MIX / DIF
+            -   Mix: Etterspørsel - eks. økt etterspørsel etter arbeidskraft pga. utvikling i teknologi
+            -   DIF: TIlbudselementet - Skiller regionen seg ut fra resten ved f.eks. FoU aktiviteter, gunstig forretningsmiljø - Kan føre til økt tilflytting og befolkningsvekst pga. konkurransedyktig arbeidsstyrke og bedre økonomiske muligheter
+    -   Williams invertert U
+
+    På midten av 1960-tallet presenterte Williamson sin teori om regionale utviklingsfaser og forskjeller i et land. Teorien gikk ut på at utvikling er konsentrert og polarisert i de tidlige stadiene, før den senere sprer seg til mer perifere områder (tettsteder og forsteder, og rurale områder). Dette gir en kurve formet som en invertert U.
+
+    Årsakene til de økende ulikhetene er; (1) utvandring av kompetent arbeidskraft fra svake til sterke områder, (2) kapitalstrøm til de rikere regionene, tiltrukket av høyere etterspørsel, tilgjengelighet av infrastruktur, tjenester, et potensielt marked og bedre miljøforhold for bedrifter, (3) allokering av en større del av offentlige investeringer til sterke områder, som svar på etterspørsel, og (4) begrenset handel mellom regioner, slik at i de tidlige stadiene utøver ikke de rike regionene trekkraft på det fattige (KILDE, s. 105).
+
+    Til slutt vises mekanismer som virker i motsatt retning som fører til mindre ulikheter; (1) skaping av nye jobber i mindre utviklede regioner, med den konsekvensen at utvandring avtar eller til og med stopper opp, (2) klyngeulemper, som f.eks. høye boligpriser, forurensing, trafikk og bråk, (3) vekst i offentlige investeringer i svake områder, og (4) begynnelsen av trekkraft utøvet av det sterke området på det svake (KILDE, s. 105).
+
+    -   Tilnærmingen til sentralitet / periferi
+
+    Sentralitets/periferitets-tilnærmingen betrakter avstanden fra sentrum av økonomiske aktiviteter som årsaken til forsinket utvikling. Enkelheten i denne tilnærmingen er også dens styrke. Den påpeker rett og slett at geografisk sentralitet i seg selv er en faktor som fremmer utvikling, mens periferi hindrer det. Faktorer som avgjør dette er; (1) tilgang til informasjon; informasjonsinnhenting er en stor kostnad, (2) teknologisk kunnskap, (3) tilgjengeligheten av markedene for varer og produksjonsfaktorer, (4) transportkostnader for ferdige varer, råvarer og halvfabrikata, og (5) forsinkelser i adopsjonen av innovasjoner (KILDE, s. 111) ( KAP 11).
+
+    -   Hypotese
+        -   Budrente: Folk vi bo der de får mest for pengene
+        -   Shift-Share: Ift. artikkelen har det blitt bedre i europa, gjør at folk kan bo lengre unna sentrum pga økt teknologisk utvikling / infrastruktur(?)
+        -   ? : Trender mot suburb og folk velger desentralisering fra byer
+
+-   Drøfting:
+
+    -   Kap 8, 9 og 10 som støtteargumenter, IKKE SOM EGEN TEORI!
+
+### **Data Analysis:**
 
 For å se nærmere på by-land-skillet trekker vi ut 3 underkatogorier av variabelen 'Region Type' i form av; 
 
@@ -310,15 +345,6 @@ Samlet sett viser figur 5 ulike trender i befolkningsendringer i regiontyper, me
 
 **Kap. 4: Williamson - Stages of development and disparities**
 
-På midten av 1960-tallet presenterte Williamson sin teori om regionale utviklingsfaser og forskjeller i et land.
-Teorien gikk ut på at utvikling er konsentrert og polarisert i de tidlige stadiene, før den senere sprer seg til mer perifere områder (tettsteder og forsteder, og rurale områder).
-Dette gir en kurve formet som en invertert U.
-
-Årsakene til de økende ulikhetene er; (1) utvandring av kompetent arbeidskraft fra svake til sterke områder, (2) kapitalstrøm til de rikere regionene, tiltrukket av høyere etterspørsel, tilgjengelighet av infrastruktur, tjenester, et potensielt marked og bedre miljøforhold for bedrifter, (3) allokering av en større del av offentlige investeringer til sterke områder, som svar på etterspørsel, og (4) begrenset handel mellom regioner, slik at i de tidlige stadiene utøver ikke de rike regionene trekkraft på det fattige (KILDE, s. 105).
-
-Til slutt vises mekanismer som virker i motsatt retning som fører til mindre ulikheter; (1) skaping av nye jobber i mindre utviklede regioner, med den konsekvensen at utvandring avtar eller til og med stopper opp, (2) klyngeulemper, som f.eks.
-høye boligpriser, forurensing, trafikk og bråk, (3) vekst i offentlige investeringer i svake områder, og (4) begynnelsen av trekkraft utøvet av det sterke området på det svake (KILDE, s. 105).
-
 I vår analyse de siste 20 årene i Europa ser vi at byområder har opplevd moderat vekst, noe som indikerer at det fremdeles finner en viss attraktivitet.
 Samtidig har forsteder og tettsteder vokst betydelig, noe som antyder en pågående urbaniserings- og suburbaniseringsprosess, hvor disse områdene blir mer attraktive for bosetting.
 Rurale områder har vist variabel utvikling, med markant vekst i noen perioder og svakt nedadgående trender i andre, reflekterende komplekse mønstre i befolkningsendringer.
@@ -329,10 +355,6 @@ Rurale områder viser variabilitet og kan være påvirket av faktorer som økt s
 Dette gir en viss støtte til Williamson's teori om hvordan utvikling og regionale forskjeller utvikler seg over tid, samtidig som den gir innsikt i de spesifikke dynamikkene innenfor hver regiontype.
 
 **Kap. 4: Tilnærmingen til sentralitet/periferi**
-
-Sentralitets/periferitets-tilnærmingen betrakter avstanden fra sentrum av økonomiske aktiviteter som årsaken til forsinket utvikling.
-Enkelheten i denne tilnærmingen er også dens styrke.
-Den påpeker rett og slett at geografisk sentralitet i seg selv er en faktor som fremmer utvikling, mens periferi hindrer det. Faktorer som avgjør dette er; (1) tilgang til informasjon; informasjonsinnhenting er en stor kostnad, (2) teknologisk kunnskap, (3) tilgjengeligheten av markedene for varer og produksjonsfaktorer, (4) transportkostnader for ferdige varer, råvarer og halvfabrikata, og (5) forsinkelser i adopsjonen av innovasjoner (KILDE, s. 111).
 
 Våre funn indikerer en tendens til desentralisering i Europa, hvor byområder har opplevd moderat vekst, mens forsteder og tettsteder har hatt betydelig vekst.
 Rurale områder har vist variabel utvikling, med markert vekst i noen perioder og svake nedadgående trender i andre.
@@ -518,27 +540,31 @@ merged |>
   xlim(2005, 2022) 
 ```
 
-```{r}
-#| echo: false
-merged |> 
-  filter(Class == c(1:4)) |> 
-  ggplot(
-    aes(
-      x = Year,
-      y = unemploymentrate,
-      color = Region_Type
-    )
-  ) +
-    geom_smooth(span = 0.5, se = FALSE) 
-```
+## Shift-Share analyse:
 
 ```{r}
-#| echo: false
-merged |> 
-  filter(Class == 5) |> 
-  arrange(Year) |> 
-  tibble()
+
 ```
+
+$$
+y_r = y* + s
+$$
+
+$$
+ M
+$$
+
+$$
+\text{MIX} = \sum \left( \frac{E_{ir0}}{E_{r0}} \right) \left( \frac{E_{ir1}}{E_{in0}} - \frac{E_{n1}}{E_{n0}} \right)
+$$
+
+$$
+\text{DIF} = \sum \left( \frac{E_{in0}}{E_{r0}} \right) \left( \frac{E_{ir1}}{E_{in0}} - \frac{E_{n1}}{E_{n0}} \right)
+$$
+
+## Drøfting
+
+-   Kap 8, 9 og 10 som støtteargumenter, IKKE SOM EGEN TEORI!
 
 ## Appendix
 
@@ -561,4 +587,26 @@ ggplot(datapt1, aes(x = Year, y = Relative_Growth, color = Region_Type, group = 
        color = "Region_Type") +
   theme_minimal() +
   scale_x_continuous(breaks = seq(2003, max(datapt1$Year), by = 5)) + facet_wrap(~Country)
+```
+
+```{r}
+#| echo: false
+merged |> 
+  filter(Class == c(1:4)) |> 
+  ggplot(
+    aes(
+      x = Year,
+      y = unemploymentrate,
+      color = Region_Type
+    )
+  ) +
+    geom_smooth(span = 0.5, se = FALSE) 
+```
+
+```{r}
+#| echo: false
+merged |> 
+  filter(Class == 5) |> 
+  arrange(Year) |> 
+  tibble()
 ```

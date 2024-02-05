@@ -35,6 +35,7 @@ Vi skal henholdsvis se nærmere på landene Østerrike, Belgia, Tyskland, Danmar
 ### **Task 1 -- Data Gathering:**
 
 ```{r}
+#| echo: false
 urban <- ilc_lvho01_custom_9256830_linear <- read_csv("ilc_lvho01__custom_9256830_linear.csv", 
     na = "NA")
 urban <- urban |> 
@@ -70,16 +71,19 @@ For å se nærmere på by-land-skillet trekker vi ut 3 underkatogorier av variab
 Vi skal nå analysere befolkningsveksttrender ved hjelp av disse kategoriene. 
 
 ```{r}
+#| echo: false
 Pop <- Pop |> 
   select(country = geo, year = TIME_PERIOD, Population = OBS_VALUE)
 ```
 
 ```{r}
+#| echo: false
 urb2 <- urban |> 
   left_join(Pop, urban, by = c("country", "year"))
 ```
 
 ```{r}
+#| echo: false
 urb2 <- urb2 |> 
   mutate(
     Pop = round((Population.x * Population.y)/100, digits = 0)
@@ -87,6 +91,7 @@ urb2 <- urb2 |>
 ```
 
 ```{r}
+#| echo: false
 datapt1 <- urb2 |> 
   select(Year = year, Country = country, Region_Type = location, Population = Pop) |> 
   filter(
@@ -95,6 +100,7 @@ datapt1 <- urb2 |>
 ```
 
 ```{r}
+#| echo: false
 datapt1 |> 
   ggplot(
     aes(
@@ -125,6 +131,7 @@ Tidsseriene for kategoriene er skalert med en faktor som definerer befolkningen 
 Dermed representerer kurvene prosentvis befolkningsvekst over perioden.
 
 ```{r}
+#| echo: false
 # Assuming your data frame is datapt1
 datapt1 <- datapt1 %>%
   # Group by Country and Region_Type
@@ -178,6 +185,7 @@ Faktorer som historisk kontekst, politiske systemer, og kulturelle påvirkninger
 **Group 1: Urbanized Countries (Cities) Asbjørn**
 
 ```{r}
+#| echo: false
 City <- urb2 |> 
   select(Year = year, Country = country, Region_Type = location, Population = Pop) |> 
   filter(
@@ -186,6 +194,7 @@ City <- urb2 |>
 ```
 
 ```{r}
+#| echo: false
 City <- City %>%
   # Group by Country and Region Type
   group_by(Country, Region_Type) %>%
@@ -220,6 +229,7 @@ Samlet sett gir figuren et bilde av dynamikken i befolkningsendringer i ulike re
 **Group 2: Intermediate Settlement Countries (Towns and Suburbs) Marius**
 
 ```{r}
+#| echo: false
 Suburb <- urb2 |> 
   select(Year = year, Country = country, Region_Type = location, Population = Pop) |> 
   filter(
@@ -228,6 +238,7 @@ Suburb <- urb2 |>
 ```
 
 ```{r}
+#| echo: false
 Suburb <- Suburb %>%
   # Group by Country and Region Type
   group_by(Country, Region_Type) %>%
@@ -256,6 +267,7 @@ Dette viser at i gruppe 2 er det en markant trend til bosetting i tettsteder og 
 **Group 3: Rural Countries (Rural Areas) Anine**
 
 ```{r}
+#| echo: false
 Rural <- urb2 |> 
   select(Year = year, Country = country, Region_Type = location, Population = Pop) |> 
   filter(
@@ -264,6 +276,7 @@ Rural <- urb2 |>
 ```
 
 ```{r}
+#| echo: false
  Rural <- Rural %>%
   # Group by Country and Region Type
   group_by(Country, Region_Type) %>%
@@ -289,30 +302,6 @@ Byregionene viser en nedadgående trend i befolkningsvekst etter en periode med 
 Rurale områder har en svært liten endring, men med en svakt nedadgående trend, noe som kan speile en vedvarende netto utflytting.
 Tettsteder, derimot, viser en markant økning i befolkningstallene, noe som reflekterer en sterk suburbaniseringsprosess der flere velger å bosette seg i disse områdene.
 Samlet sett viser figur 5 ulike trender i befolkningsendringer i regiontyper, med en signifikant økning av befolkning i tettsteder, noe som står i kontrast til den nedadgående eller stabile utviklingen i by- og rurale områder.
-
-```{r}
-library(ggplot2)
-
-# Assuming your data frame is datapt1
-datapt1_filtered <- datapt1 %>%
-  filter(Country %in% c("DE", "NO", "EE")) %>%
-  group_by(Country, Region_Type) %>%
-  mutate(Relative_Growth = Population / Population[Year == 2005] * 100) %>%
-  ungroup()
-
-# Create a facet plot with lines for each Region Type
-ggplot(datapt1_filtered, aes(x = Year, y = Relative_Growth, color = Region_Type)) +
-  geom_smooth(level = 0.5, span = 1, linetype = 1) +
-  geom_hline(yintercept = 100, linetype = "dashed", color = "black") +
-  labs(title = "Relative Population Growth from 2003",
-       x = "Year",
-       y = "Relative Growth",
-       color = "Region_Type") +
-  theme_minimal() +
-  scale_x_continuous(breaks = seq(2005, max(datapt1$Year), by = 5)) +
-  facet_wrap(~Country, scales = "free_y")
-
-```
 
 ### Teori - Del 1
 
@@ -353,6 +342,7 @@ Slik sett støtter våre funn i stor grad sentralitets/periferitets-tilnærminge
 ### **Task 1: Gathering Additional Data**
 
 ```{r}
+#| echo: false
 housingprices <- read_csv("ilc_lvho07d__custom_9401957_linear.csv", 
     na = "NA")
 employmentrate <- read_csv("lfst_r_erednu__custom_9401940_linear.csv", 
@@ -362,6 +352,7 @@ unemploymentrate <- read_csv("unemployment.csv",
 ```
 
 ```{r}
+#| echo: false
 housingprices <- housingprices |> 
   select(Year = TIME_PERIOD, Country = geo, Region_Type = deg_urb, housingprices = OBS_VALUE) |> 
   mutate(Region_Type = recode(Region_Type,
@@ -371,11 +362,13 @@ housingprices <- housingprices |>
 ```
 
 ```{r}
+#| echo: false
 employmentrate <- employmentrate |> 
   filter(citizen == "TOTAL")
 ```
 
 ```{r}
+#| echo: false
 employmentrate <- employmentrate |> 
   select(Year = TIME_PERIOD, Country = geo, Region_Type = deg_urb, employmentrate = OBS_VALUE) |> 
   mutate(Region_Type = recode(Region_Type,
@@ -385,6 +378,7 @@ employmentrate <- employmentrate |>
 ```
 
 ```{r}
+#| echo: false
 unemploymentrate <- unemploymentrate |> 
   select(Year = TIME_PERIOD, Country = geo, Region_Type = deg_urb, unemploymentrate = OBS_VALUE) |> 
   mutate(Region_Type = recode(Region_Type,
@@ -396,24 +390,28 @@ unemploymentrate <- unemploymentrate |>
 ### **Task 2: Application of Classification Methodology**
 
 ```{r}
+#| echo: false
 merged <- 
   merge(datapt1, unemploymentrate, by = c("Country", "Year", "Region_Type"), na.rm = TRUE) %>%
   filter(complete.cases(.))
 ```
 
 ```{r}
+#| echo: false
 merged <- merged %>% 
   merge(employmentrate, by = c("Country", "Year", "Region_Type"), na.rm = TRUE) %>%
   filter(complete.cases(.))
 ```
 
 ```{r}
+#| echo: false
 merged <- merged %>%
   merge(housingprices, by = c("Country", "Year", "Region_Type"), na.rm = TRUE) %>%
   filter(complete.cases(.))
 ```
 
 ```{r}
+#| echo: false
 merged <- merged |> 
   group_by(Country, Year) |> 
   mutate(meanUnemployment = mean(unemploymentrate, na.rm = TRUE)) |>
@@ -432,6 +430,7 @@ merged <- merged |>
 ```
 
 ```{r}
+#| echo: false
 merged <- merged %>%
   mutate(Class = case_when(
     unemploymentrate > meanUnemployment & 
@@ -465,6 +464,7 @@ merged <- merged %>%
 ### **Task 3: Analysis and Visualization**
 
 ```{r}
+#| echo: false
 Count <- merged %>%
   group_by(Class, Region_Type) %>%
   summarise(Count = n(), .groups = "drop")
@@ -483,6 +483,7 @@ ggplot(aes(x = Class, y = Count, fill = Region_Type)) +
 ### **Task 4: Interpretation and Relation to Course Literature**
 
 ```{r}
+#| echo: false
 merged |> 
   filter(Year >= 2005) |> 
   ggplot(
@@ -498,6 +499,7 @@ merged |>
 ```
 
 ```{r}
+#| echo: false
 merged |> 
   filter(Year >= 2005) |> 
   ggplot(
@@ -513,6 +515,7 @@ merged |>
 ```
 
 ```{r}
+#| echo: false
 merged |> 
   filter(Class == c(1:4)) |> 
   ggplot(
@@ -526,6 +529,7 @@ merged |>
 ```
 
 ```{r}
+#| echo: false
 merged |> 
   filter(Class == 5) |> 
   arrange(Year) |> 
@@ -535,6 +539,7 @@ merged |>
 ## Appendix
 
 ```{r}
+#| echo: false
 # Assuming your data frame is datapt1
 datapt1 <- datapt1 %>%
   # Group by Country and Region Type

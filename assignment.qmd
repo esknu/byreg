@@ -36,24 +36,27 @@ Vi skal henholdsvis se nærmere på landene Østerrike, Belgia, Tyskland, Danmar
 
 ```{r}
 #| echo: false
-urban <- ilc_lvho01_custom_9256830_linear <- read_csv("ilc_lvho01__custom_9256830_linear.csv", 
-    na = "NA")
+#| output: FALSE
+# Les inn data og deaktiver visning av kolonnetypene
+urban <- read_csv("ilc_lvho01__custom_9256830_linear.csv", na = "NA", show_col_types = FALSE)
+
 urban <- urban |> 
   select(-DATAFLOW, -`LAST UPDATE`, -freq, -building, -OBS_FLAG, -building, -incgrp) 
 
 urban <- urban |> 
   select(country = geo, location = deg_urb, year = TIME_PERIOD, Population = OBS_VALUE)
 urban <- urban |> 
-mutate(location = recode(location,
+  mutate(location = recode(location,
                            "DEG1" = "City",
                            "DEG2" = "Suburb",
                            "DEG3" = "Rural"))
-
 
 #deg1 = city, deg2 = towns and suburbs, deg3 = Rural areas
 ```
 
 ```{r}
+#| echo: false
+#| output: FALSE
 Pop <- demo_pjan_custom_9363002_linear <- read_csv("demo_pjan__custom_9363002_linear.csv", 
     na = "NA")
 ```
@@ -182,7 +185,7 @@ Det er viktig å merke seg at disse inndelingene er forenklede og bør tilpasses
 for å unngå MAUP (Modifiable Areal Unit Problem).
 Faktorer som historisk kontekst, politiske systemer, og kulturelle påvirkninger kan ytterligere informere analysen av variansene innenfor hver landsgruppe.
 
-**Group 1: Urbanized Countries (Cities) Asbjørn**
+**Group 1: Urbanized Countries (Cities)**
 
 ```{r}
 #| echo: false
@@ -226,7 +229,7 @@ Denne komplekse trenden kan indikere variasjoner i byenes attraktivitet eller en
 
 Samlet sett gir figuren et bilde av dynamikken i befolkningsendringer i ulike regiontyper i Vesteuropeiske land, med spesiell vekt på den jevne veksten i tettsteder og forsteder og variabel utvikling i byområdene.
 
-**Group 2: Intermediate Settlement Countries (Towns and Suburbs) Marius**
+**Group 2: Intermediate Settlement Countries (Towns and Suburbs)**
 
 ```{r}
 #| echo: false
@@ -264,7 +267,7 @@ Populasjonen i tettsteder og forstander viser en markant vekst fra 2010, hvor ma
 Fra gjennomgangen av dataene ser man at dersom man ikke hadde tatt med Sverige i denne gruppen hadde man fått en negativ relativ vekst i denne gruppen.
 Dette viser at i gruppe 2 er det en markant trend til bosetting i tettsteder og forstander, men at det også er en vis spredning i forhold til at man velger å sentralisere seg i byer.
 
-**Group 3: Rural Countries (Rural Areas) Anine**
+**Group 3: Rural Countries (Rural Areas)**
 
 ```{r}
 #| echo: false
@@ -343,6 +346,7 @@ Slik sett støtter våre funn i stor grad sentralitets/periferitets-tilnærminge
 
 ```{r}
 #| echo: false
+#| output: FALSE
 housingprices <- read_csv("ilc_lvho07d__custom_9401957_linear.csv", 
     na = "NA")
 employmentrate <- read_csv("lfst_r_erednu__custom_9401940_linear.csv", 

@@ -61,6 +61,23 @@ Pop <- demo_pjan_custom_9363002_linear <- read_csv("demo_pjan__custom_9363002_li
 
 ## Litteraturgjennomgang
 
+Urbanisering er et fenomen som i økende grad påvirker økonomier, samfunn, kulturer og miljøet.
+Ifølge OECD og Europakommisjonen (2020) forventes det at 55 % av verdens befolkning vil bo i byer innen 2050.
+Denne veksten i bybefolkningen har skapt økt interesse for både den raske utviklingen og formen på urbane områder, samt for de tette båndene som eksisterer mellom individuelle byer og mellom byer og landlige områder.
+En spesifikk politisk interesse retter seg mot megabyer og store metropolområder som drar nytte av agglomerasjon, industrielle klynger og innovasjon, men som samtidig står overfor betydelige utfordringer knyttet til bærekraftig byutvikling, for eksempel trafikkork eller miljøpåvirkninger (Union, E. (Ed.), 2021). 
+
+Samtidig viser forskning at ulikhetene mellom urbane og rurale områder synes å minske.
+Gjennom hierarkiske lineære regresjonsmodeller avdekkes det at inaktivitet øker både i urbane og rurale områder, selv om den er høyere i sistnevnte.
+Denne økningen bidrar til å redusere den urbane-rurale forskjellen og eliminerer den til og med i noen land.
+Dette fenomenet kan peke i retning av en økning i forstedene (suburbs), da det ser ut til å være en tendens til at de urbane og rurale karakterene blir mer like (Moreno-Llamas, García-Mayor, & De la Cruz-Sanchez, 2021).
+
+På den andre siden står indre periferier i EU overfor betydelige utfordringer.
+Disse områdene, som utgjør over 45 % av det europeiske territoriet, lider av periferi- og marginalitetsforhold.
+De har dårlig tilgang til generelle tjenester, lavt økonomisk potensial på grunn av avstand til sentre for økonomisk aktivitet, og mangler relasjonell nærhet til maktsentre, noe som hindrer lokalsamfunnets aktive deltakelse i utviklingspolitikk.
+Dette fører til demografisk tilbakegang, høy arbeidsledighet, sosial ekskludering, tap av lokal identitet og følgelig til nedlagte områder (De Toni, Di Martino & Dax, 2021).
+
+\
+
 -   Artikler
 
 -   Teori:
@@ -70,7 +87,8 @@ Pop <- demo_pjan_custom_9363002_linear <- read_csv("demo_pjan__custom_9363002_li
 
         -   Viktig å få med kritiske faktorer som: Fungerer dårlig på nasjonalt nivå, best på regionalt
 
-        -   Shift - share - analyse er en økonomisk analysemetode som benyttes til å forstå veksten eller endringen i en bransje, økonomi, eller i dette tilfellet en endring i regionale veksthastigheter. “Den grunnleggende ideen for å beskrive regionale veksthastigheter påvirkes dette av tre faktorer i form av” (kilde; powerpoint kap 4):
+        -   Shift - share - analyse er en økonomisk analysemetode som benyttes til å forstå veksten eller endringen i en bransje, økonomi, eller i dette tilfellet en endring i regionale veksthastigheter.
+            "Den grunnleggende ideen for å beskrive regionale veksthastigheter påvirkes dette av tre faktorer i form av" (kilde; powerpoint kap 4):
 
         -   Den industrielle strukturen
 
@@ -78,17 +96,18 @@ Pop <- demo_pjan_custom_9363002_linear <- read_csv("demo_pjan__custom_9363002_li
 
         -   Dynamikken i etterspørsel og forbrukerpreferanser
 
-            Både den “industrielle strukturen” og “sektorens produktivitet” ligger utenfor variablene i vårt datasett, men vil være høyaktuelt å utforske nærmere ved videre forskning da de er avgjørende faktorer som påvirker befolkningsveksten.
+            Både den "industrielle strukturen" og "sektorens produktivitet" ligger utenfor variablene i vårt datasett, men vil være høyaktuelt å utforske nærmere ved videre forskning da de er avgjørende faktorer som påvirker befolkningsveksten.
 
-            Det vil da i denne “oppgaven” bli lagt vekt på dynamikken mellom etterspørsel og forbrukerpreferanser, hvor man skiller dette mellom å være Mix - effekter (etterspørselsside elementer) og Dif - effekter (tilbudsside elementer) som avgjør denne dynamikken. 
+            Det vil da i denne "oppgaven" bli lagt vekt på dynamikken mellom etterspørsel og forbrukerpreferanser, hvor man skiller dette mellom å være Mix - effekter (etterspørselsside elementer) og Dif - effekter (tilbudsside elementer) som avgjør denne dynamikken. 
 
-            “Konkurranseeffekten (differensiell forskyvning); 'DIF-effekten', stammer fra den regionale økonomiens evne til å utvikle sine sektorer med høyere gjennomsnittlige veksthastigheter enn de oppnådde av tilsvarende nasjonale sektorer.” powerpont kap 4 s. 14)
+            "Konkurranseeffekten (differensiell forskyvning); 'DIF-effekten', stammer fra den regionale økonomiens evne til å utvikle sine sektorer med høyere gjennomsnittlige veksthastigheter enn de oppnådde av tilsvarende nasjonale sektorer." powerpont kap 4 s.
+            14)
 
             Momenter:
 
-        -   Tidligere forskning viser til at “Mikroøkonomiske faktorer som konkurranse mellom byer, kjøpekraft og tomtepriser og markedssvikt spiller også en rolle. For eksempel kan sentralisering til byene bidra til økt press på boliger og priser. Tomteprisen er gjerne høyest i sentrum. Det kan dermed være billigere å anskaffe leiligheter som er lokalisert i områder utenfor sentrum med lavere tetthet”(Artikkel. s. 2). 
+        -   Tidligere forskning viser til at "Mikroøkonomiske faktorer som konkurranse mellom byer, kjøpekraft og tomtepriser og markedssvikt spiller også en rolle. For eksempel kan sentralisering til byene bidra til økt press på boliger og priser. Tomteprisen er gjerne høyest i sentrum. Det kan dermed være billigere å anskaffe leiligheter som er lokalisert i områder utenfor sentrum med lavere tetthet"(Artikkel. s. 2). 
 
-            -   “Byer må vokse for å imøtekomme en voksende befolkning” (kilde artikkel s. 1), 
+            -   "Byer må vokse for å imøtekomme en voksende befolkning" (kilde artikkel s. 1), 
 
                 -   MIX / DIF
                     -   Mix: Etterspørsel - eks. økt etterspørsel etter arbeidskraft pga. utvikling i teknologi

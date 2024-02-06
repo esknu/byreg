@@ -96,19 +96,17 @@ Shift - share - analyse er en økonomisk analysemetode som benyttes til å forst
 
     Det vil da i denne "oppgaven" bli lagt vekt på dynamikken mellom etterspørsel og forbrukerpreferanser, hvor man skiller dette mellom å være Mix - effekter (etterspørselsside elementer) og Dif - effekter (tilbudsside elementer) som avgjør denne dynamikken.
 
+    Mix- effekter (etterspørsel):...
+
     "Konkurranseeffekten (differensiell forskyvning); 'DIF-effekten', stammer fra den regionale økonomiens evne til å utvikle sine sektorer med høyere gjennomsnittlige veksthastigheter enn de oppnådde av tilsvarende nasjonale sektorer." powerpont kap 4 s.
 
     14) 
 
     Momenter:
 
--   Tidligere forskning viser til at "Mikroøkonomiske faktorer som konkurranse mellom byer, kjøpekraft og tomtepriser og markedssvikt spiller også en rolle. For eksempel kan sentralisering til byene bidra til økt press på boliger og priser. Tomteprisen er gjerne høyest i sentrum. Det kan dermed være billigere å anskaffe leiligheter som er lokalisert i områder utenfor sentrum med lavere tetthet"(Artikkel. s. 2).
+    Tidligere forskning viser til at "Mikroøkonomiske faktorer som konkurranse mellom byer, kjøpekraft og tomtepriser og markedssvikt spiller også en rolle. For eksempel kan sentralisering til byene bidra til økt press på boliger og priser. Tomteprisen er gjerne høyest i sentrum. Det kan dermed være billigere å anskaffe leiligheter som er lokalisert i områder utenfor sentrum med lavere tetthet"(Artikkel. s. 2).
 
-    -   "Byer må vokse for å imøtekomme en voksende befolkning" (kilde artikkel s. 1),
-
-        -   MIX / DIF
-            -   Mix: Etterspørsel - eks. økt etterspørsel etter arbeidskraft pga. utvikling i teknologi
-            -   DIF: TIlbudselementet - Skiller regionen seg ut fra resten ved f.eks. FoU aktiviteter, gunstig forretningsmiljø - Kan føre til økt tilflytting og befolkningsvekst pga. konkurransedyktig arbeidsstyrke og bedre økonomiske muligheter
+    "Byer må vokse for å imøtekomme en voksende befolkning" (kilde artikkel s. 1),
 
 Williamson´s inverterte U:
 
@@ -591,7 +589,7 @@ merged |>
 ```
 
 I figur X kan vi se hvordan den relative veksten for hver av de 8 gruppene utvikler seg.
-Gruppe 2 har hatt en svært mye større vekst enn de andre gruppene\...
+Gruppe 2 har hatt en svært mye større vekst enn de andre gruppene...
 Dersom vi filtrerer og setter den relative veksten til under 200, ser vi at de fleste gruppene har hatt en relativ liten og stabil vekst.
 
 ### **Task 4: Interpretation and Relation to Course Literature**

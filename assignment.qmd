@@ -67,25 +67,48 @@ Pop <- demo_pjan_custom_9363002_linear <- read_csv("demo_pjan__custom_9363002_li
 
     -   Budrente
         -   Fungerer til å forklare hvorfor folk bosetter seg i suburbs
+
         -   Viktig å få med kritiske faktorer som: Fungerer dårlig på nasjonalt nivå, best på regionalt
-    -   Shift-share
-        -   Den generelle veksten - eks. politikere investerer i regioner
-        -   Industristruktur - hva regionen tjener penger på
-        -   Shift-effekter - De elementene som beskriver spesifikke årsaker til befolkningsvekst
-        -   MIX / DIF
-            -   Mix: Etterspørsel - eks. økt etterspørsel etter arbeidskraft pga. utvikling i teknologi
-            -   DIF: TIlbudselementet - Skiller regionen seg ut fra resten ved f.eks. FoU aktiviteter, gunstig forretningsmiljø - Kan føre til økt tilflytting og befolkningsvekst pga. konkurransedyktig arbeidsstyrke og bedre økonomiske muligheter
+
+        -   Shift - share - analyse er en økonomisk analysemetode som benyttes til å forstå veksten eller endringen i en bransje, økonomi, eller i dette tilfellet en endring i regionale veksthastigheter. “Den grunnleggende ideen for å beskrive regionale veksthastigheter påvirkes dette av tre faktorer i form av” (kilde; powerpoint kap 4):
+
+        -   Den industrielle strukturen
+
+        -   Sektorens produktivitet
+
+        -   Dynamikken i etterspørsel og forbrukerpreferanser
+
+            Både den “industrielle strukturen” og “sektorens produktivitet” ligger utenfor variablene i vårt datasett, men vil være høyaktuelt å utforske nærmere ved videre forskning da de er avgjørende faktorer som påvirker befolkningsveksten.
+
+            Det vil da i denne “oppgaven” bli lagt vekt på dynamikken mellom etterspørsel og forbrukerpreferanser, hvor man skiller dette mellom å være Mix - effekter (etterspørselsside elementer) og Dif - effekter (tilbudsside elementer) som avgjør denne dynamikken. 
+
+            “Konkurranseeffekten (differensiell forskyvning); 'DIF-effekten', stammer fra den regionale økonomiens evne til å utvikle sine sektorer med høyere gjennomsnittlige veksthastigheter enn de oppnådde av tilsvarende nasjonale sektorer.” powerpont kap 4 s. 14)
+
+            Momenter:
+
+        -   Tidligere forskning viser til at “Mikroøkonomiske faktorer som konkurranse mellom byer, kjøpekraft og tomtepriser og markedssvikt spiller også en rolle. For eksempel kan sentralisering til byene bidra til økt press på boliger og priser. Tomteprisen er gjerne høyest i sentrum. Det kan dermed være billigere å anskaffe leiligheter som er lokalisert i områder utenfor sentrum med lavere tetthet”(Artikkel. s. 2). 
+
+            -   “Byer må vokse for å imøtekomme en voksende befolkning” (kilde artikkel s. 1), 
+
+                -   MIX / DIF
+                    -   Mix: Etterspørsel - eks. økt etterspørsel etter arbeidskraft pga. utvikling i teknologi
+                    -   DIF: TIlbudselementet - Skiller regionen seg ut fra resten ved f.eks. FoU aktiviteter, gunstig forretningsmiljø - Kan føre til økt tilflytting og befolkningsvekst pga. konkurransedyktig arbeidsstyrke og bedre økonomiske muligheter
     -   Williams invertert U
 
-    På midten av 1960-tallet presenterte Williamson sin teori om regionale utviklingsfaser og forskjeller i et land. Teorien gikk ut på at utvikling er konsentrert og polarisert i de tidlige stadiene, før den senere sprer seg til mer perifere områder (tettsteder og forsteder, og rurale områder). Dette gir en kurve formet som en invertert U.
+    På midten av 1960-tallet presenterte Williamson sin teori om regionale utviklingsfaser og forskjeller i et land.
+    Teorien gikk ut på at utvikling er konsentrert og polarisert i de tidlige stadiene, før den senere sprer seg til mer perifere områder (tettsteder og forsteder, og rurale områder).
+    Dette gir en kurve formet som en invertert U.
 
     Årsakene til de økende ulikhetene er; (1) utvandring av kompetent arbeidskraft fra svake til sterke områder, (2) kapitalstrøm til de rikere regionene, tiltrukket av høyere etterspørsel, tilgjengelighet av infrastruktur, tjenester, et potensielt marked og bedre miljøforhold for bedrifter, (3) allokering av en større del av offentlige investeringer til sterke områder, som svar på etterspørsel, og (4) begrenset handel mellom regioner, slik at i de tidlige stadiene utøver ikke de rike regionene trekkraft på det fattige (KILDE, s. 105).
 
-    Til slutt vises mekanismer som virker i motsatt retning som fører til mindre ulikheter; (1) skaping av nye jobber i mindre utviklede regioner, med den konsekvensen at utvandring avtar eller til og med stopper opp, (2) klyngeulemper, som f.eks. høye boligpriser, forurensing, trafikk og bråk, (3) vekst i offentlige investeringer i svake områder, og (4) begynnelsen av trekkraft utøvet av det sterke området på det svake (KILDE, s. 105).
+    Til slutt vises mekanismer som virker i motsatt retning som fører til mindre ulikheter; (1) skaping av nye jobber i mindre utviklede regioner, med den konsekvensen at utvandring avtar eller til og med stopper opp, (2) klyngeulemper, som f.eks.
+    høye boligpriser, forurensing, trafikk og bråk, (3) vekst i offentlige investeringer i svake områder, og (4) begynnelsen av trekkraft utøvet av det sterke området på det svake (KILDE, s. 105).
 
     -   Tilnærmingen til sentralitet / periferi
 
-    Sentralitets/periferitets-tilnærmingen betrakter avstanden fra sentrum av økonomiske aktiviteter som årsaken til forsinket utvikling. Enkelheten i denne tilnærmingen er også dens styrke. Den påpeker rett og slett at geografisk sentralitet i seg selv er en faktor som fremmer utvikling, mens periferi hindrer det. Faktorer som avgjør dette er; (1) tilgang til informasjon; informasjonsinnhenting er en stor kostnad, (2) teknologisk kunnskap, (3) tilgjengeligheten av markedene for varer og produksjonsfaktorer, (4) transportkostnader for ferdige varer, råvarer og halvfabrikata, og (5) forsinkelser i adopsjonen av innovasjoner (KILDE, s. 111) ( KAP 11).
+    Sentralitets/periferitets-tilnærmingen betrakter avstanden fra sentrum av økonomiske aktiviteter som årsaken til forsinket utvikling.
+    Enkelheten i denne tilnærmingen er også dens styrke.
+    Den påpeker rett og slett at geografisk sentralitet i seg selv er en faktor som fremmer utvikling, mens periferi hindrer det. Faktorer som avgjør dette er; (1) tilgang til informasjon; informasjonsinnhenting er en stor kostnad, (2) teknologisk kunnskap, (3) tilgjengeligheten av markedene for varer og produksjonsfaktorer, (4) transportkostnader for ferdige varer, råvarer og halvfabrikata, og (5) forsinkelser i adopsjonen av innovasjoner (KILDE, s. 111) ( KAP 11).
 
     -   Hypotese
         -   Budrente: Folk vi bo der de får mest for pengene

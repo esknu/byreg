@@ -76,7 +76,17 @@ Disse områdene, som utgjør over 45 % av det europeiske territoriet, lider av p
 De har dårlig tilgang til generelle tjenester, lavt økonomisk potensial på grunn av avstand til sentre for økonomisk aktivitet, og mangler relasjonell nærhet til maktsentre, noe som hindrer lokalsamfunnets aktive deltakelse i utviklingspolitikk.
 Dette fører til demografisk tilbakegang, høy arbeidsledighet, sosial ekskludering, tap av lokal identitet og følgelig til nedlagte områder (De Toni, Di Martino & Dax, 2021).
 
-\
+Kapittel 7:
+
+En av årsakene til nedgangen i populasjonsveksten til rurale områder kan begrunnes av teorien om The spatial diffusion of innovation, (Capello, s.188).
+Teorien forklarer hvordan distansen fra sentrale områder er en viktig del av teknologisk utvikling.
+Flytter man langt fra sentrum vil en gradvis falle bak utviklingen og som Capello gjorde kjent, vil det å vente med å ta i bruk ny teknologi koste mer jo lengre en venter, kjent som Time trend of the costs of and revenues from adoption, figur 7.4 (Camagni and Capello (1998).
+
+ ![](https://lh7-us.googleusercontent.com/1lf0jnn4cNv3D7WQmssXfl6rKhyb6_wtt5oMilohOYp0KlXvOEOluH08u3531GSkvRg-QLcCAWx1IIJAV0JmY9S9NQcv95TVGAW5qXJtDrLZxn9HLiTmWDJnunkn0WDwfyXeKWbasxgki1iN6gkCoLw)
+
+Livssyklusen på en tradisjonell innovasjon er formet som en omvendt U med slak helning.
+I den senere tid med teknologisk utvikling har denne livssyklusen redusert kraftig, hvor ny teknologi stadig blir introdusert.
+I følge Capello fører reduksjonen i livssyklusen til at områder som befinner seg langt fra sentrum, ikke rekker å tilpasse seg en teknologisk utvikling før det oppstår en ny (KILDE).\
 
 -   Artikler
 
@@ -101,7 +111,8 @@ Dette fører til demografisk tilbakegang, høy arbeidsledighet, sosial ekskluder
             Det vil da i denne "oppgaven" bli lagt vekt på dynamikken mellom etterspørsel og forbrukerpreferanser, hvor man skiller dette mellom å være Mix - effekter (etterspørselsside elementer) og Dif - effekter (tilbudsside elementer) som avgjør denne dynamikken. 
 
             "Konkurranseeffekten (differensiell forskyvning); 'DIF-effekten', stammer fra den regionale økonomiens evne til å utvikle sine sektorer med høyere gjennomsnittlige veksthastigheter enn de oppnådde av tilsvarende nasjonale sektorer." powerpont kap 4 s.
-            14)
+
+            14) 
 
             Momenter:
 

@@ -251,23 +251,15 @@ Videre skal vi utforske variasjoner for ulike europeiske land.
 Vi har gjort dette ved å dele det europeiske utvalget av land fra Eurostat inn i tre hovedgrupper for å muliggjøre en meningsfull sammenligning av variasjoner i forhold til bosettingsmønstre og utvikling.
 Disse gruppene er definert ut fra geografisk beliggenhet og generelle økonomiske kjennetegn.
 
-**Gruppe 1: Vesteuropeiske land**
+Gruppe 1 er *Vesteuropeiske land.*Denne gruppen omfatter land med høy grad av urbanisering og velutviklede økonomier.
+Landene i denne gruppen, inkludert Østerrike, Belgia, Tyskland, og Frankrike, kjennetegnes av tettpakkede byområder og generelt høy befolkningstetthet.
 
-Denne gruppen omfatter land med høy grad av urbanisering og velutviklede økonomier.
-Landene i denne gruppen, inkludert Østerrike, Belgia, Tyskland, og Frankrike, kjennetegnes av tettpakkede byområder og generelt høy befolkningstetthet (<https://fn.no/verdenskart>).
-Denne inndelingen gir et grunnlag for å analysere lignende utviklingsmønstre og utfordringer knyttet til urban og regional utvikling.
-
-**Gruppe 2: Mellomeuropeiske land**
-
+Gruppe 2 er *Mellomeuropeiske land*.
 Denne gruppen inkluderer land med en mellomgrad av urbanisering og varierte økonomiske forhold.
 Irland, Norge, og Sverige er eksempler på land i denne gruppen, som har en balanse mellom byutvikling og forsteder, samt en betydelig andel av befolkningen som bor i mindre tett befolkede områder.
-Analyse av disse landene kan bidra til å avdekke regionale forskjeller og tilpasninger til demografiske og økonomiske endringer.
 
-**Gruppe 3: Østeuropeiske land**
-
-Denne gruppen omfatter land med lavere urbanisering og økonomier i utvikling.
+Gruppe 3 er *Østeuropeiske land***.** Denne gruppen omfatter land med lavere urbanisering og økonomier i utvikling.
 Land som Estland, Hellas, Polen, og Portugal er eksempler på land i denne gruppen, preget av en overvekt av tynnere befolkede områder og landlige samfunn.
-Analyse av disse landene gir innsikt i spesifikke utfordringer knyttet til landlig utvikling og tilpasning til endringer i moderne samfunn.
 
 Det er viktig å merke seg at disse inndelingene er forenklede og bør tilpasses spesifikke forskningsspørsmål og tilgjengelig data, f.eks.
 for å unngå MAUP (Modifiable Areal Unit Problem).

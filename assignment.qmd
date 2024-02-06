@@ -99,8 +99,7 @@ Shift - share - analyse er en økonomisk analysemetode som benyttes til å forst
     Mix- effekter (etterspørsel):...
 
     "Konkurranseeffekten (differensiell forskyvning); 'DIF-effekten', stammer fra den regionale økonomiens evne til å utvikle sine sektorer med høyere gjennomsnittlige veksthastigheter enn de oppnådde av tilsvarende nasjonale sektorer." powerpont kap 4 s.
-
-    14) 
+    14
 
     Momenter:
 
@@ -141,9 +140,7 @@ Ut i fra budrenteteorien velger befolknigen hvor de vil bosette seg i form av be
 Ettersom litteraturen viser til en større grad av teknologisk fremskritt på landsnivå, taler dette for at vi vil gjerne få en desentralisering av samfunnet, ettersom det er mindre trykk på boligprisen.
 Merknad; budrenteteorien har en bedre anvendelse på et bynivå og fungerer i dårligere grad på landsnivå, allikvel mener vi at prinsippet danner grunnlaget for en hypotese om desentralisering.
 
-Drøfting: Kap 8, 9 og 10 som støtteargumenter, IKKE SOM EGEN TEORI!
-
-### **Data Analysis:**
+### **Data-analyse:**
 
 For å se nærmere på by-land-skillet trekker vi ut 3 underkatogorier av variabelen 'Region Type' i form av; 
 
@@ -239,29 +236,11 @@ ggplot(aes(x = Year, y = Relative_Growth, color = Region_Type)) +
   xlim(2005, 2022) 
 ```
 
-**Espen: Figur 2 viser ​​​​gjennomsnittlig relativ befolkningsvekst, hvor 2003 = 100.**
+**Figur 2 viser ​​​​gjennomsnittlig relativ befolkningsvekst, hvor 2003 = 100.**
 
 Videre skal vi utforske variasjoner for ulike europeiske land.
 Vi har gjort dette ved å dele det europeiske utvalget av land fra Eurostat inn i tre hovedgrupper for å muliggjøre en meningsfull sammenligning av variasjoner i forhold til bosettingsmønstre og utvikling.
 Disse gruppene er definert ut fra geografisk beliggenhet og generelle økonomiske kjennetegn.
-
-**Gruppe 1: Vesteuropeiske land**
-
-Denne gruppen omfatter land med høy grad av urbanisering og velutviklede økonomier.
-Landene i denne gruppen, inkludert Østerrike, Belgia, Tyskland, og Frankrike, kjennetegnes av tettpakkede byområder og generelt høy befolkningstetthet (<https://fn.no/verdenskart>).
-Denne inndelingen gir et grunnlag for å analysere lignende utviklingsmønstre og utfordringer knyttet til urban og regional utvikling.
-
-**Gruppe 2: Mellomeuropeiske land**
-
-Denne gruppen inkluderer land med en mellomgrad av urbanisering og varierte økonomiske forhold.
-Irland, Norge, og Sverige er eksempler på land i denne gruppen, som har en balanse mellom byutvikling og forsteder, samt en betydelig andel av befolkningen som bor i mindre tett befolkede områder.
-Analyse av disse landene kan bidra til å avdekke regionale forskjeller og tilpasninger til demografiske og økonomiske endringer.
-
-**Gruppe 3: Østeuropeiske land**
-
-Denne gruppen omfatter land med lavere urbanisering og økonomier i utvikling.
-Land som Estland, Hellas, Polen, og Portugal er eksempler på land i denne gruppen, preget av en overvekt av tynnere befolkede områder og landlige samfunn.
-Analyse av disse landene gir innsikt i spesifikke utfordringer knyttet til landlig utvikling og tilpasning til endringer i moderne samfunn.
 
 Gruppe 1 er *Vesteuropeiske land.*Denne gruppen omfatter land med høy grad av urbanisering og velutviklede økonomier.
 Landene i denne gruppen, inkludert Østerrike, Belgia, Tyskland, og Frankrike, kjennetegnes av tettpakkede byområder og generelt høy befolkningstetthet.
@@ -398,7 +377,7 @@ Rurale områder har en svært liten endring, men med en svakt nedadgående trend
 Tettsteder, derimot, viser en markant økning i befolkningstallene, noe som reflekterer en sterk suburbaniseringsprosess der flere velger å bosette seg i disse områdene.
 Samlet sett viser figur 5 ulike trender i befolkningsendringer i regiontyper, med en signifikant økning av befolkning i tettsteder, noe som står i kontrast til den nedadgående eller stabile utviklingen i by- og rurale områder.
 
-### Teori - Del 1
+### Drøfting - Del 1
 
 **Kap. 4: Williamson - Stages of development and disparities**
 
@@ -420,8 +399,6 @@ Den begrensede befolkningsveksten i rurale områder kan mest sannsynlig tilskriv
 Slik sett støtter våre funn i stor grad sentralitets/periferitets-tilnærmingens teoretiske rammer, da avstand fra sentrum av økonomiske aktiviteter synes å påvirke utviklingen i ulike regiontyper.
 
 ## **Part 2: Advanced Analysis - Understanding the Impact of Economic Factors on Population Growth**
-
-### **Task 1: Gathering Additional Data**
 
 ```{r}
 #| echo: false
@@ -469,8 +446,6 @@ unemploymentrate <- unemploymentrate |>
                            "DEG2" = "Suburb",
                            "DEG3" = "Rural"))
 ```
-
-### **Task 2: Application of Classification Methodology**
 
 ```{r}
 #| echo: false
@@ -544,8 +519,6 @@ merged <- merged %>%
   ))
 ```
 
-### **Task 3: Analysis and Visualization**
-
 For å fortsette oppgaven, har vi laget oss 8 forskjellige grupper basert på 3 kriterium: arbeidsledighet (U), sysselsettingsvekst (∆E) og boligpriser (H); disse gruppene er basert på arbeidet av Andersson et al. (2019).
 Ved å se på disse gruppene, og sammenligne dem med byer, tettsteder og rurale områder, kan vi undersøke sentraliseringstrender over tid, samt få en dypere forståelse av regionenes økonomiske dynamikk.
 De 8 gruppene kan også gi oss et mer nyansert bilde av økonomisk vekst og boligmarkedstrender, ved å tilby en mer differensiert analyse av regionale utviklingsmønstre enn hva det å kun se på byer, tettsteder og rurale områder kan gi oss.
@@ -589,10 +562,7 @@ merged |>
 ```
 
 I figur X kan vi se hvordan den relative veksten for hver av de 8 gruppene utvikler seg.
-Gruppe 2 har hatt en svært mye større vekst enn de andre gruppene...
-Dersom vi filtrerer og setter den relative veksten til under 200, ser vi at de fleste gruppene har hatt en relativ liten og stabil vekst.
-
-### **Task 4: Interpretation and Relation to Course Literature**
+Gruppe 2 har hatt en svært mye større vekst enn de andre gruppene... Dersom vi filtrerer og setter den relative veksten til under 200, ser vi at de fleste gruppene har hatt en relativ liten og stabil vekst.
 
 ```{r}
 #| echo: false
@@ -611,32 +581,6 @@ merged |>
 ```
 
 ...
-
-## Shift-Share analyse:
-
-```{r}
-
-```
-
-$$
-y_r = y* + s
-$$
-
-$$
- M
-$$
-
-$$
-\text{MIX} = \sum \left( \frac{E_{ir0}}{E_{r0}} \right) \left( \frac{E_{ir1}}{E_{in0}} - \frac{E_{n1}}{E_{n0}} \right)
-$$
-
-$$
-\text{DIF} = \sum \left( \frac{E_{in0}}{E_{r0}} \right) \left( \frac{E_{ir1}}{E_{in0}} - \frac{E_{n1}}{E_{n0}} \right)
-$$
-
-## Drøfting
-
--   Kap 8, 9 og 10 som støtteargumenter, IKKE SOM EGEN TEORI!
 
 ## Appendix
 
@@ -682,3 +626,21 @@ merged |>
   arrange(Year) |> 
   tibble()
 ```
+
+## Shift-Share analyse:
+
+$$
+y_r = y* + s
+$$
+
+$$
+ M
+$$
+
+$$
+\text{MIX} = \sum \left( \frac{E_{ir0}}{E_{r0}} \right) \left( \frac{E_{ir1}}{E_{in0}} - \frac{E_{n1}}{E_{n0}} \right)
+$$
+
+$$
+\text{DIF} = \sum \left( \frac{E_{in0}}{E_{r0}} \right) \left( \frac{E_{ir1}}{E_{in0}} - \frac{E_{n1}}{E_{n0}} \right)
+$$

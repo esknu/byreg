@@ -205,6 +205,22 @@ Vi vil videre bruke 2005 som et indeksår, som definerer befolkningen til å væ
 Dette er på grunn av manglende observasjoner for år 2003 og 2004.
 Dermed representerer kurvene prosentvis befolkningsvekst over den aktuelle perioden 2005 til 2022.
 
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-2
+#| fig-cap: Relativ befolkningsvekst for ulike regioner i perioden 2003-2022
+# Assuming your data frame is datapt1
+datapt1 <- datapt1 %>%
+  # Group by Country and Region_Type
+  group_by(Country, Region_Type) %>%
+  # Calculate relative growth
+  mutate(Relative_Growth = Population / Population[Year == 2005]* 100) %>%
+  ungroup()
+
+```
+
 Videre skal vi utforske variasjoner for ulike europeiske land.
 Vi har gjort dette ved å dele utvalget av land fra Eurostat inn i tre hovedgrupper; urbaniserte land, mellomstore bosettingsland og rurale land.
 Inndelingen er basert på bosettingsmønster for alle landene i datasettet, hvor vi har gruppert de landene som har lignende utvikling, se [Figur 9](#fig-9) i appendix.
@@ -542,6 +558,83 @@ merged |>
 
 I [figur 7](#fig-7) kan vi se hvordan den relative veksten for hver av de 8 gruppene utvikler seg.
 Gruppe 2 har hatt en svært mye større vekst enn de andre gruppene... Dersom vi filtrerer og setter den relative veksten til under 200, ser vi at de fleste gruppene har hatt en relativ liten og stabil vekst.
+
+```{r}
+merged |> 
+    filter(
+    str_sub(Country, start = 1L, end = 2L) %in% c("AT", "BE", "DE", "DK", "ES", "FI", "FR", "IT", "NL")
+  ) |> 
+    filter(Year >= 2005) |> 
+  ggplot(
+    aes(
+      x = Year,
+      y = Relative_Growth,
+      group = Class,
+      color = as.factor(Class)
+    )
+  ) +
+  geom_smooth(span = 1, se = FALSE) +
+  xlim(2005, 2022) 
+```
+
+```{r}
+merged |> 
+  filter(
+    str_sub(Country, start = 1L, end = 2L) %in% c("IE", "NO", "SE")
+  ) |> 
+    filter(Year >= 2005) |> 
+  ggplot(
+    aes(
+      x = Year,
+      y = Relative_Growth,
+      group = Class,
+      color = as.factor(Class)
+    )
+  ) +
+  geom_smooth(span = 1, se = FALSE) +
+  xlim(2005, 2022) 
+```
+
+```{r}
+merged |> 
+  filter(
+    str_sub(Country, start = 1L, end = 2L) %in% c( "PL", "PT", "SI", "SK")
+  ) |> 
+    filter(Year >= 2005) |> 
+  ggplot(
+    aes(
+      x = Year,
+      y = Relative_Growth,
+      group = Class,
+      color = as.factor(Class)
+    )
+  ) +
+  geom_smooth(span = 1, se = FALSE) +
+  xlim(2005, 2022)  
+```
+
+I [figur 7](#fig-7) kan vi se hvordan den relative veksten for hver av de 8 gruppene utvikler seg.
+Gruppe 2 har hatt en svært mye større vekst enn de andre gruppene... Dersom vi filtrerer og setter den relative veksten til under 200, ser vi at de fleste gruppene har hatt en relativ liten og stabil vekst.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-8
+#| fig-cap: Populasjonsvekst i de 8 forskjellige gruppene
+merged |> 
+  filter(Year >= 2005) |> 
+  ggplot(
+    aes(
+      x = Year,
+      y = Population,
+      group = Class,
+      color = as.factor(Class)
+    )
+  ) +
+  geom_smooth(span = 1, se = FALSE) +
+  xlim(2005, 2022) 
+```
 
 ```{r}
 #| echo: false

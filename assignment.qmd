@@ -80,12 +80,16 @@ Dette fører til demografisk tilbakegang, høy arbeidsledighet, sosial ekskluder
 ## **Faktorer som påvirker befolkningsvekst**
 
 I dette delkapittelet vil vi utforske ulike faktorer som påvirker befolkningsvekst.
-Videre vil rapporten presentere tre teorier – budrente teorien, shift-share-analyse og Williamson's inverterte U – og vurdere i hvilken grad de beskriver og forklarer trender i befolkningsvekst.
+Videre vil rapporten presentere tre teorier -- budrente teorien, shift-share-analyse og Williamson's inverterte U -- og vurdere i hvilken grad de beskriver og forklarer trender i befolkningsvekst.
 Grunnet mangelfull data vil anvendelsen av teoriene benyttes i form av momenter som beskrivende faktorer for om befolkningsveksten i de overordnete valgte europeiske landene har en tendens til sentralisering eller desentralisering.
 
--   Med utgangspunkt i budrenteteorien er det to faktorer som avgjør hvor befolkningen bosetter seg i form av r (pris på bolig/rentekostnader) og distanse fra sentrum. Ettersom litteraturen viser til en større grad av teknologisk fremskritt på landsnivå, danner dette grunnlaget for at man ikke har et grunnleggende behov for å bo i sentrum for å kunne ta nytte av teknologien som er i sentrum. «Sentralisering til byene bidrar til økt press på boliger og priser. Det kan dermed være billigere å anskaffe leiligheter som er lokalisert i områder utenfor sentrum med lavere tetthet"(Artikkel. s. 2) og danner grunnlag for en økt grad av desentralisering da befolkningen får «mer for pengene» ved økt distanse til sentrum. Det er allikevel viktig å presisere at budrenteteorien har en bedre anvendelse på et bynivå og fungerer dårlig på landsnivå, men vil heller i prinsipp danne grunnlaget som et moment for desentralisering.
+-   Med utgangspunkt i budrenteteorien er det to faktorer som avgjør hvor befolkningen bosetter seg i form av r (pris på bolig/rentekostnader) og distanse fra sentrum.
+    Ettersom litteraturen viser til en større grad av teknologisk fremskritt på landsnivå, danner dette grunnlaget for at man ikke har et grunnleggende behov for å bo i sentrum for å kunne ta nytte av teknologien som er i sentrum.
+    «Sentralisering til byene bidrar til økt press på boliger og priser.
+    Det kan dermed være billigere å anskaffe leiligheter som er lokalisert i områder utenfor sentrum med lavere tetthet"(Artikkel. s. 2) og danner grunnlag for en økt grad av desentralisering da befolkningen får «mer for pengene» ved økt distanse til sentrum. Det er allikevel viktig å presisere at budrenteteorien har en bedre anvendelse på et bynivå og fungerer dårlig på landsnivå, men vil heller i prinsipp danne grunnlaget som et moment for desentralisering.
 
--   Shift - share - analyse er en økonomisk analysemetode som benyttes til å forstå veksten eller endringen i en bransje, økonomi, eller i dette tilfellet en endring i regionale veksthastigheter. I det tilgjengelige datamaterialet fra Eurostat vil å gjennomføre denne analysen ikke inneholde tilstrekkelig med data da "Den grunnleggende ideen for å beskrive regionale veksthastigheter påvirkes dette av tre faktorer i form av" (kilde; powerpoint kap 4):
+-   Shift - share - analyse er en økonomisk analysemetode som benyttes til å forstå veksten eller endringen i en bransje, økonomi, eller i dette tilfellet en endring i regionale veksthastigheter.
+    I det tilgjengelige datamaterialet fra Eurostat vil å gjennomføre denne analysen ikke inneholde tilstrekkelig med data da "Den grunnleggende ideen for å beskrive regionale veksthastigheter påvirkes dette av tre faktorer i form av" (kilde; powerpoint kap 4):
 
     -   Den industrielle strukturen: Denne faktoren referer til sammensettingen av næringer eller sektorer i en bestemt region.
 
@@ -228,24 +232,20 @@ ggplot(aes(x = Year, y = Relative_Growth, color = Region_Type)) +
 **Figur 2 viser ​​​​gjennomsnittlig relativ befolkningsvekst, hvor 2003 = 100.**
 
 Videre skal vi utforske variasjoner for ulike europeiske land.
-Vi har gjort dette ved å dele det europeiske utvalget av land fra Eurostat inn i tre hovedgrupper for å muliggjøre en meningsfull sammenligning av variasjoner i forhold til bosettingsmønstre og utvikling.
-Disse gruppene er definert ut fra geografisk beliggenhet og generelle økonomiske kjennetegn.
+Vi har gjort dette ved å dele utvalget av land fra Eurostat inn i tre hovedgrupper; urbaniserte land, mellomstore bosettingsland og rurale land.
+Inndelingen er basert på bosettingsmønster for alle landene i datasettet, hvor vi har gruppert de landene som har lignende utvikling, se **FIGUR X** i appendix.
 
-Gruppe 1 er *Vesteuropeiske land.*Denne gruppen omfatter land med høy grad av urbanisering og velutviklede økonomier.
-Landene i denne gruppen, inkludert Østerrike, Belgia, Tyskland, og Frankrike, kjennetegnes av tettpakkede byområder og generelt høy befolkningstetthet.
+Gruppe 1, urbaniserte land, består av Østerrike (AT), Belgia (BE), Tyskland (DE), Danmark (DK), Spania (ES), Finland (FI), Frankrike (FR), Italia (IT) og Nederland (NL).
+Gruppe 2, mellomstore bosettingsland, består av Irland (IE), Norge (NO) og Sverige (SE).
+Gruppe 3, rurale land, består av Polen (PL), Portugal (PT), Slovenia (SI) og Slovakia (SK).
 
-Gruppe 2 er *Mellomeuropeiske land*.
-Denne gruppen inkluderer land med en mellomgrad av urbanisering og varierte økonomiske forhold.
-Irland, Norge, og Sverige er eksempler på land i denne gruppen, som har en balanse mellom byutvikling og forsteder, samt en betydelig andel av befolkningen som bor i mindre tett befolkede områder.
+Disse landene har trolig lignende utvikling innenfor sine grupper grunnet geografiske og kulturelle likheter.
+F.eks.
+deler landene i Gruppe 1, som Tyskland, Frankrike og Italia, lignende urbaniseringsmønstre og økonomiske strukturer på grunn av sin nærhet og felles historie.
+Tilsvarende kan landene i Gruppe 3, som Polen og Slovakia, dele lignende utfordringer med rurale karakterer og tidligere kommunistisk historie.
+Gruppe 2 viser imidlertid mer variasjon; Norge har en betydelig spredning av befolkning i mindre byer og spredtbygde områder, mens Irland og Sverige har mer markante bymessige og forstedlige bosettingsmønstre.
 
-Gruppe 3 er *Østeuropeiske land***.** Denne gruppen omfatter land med lavere urbanisering og økonomier i utvikling.
-Land som Estland, Hellas, Polen, og Portugal er eksempler på land i denne gruppen, preget av en overvekt av tynnere befolkede områder og landlige samfunn.
-
-Det er viktig å merke seg at disse inndelingene er forenklede og bør tilpasses spesifikke forskningsspørsmål og tilgjengelig data, f.eks.
-for å unngå MAUP (Modifiable Areal Unit Problem).
-Faktorer som historisk kontekst, politiske systemer, og kulturelle påvirkninger kan ytterligere informere analysen av variansene innenfor hver landsgruppe.
-
-**Group 1: Urbanized Countries (Cities)**
+**Group 1: Urbaniserte land**
 
 ```{r}
 #| echo: false
@@ -289,7 +289,7 @@ Denne komplekse trenden kan indikere variasjoner i byenes attraktivitet eller en
 
 Samlet sett gir figuren et bilde av dynamikken i befolkningsendringer i ulike regiontyper i Vesteuropeiske land, med spesiell vekt på den jevne veksten i tettsteder og forsteder og variabel utvikling i byområdene.
 
-**Group 2: Intermediate Settlement Countries (Towns and Suburbs)**
+**Group 2: Mellomstore bosettingsland**
 
 ```{r}
 #| echo: false
@@ -327,7 +327,7 @@ Populasjonen i tettsteder og forstander viser en markant vekst fra 2010, hvor ma
 Fra gjennomgangen av dataene ser man at dersom man ikke hadde tatt med Sverige i denne gruppen hadde man fått en negativ relativ vekst i denne gruppen.
 Dette viser at i gruppe 2 er det en markant trend til bosetting i tettsteder og forstander, men at det også er en vis spredning i forhold til at man velger å sentralisere seg i byer.
 
-**Group 3: Rural Countries (Rural Areas)**
+**Group 3: Rurale land**
 
 ```{r}
 #| echo: false
@@ -566,8 +566,7 @@ merged |>
 ```
 
 I figur X kan vi se hvordan den relative veksten for hver av de 8 gruppene utvikler seg.
-Gruppe 2 har hatt en svært mye større vekst enn de andre gruppene...
-Dersom vi filtrerer og setter den relative veksten til under 200, ser vi at de fleste gruppene har hatt en relativ liten og stabil vekst.
+Gruppe 2 har hatt en svært mye større vekst enn de andre gruppene... Dersom vi filtrerer og setter den relative veksten til under 200, ser vi at de fleste gruppene har hatt en relativ liten og stabil vekst.
 
 ```{r}
 #| echo: false

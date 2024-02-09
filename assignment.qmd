@@ -28,7 +28,9 @@ library(lmtest)
 library(plm)
 ```
 
-Formålet og motivasjonen for denne artikkelen er å se på mulige pådrivere som påvirker by-land-skillet i Europa. For å belyse dette skal vi kritisk undersøke hvordan faktorer påvirker by-land-skillet slik som arbeidsledighetsraten, sysselsettingsvekst og det lokale boligmarkedet påvirker mønstrene for befolkningsfordelingen og jobbskapingen på tvers av ulike europeiske land. Vi skal henholdsvis se nærmere på landene Østerrike, Belgia, Tyskland, Danmark, Estland, Hellas, Spania, Finland, Frankrike, Irland, Italia, Luxembourg, Norge, Nederland, Polen, Portugal, Sverige, Slovenia, og Slovakia.
+Formålet og motivasjonen for denne artikkelen er å se på mulige pådrivere som påvirker by-land-skillet i Europa.
+For å belyse dette skal vi kritisk undersøke hvordan faktorer påvirker by-land-skillet slik som arbeidsledighetsraten, sysselsettingsvekst og det lokale boligmarkedet påvirker mønstrene for befolkningsfordelingen og jobbskapingen på tvers av ulike europeiske land.
+Vi skal henholdsvis se nærmere på landene Østerrike, Belgia, Tyskland, Danmark, Estland, Hellas, Spania, Finland, Frankrike, Irland, Italia, Luxembourg, Norge, Nederland, Polen, Portugal, Sverige, Slovenia, og Slovakia.
 
 ```{r}
 #| echo: false
@@ -59,39 +61,64 @@ Pop <- demo_pjan_custom_9363002_linear <- read_csv("demo_pjan__custom_9363002_li
 
 ## Litteraturgjennomgang
 
-Manuel Wolff (2018) beskriver den økende polariseringen av både sentraliserende og desentraliserende voksende byer, samt en trend mot sentralisert tilbakegang. Dette fenomenet peker på behovet for ulike planleggingstiltak. Samtidig påpekes det at omlandet mister betydning, spesielt for synkende byer (Wolff, 2018).
+Manuel Wolff (2018) beskriver den økende polariseringen av både sentraliserende og desentraliserende voksende byer, samt en trend mot sentralisert tilbakegang.
+Dette fenomenet peker på behovet for ulike planleggingstiltak.
+Samtidig påpekes det at omlandet mister betydning, spesielt for synkende byer (Wolff, 2018).
 
-Urbanisering er et fenomen som i økende grad påvirker økonomier, samfunn, kulturer og miljøet. Ifølge OECD og Europakommisjonen (2020) forventes det at 55 % av verdens befolkning vil bo i byer innen 2050. Denne veksten i bybefolkningen har skapt økt interesse for både den raske utviklingen og formen på urbane områder, samt for de tette båndene som eksisterer mellom individuelle byer og mellom byer og landlige områder. En spesifikk politisk interesse retter seg mot megabyer og store metropolområder som drar nytte av agglomerasjon, industrielle klynger og innovasjon, men som samtidig står overfor betydelige utfordringer knyttet til bærekraftig byutvikling, for eksempel trafikkork eller miljøpåvirkninger (Union, E. (Ed.), 2021). 
+Urbanisering er et fenomen som i økende grad påvirker økonomier, samfunn, kulturer og miljøet.
+Ifølge OECD og Europakommisjonen (2020) forventes det at 55 % av verdens befolkning vil bo i byer innen 2050.
+Denne veksten i bybefolkningen har skapt økt interesse for både den raske utviklingen og formen på urbane områder, samt for de tette båndene som eksisterer mellom individuelle byer og mellom byer og landlige områder.
+En spesifikk politisk interesse retter seg mot megabyer og store metropolområder som drar nytte av agglomerasjon, industrielle klynger og innovasjon, men som samtidig står overfor betydelige utfordringer knyttet til bærekraftig byutvikling, for eksempel trafikkork eller miljøpåvirkninger (Union, E. (Ed.), 2021). 
 
-Samtidig viser forskning at ulikhetene mellom urbane og rurale områder synes å minske. Gjennom hierarkiske lineære regresjonsmodeller avdekkes det at inaktivitet øker både i urbane og rurale områder, selv om den er høyere i sistnevnte. Denne økningen bidrar til å redusere den urbane-rurale forskjellen og eliminerer den til og med i noen land. Dette fenomenet kan peke i retning av en økning i forstedene (suburbs), da det ser ut til å være en tendens til at de urbane og rurale karakterene blir mer like (Moreno-Llamas, García-Mayor, & De la Cruz-Sanchez, 2021).
+Samtidig viser forskning at ulikhetene mellom urbane og rurale områder synes å minske.
+Gjennom hierarkiske lineære regresjonsmodeller avdekkes det at inaktivitet øker både i urbane og rurale områder, selv om den er høyere i sistnevnte.
+Denne økningen bidrar til å redusere den urbane-rurale forskjellen og eliminerer den til og med i noen land.
+Dette fenomenet kan peke i retning av en økning i forstedene (suburbs), da det ser ut til å være en tendens til at de urbane og rurale karakterene blir mer like (Moreno-Llamas, García-Mayor, & De la Cruz-Sanchez, 2021).
 
-På den andre siden står indre periferier i EU overfor betydelige utfordringer. Disse områdene, som utgjør over 45 % av det europeiske territoriet, lider av periferi- og marginalitetsforhold. De har dårlig tilgang til generelle tjenester, lavt økonomisk potensial på grunn av avstand til sentre for økonomisk aktivitet, og mangler relasjonell nærhet til maktsentre, noe som hindrer lokalsamfunnets aktive deltakelse i utviklingspolitikk. Dette fører til demografisk tilbakegang, høy arbeidsledighet, sosial ekskludering, tap av lokal identitet og følgelig til nedlagte områder (De Toni, Di Martino & Dax, 2021).
+På den andre siden står indre periferier i EU overfor betydelige utfordringer.
+Disse områdene, som utgjør over 45 % av det europeiske territoriet, lider av periferi- og marginalitetsforhold.
+De har dårlig tilgang til generelle tjenester, lavt økonomisk potensial på grunn av avstand til sentre for økonomisk aktivitet, og mangler relasjonell nærhet til maktsentre, noe som hindrer lokalsamfunnets aktive deltakelse i utviklingspolitikk.
+Dette fører til demografisk tilbakegang, høy arbeidsledighet, sosial ekskludering, tap av lokal identitet og følgelig til nedlagte områder (De Toni, Di Martino & Dax, 2021).
 
 ## **Faktorer som påvirker befolkningsvekst**
 
-I dette delkapittelet vil vi utforske ulike faktorer som påvirker befolkningsvekst. Videre vil rapporten presentere tre teorier -- budrente teorien, shift-share-analyse og Williamson's inverterte U -- og vurdere i hvilken grad de beskriver og forklarer trender i befolkningsvekst. Grunnet mangelfull data vil anvendelsen av teoriene benyttes i form av momenter som beskrivende faktorer for om befolkningsveksten i de overordnete valgte europeiske landene har en tendens til sentralisering eller desentralisering.
+I dette delkapittelet vil vi utforske ulike faktorer som påvirker befolkningsvekst.
+Videre vil rapporten presentere tre teorier -- budrente teorien, shift-share-analyse og Williamson's inverterte U -- og vurdere i hvilken grad de beskriver og forklarer trender i befolkningsvekst.
+Grunnet mangelfull data vil anvendelsen av teoriene benyttes i form av momenter som beskrivende faktorer for om befolkningsveksten i de overordnete valgte europeiske landene har en tendens til sentralisering eller desentralisering.
 
--   Med utgangspunkt i budrenteteorien er det to faktorer som avgjør hvor befolkningen bosetter seg i form av r (pris på bolig/rentekostnader) og distanse fra sentrum. Ettersom litteraturen viser til en større grad av teknologisk fremskritt på landsnivå, danner dette grunnlaget for at man ikke har et grunnleggende behov for å bo i sentrum for å kunne ta nytte av teknologien som er i sentrum. «Sentralisering til byene bidrar til økt press på boliger og priser. Det kan dermed være billigere å anskaffe leiligheter som er lokalisert i områder utenfor sentrum med lavere tetthet"(Artikkel. s. 2) og danner grunnlag for en økt grad av desentralisering da befolkningen får «mer for pengene» ved økt distanse til sentrum. Det er allikevel viktig å presisere at budrenteteorien har en bedre anvendelse på et bynivå og fungerer dårlig på landsnivå, men vil heller i prinsipp danne grunnlaget som et moment for desentralisering.
+-   Med utgangspunkt i budrenteteorien er det to faktorer som avgjør hvor befolkningen bosetter seg i form av r (pris på bolig/rentekostnader) og distanse fra sentrum.
+    Ettersom litteraturen viser til en større grad av teknologisk fremskritt på landsnivå, danner dette grunnlaget for at man ikke har et grunnleggende behov for å bo i sentrum for å kunne ta nytte av teknologien som er i sentrum.
+    «Sentralisering til byene bidrar til økt press på boliger og priser.
+    Det kan dermed være billigere å anskaffe leiligheter som er lokalisert i områder utenfor sentrum med lavere tetthet"(Artikkel. s. 2) og danner grunnlag for en økt grad av desentralisering da befolkningen får «mer for pengene» ved økt distanse til sentrum. Det er allikevel viktig å presisere at budrenteteorien har en bedre anvendelse på et bynivå og fungerer dårlig på landsnivå, men vil heller i prinsipp danne grunnlaget som et moment for desentralisering.
 
--   Shift - share - analyse er en økonomisk analysemetode som benyttes til å forstå veksten eller endringen i en bransje, økonomi, eller i dette tilfellet en endring i regionale veksthastigheter. I det tilgjengelige datamaterialet fra Eurostat vil å gjennomføre denne analysen ikke inneholde tilstrekkelig med data da "Den grunnleggende ideen for å beskrive regionale veksthastigheter påvirkes dette av tre faktorer i form av" (kilde; powerpoint kap 4):
+-   Shift - share - analyse er en økonomisk analysemetode som benyttes til å forstå veksten eller endringen i en bransje, økonomi, eller i dette tilfellet en endring i regionale veksthastigheter.
+    I det tilgjengelige datamaterialet fra Eurostat vil å gjennomføre denne analysen ikke inneholde tilstrekkelig med data da "Den grunnleggende ideen for å beskrive regionale veksthastigheter påvirkes dette av tre faktorer i form av" (kilde; powerpoint kap 4):
 
     -   Den industrielle strukturen: Denne faktoren referer til sammensettingen av næringer eller sektorer i en bestemt region.
 
     -   Sektorens produktivitet: Produktiviteten til en sektor eller næring indikerer effektiviteten til produksjonsprosessen, hvor en økning i effektiviteten vil bidra positivt til den totale veksten.
 
-    -   Dynamikken i etterspørsel og forbrukerpreferanser: Endringer i etterspørsel og forbrukerpreferanser påvirker hvilke varer og tjenester som etterspør. Den avgjørende faktoren her vil være i hvor stor grad regionen er kapabel til å tilpasse seg endringer.
+    -   Dynamikken i etterspørsel og forbrukerpreferanser: Endringer i etterspørsel og forbrukerpreferanser påvirker hvilke varer og tjenester som etterspør.
+        Den avgjørende faktoren her vil være i hvor stor grad regionen er kapabel til å tilpasse seg endringer.
 
-        Man skiller shift-share-analysen i å bestå av Differensiell effekter (konkurransedyktighet) og Mix-effekter (Etterspørsel) som grunnlag for i hvilken grad en region gjør det bedre enn andre regioner i et land. Det kommer frem av tidligere forskning at sentrale områder har større konkurransekraft og vil da danne et grunnlag for at en shift-share-analysen er et moment for sentralisering. (kilde; urban sprawl)
+        Man skiller shift-share-analysen i å bestå av Differensiell effekter (konkurransedyktighet) og Mix-effekter (Etterspørsel) som grunnlag for i hvilken grad en region gjør det bedre enn andre regioner i et land.
+        Det kommer frem av tidligere forskning at sentrale områder har større konkurransekraft og vil da danne et grunnlag for at en shift-share-analysen er et moment for sentralisering.
+        (kilde; urban sprawl)
 
-På midten av 1960-tallet presenterte Williamson sin teori om regionale utviklingsfaser og forskjeller i et land. Teorien gikk ut på at utvikling er konsentrert og polarisert i de tidlige stadiene, før den senere sprer seg til mer perifere områder (tettsteder og forsteder, og rurale områder). Dette gir en kurve formet som en invertert U.
+På midten av 1960-tallet presenterte Williamson sin teori om regionale utviklingsfaser og forskjeller i et land.
+Teorien gikk ut på at utvikling er konsentrert og polarisert i de tidlige stadiene, før den senere sprer seg til mer perifere områder (tettsteder og forsteder, og rurale områder).
+Dette gir en kurve formet som en invertert U.
 
 Årsakene til de økende ulikhetene er; (1) utvandring av kompetent arbeidskraft fra svake til sterke områder, (2) kapitalstrøm til de rikere regionene, tiltrukket av høyere etterspørsel, tilgjengelighet av infrastruktur, tjenester, et potensielt marked og bedre miljøforhold for bedrifter, (3) allokering av en større del av offentlige investeringer til sterke områder, som svar på etterspørsel, og (4) begrenset handel mellom regioner, slik at i de tidlige stadiene utøver ikke de rike regionene trekkraft på det fattige (KILDE, s. 105).
 
-Til slutt vises mekanismer som virker i motsatt retning som fører til mindre ulikheter; (1) skaping av nye jobber i mindre utviklede regioner, med den konsekvensen at utvandring avtar eller til og med stopper opp, (2) klyngeulemper, som f.eks. høye boligpriser, forurensing, trafikk og bråk, (3) vekst i offentlige investeringer i svake områder, og (4) begynnelsen av trekkraft utøvet av det sterke området på det svake (KILDE, s. 105).
+Til slutt vises mekanismer som virker i motsatt retning som fører til mindre ulikheter; (1) skaping av nye jobber i mindre utviklede regioner, med den konsekvensen at utvandring avtar eller til og med stopper opp, (2) klyngeulemper, som f.eks.
+høye boligpriser, forurensing, trafikk og bråk, (3) vekst i offentlige investeringer i svake områder, og (4) begynnelsen av trekkraft utøvet av det sterke området på det svake (KILDE, s. 105).
 
 ### Hypotese
 
-Ut i fra budrenteteorien velger befolknigen hvor de vil bosette seg i form av betalingsvillighet og distanse fra sentrum. Ettersom litteraturen viser til en større grad av teknologisk fremskritt på landsnivå, taler dette for at vi vil gjerne få en desentralisering av samfunnet, ettersom det er mindre trykk på boligprisen. Merknad; budrenteteorien har en bedre anvendelse på et bynivå og fungerer i dårligere grad på landsnivå, allikvel mener vi at prinsippet danner grunnlaget for en hypotese om desentralisering.
+Ut i fra budrenteteorien velger befolknigen hvor de vil bosette seg i form av betalingsvillighet og distanse fra sentrum.
+Ettersom litteraturen viser til en større grad av teknologisk fremskritt på landsnivå, taler dette for at vi vil gjerne få en desentralisering av samfunnet, ettersom det er mindre trykk på boligprisen.
+Merknad; budrenteteorien har en bedre anvendelse på et bynivå og fungerer i dårligere grad på landsnivå, allikvel mener vi at prinsippet danner grunnlaget for en hypotese om desentralisering.
 
 Både litteraturen og teorien sett i lys av hverandre danner grunnlag for en hypotese om desentralisering.
 
@@ -153,17 +180,30 @@ datapt1 |>
   geom_smooth(level = 0.5, span = 1)
 ```
 
-[Figur 1](#fig-1) viser gjennomsnittlig befolkningsvekst for de tre ulike regiontypene fra 2003 til 2022. Vi ser en trend i befolkningsutviklingen frem til 2010 at byer har en markant størst vekst, dette kan forklares ved hjelp av momentet i shift-share-analysen om at byer har en størst konkurransekraft og effektivitet gjennom klyngefordeler som kjennetegner å være i sentrum. Det vil også være en nærliggende forklaring at dynamikken mellom etterspørsel og forbruker preferanser skiller byer seg spesielt ut til å være kapabel til å tilpasse seg endringer ettersom sentrum gjerne kjennetegnes for å være ressurssterke, som fører til en sentralisering av samfunnet frem til 2010. For resterende del av perioden trender i befolkningsveksten til en gradvis reduksjon av befolkningen i byer fra 2010 til 2016, før den flater ut i perioden 2017-2022. Forklaringen på dette kan være at nedgangen skyldes budrenteteorien med hensyn på desentralisering, teknologiskutvikling og «spillovers» fra regions typen «city» til «suburb».
+[Figur 1](#fig-1) viser gjennomsnittlig befolkningsvekst for de tre ulike regiontypene fra 2003 til 2022.
+Vi ser en trend i befolkningsutviklingen frem til 2010 at byer har en markant størst vekst, dette kan forklares ved hjelp av momentet i shift-share-analysen om at byer har en størst konkurransekraft og effektivitet gjennom klyngefordeler som kjennetegner å være i sentrum.
+Det vil også være en nærliggende forklaring at dynamikken mellom etterspørsel og forbruker preferanser skiller byer seg spesielt ut til å være kapabel til å tilpasse seg endringer ettersom sentrum gjerne kjennetegnes for å være ressurssterke, som fører til en sentralisering av samfunnet frem til 2010.
+For resterende del av perioden trender i befolkningsveksten til en gradvis reduksjon av befolkningen i byer fra 2010 til 2016, før den flater ut i perioden 2017-2022.
+Forklaringen på dette kan være at nedgangen skyldes budrenteteorien med hensyn på desentralisering, teknologiskutvikling og «spillovers» fra regions typen «city» til «suburb».
 
-Av @fig-1 ser man at suburb-regioner har en tendens til å ha en kontinuerlig vekst i perioden. Forklaringen på dette kan være med hensyn på shift-share. Dette er den regiontypen som ligger tettes opp mot byer og vil ved hjelp av momenter i shift-share-analysen som teknologisk utvikling kan i denne sammenheng tolkes til å være utviklingen i i infrastuktur, som veinett og jernbane. Dette fører til økt effektivitet, hvor suburb drar nytte av spillovers fra byer. Et annet moment i budrenteteorien er at ved det økte presset vi så befolkningsveksten i byer frem til 2010, føre til at det er mer gunstig for befolkningen å bosette seg i suburbs, som drar i retning av desetralisering.
+Av @fig-1 ser man at suburb-regioner har en tendens til å ha en kontinuerlig vekst i perioden.
+Forklaringen på dette kan være med hensyn på shift-share.
+Dette er den regiontypen som ligger tettes opp mot byer og vil ved hjelp av momenter i shift-share-analysen som teknologisk utvikling kan i denne sammenheng tolkes til å være utviklingen i i infrastuktur, som veinett og jernbane.
+Dette fører til økt effektivitet, hvor suburb drar nytte av spillovers fra byer.
+Et annet moment i budrenteteorien er at ved det økte presset vi så befolkningsveksten i byer frem til 2010, føre til at det er mer gunstig for befolkningen å bosette seg i suburbs, som drar i retning av desetralisering.
 
-Vi ser en trend i befolkningsveksten fra 2016 til 2022 en markant nedgang i rurale områder. Forklaringen på dette kan være sentralitets/periferitets-tilnærmingen, som betrakter avstanden fra sentrum av økonomiske aktiviteter som årsaken til forsinket utvikling. Den påpeker at geografisk sentralitet i seg selv er en faktor som fremmer utvikling, mens periferi hindrer det. Faktorer som avgjør dette er; (1) tilgang til informasjon, (2) teknologisk kunnskap, (3) tilgjengeligheten av markedene for varer og produksjonsfaktorer, (4) transportkostnader for ferdige varer, råvarer og halvfabrikata, og (5) forsinkelser i adopsjonen av innovasjoner (Capello, s. 111).
+Vi ser en trend i befolkningsveksten fra 2016 til 2022 en markant nedgang i rurale områder.
+Forklaringen på dette kan være sentralitets/periferitets-tilnærmingen, som betrakter avstanden fra sentrum av økonomiske aktiviteter som årsaken til forsinket utvikling.
+Den påpeker at geografisk sentralitet i seg selv er en faktor som fremmer utvikling, mens periferi hindrer det. Faktorer som avgjør dette er; (1) tilgang til informasjon, (2) teknologisk kunnskap, (3) tilgjengeligheten av markedene for varer og produksjonsfaktorer, (4) transportkostnader for ferdige varer, råvarer og halvfabrikata, og (5) forsinkelser i adopsjonen av innovasjoner (Capello, s. 111).
 
-Teorien om "The spatial diffusion of innovation" kan også være en mulig forklaring, som fokuserer på at distansen fra sentrale områder er en viktig del av teknologisk utvikling (Capello, s.188). Flytter man langt fra sentrum vil en gradvis falle bak utviklingen og som Capello gjorde kjent, vil det å vente med å ta i bruk ny teknologi koste mer jo lengre en venter (Camagni and Capello (1998).
+Teorien om "The spatial diffusion of innovation" kan også være en mulig forklaring, som fokuserer på at distansen fra sentrale områder er en viktig del av teknologisk utvikling (Capello, s.188).
+Flytter man langt fra sentrum vil en gradvis falle bak utviklingen og som Capello gjorde kjent, vil det å vente med å ta i bruk ny teknologi koste mer jo lengre en venter (Camagni and Capello (1998).
 
 Gjennom momenter fra budrenteteorien og shift-share-analyse ved støtte fra litteraturen, ser man av @fig-1 en klar tendens til desentralisering fra "City" til "Suburb" ettersom man ser en økt teknologisk utvikling i Europa og et ekstremt press på boligmarkedet, som vil føre til en desentralisering.
 
-Vi vil videre bruke 2005 som et indeksår, som definerer befolkningen til å være 100 i 2005. Dette er på grunn av manglende observasjoner for år 2003 og 2004. Dermed representerer kurvene prosentvis befolkningsvekst over den aktuelle perioden 2005 til 2022.
+Vi vil videre bruke 2005 som et indeksår, som definerer befolkningen til å være 100 i 2005.
+Dette er på grunn av manglende observasjoner for år 2003 og 2004.
+Dermed representerer kurvene prosentvis befolkningsvekst over den aktuelle perioden 2005 til 2022.
 
 ```{r}
 #| echo: false
@@ -181,11 +221,19 @@ datapt1 <- datapt1 %>%
 
 ```
 
-Videre skal vi utforske variasjoner for ulike europeiske land. Vi har gjort dette ved å dele utvalget av land fra Eurostat inn i tre hovedgrupper; urbaniserte land, mellomstore bosettingsland og rurale land. Inndelingen er basert på bosettingsmønster for alle landene i datasettet, hvor vi har gruppert de landene som har lignende utvikling, se [Figur 9](#fig-9) i appendix.
+Videre skal vi utforske variasjoner for ulike europeiske land.
+Vi har gjort dette ved å dele utvalget av land fra Eurostat inn i tre hovedgrupper; urbaniserte land, mellomstore bosettingsland og rurale land.
+Inndelingen er basert på bosettingsmønster for alle landene i datasettet, hvor vi har gruppert de landene som har lignende utvikling, se [Figur 9](#fig-9) i appendix.
 
-Gruppe 1, urbaniserte land, består av Østerrike (AT), Belgia (BE), Tyskland (DE), Danmark (DK), Spania (ES), Finland (FI), Frankrike (FR), Italia (IT) og Nederland (NL). Gruppe 2, mellomstore bosettingsland, består av Irland (IE), Norge (NO) og Sverige (SE). Gruppe 3, rurale land, består av Polen (PL), Portugal (PT), Slovenia (SI) og Slovakia (SK).
+Gruppe 1, urbaniserte land, består av Østerrike (AT), Belgia (BE), Tyskland (DE), Danmark (DK), Spania (ES), Finland (FI), Frankrike (FR), Italia (IT) og Nederland (NL).
+Gruppe 2, mellomstore bosettingsland, består av Irland (IE), Norge (NO) og Sverige (SE).
+Gruppe 3, rurale land, består av Polen (PL), Portugal (PT), Slovenia (SI) og Slovakia (SK).
 
-Innenfor de nevnte gruppene av land synes det å være visse likheter i urbaniseringsmønstre og økonomiske strukturer, sannsynligvis påvirket av geografiske og kulturelle faktorer. F.eks. deler landene i Gruppe 1, som Tyskland, Frankrike og Italia, lignende urbaniseringsmønstre og økonomiske strukturer på grunn av sin nærhet og felles historie. Tilsvarende kan landene i Gruppe 3, som Polen og Slovakia, dele lignende utfordringer med rurale karakterer og tidligere kommunistisk historie. Gruppe 2 viser imidlertid mer variasjon; Norge har en betydelig spredning av befolkning i mindre byer og spredtbygde områder, mens Irland og Sverige har mer markante bymessige og forstedlige bosettingsmønstre.
+Innenfor de nevnte gruppene av land synes det å være visse likheter i urbaniseringsmønstre og økonomiske strukturer, sannsynligvis påvirket av geografiske og kulturelle faktorer.
+F.eks.
+deler landene i Gruppe 1, som Tyskland, Frankrike og Italia, lignende urbaniseringsmønstre og økonomiske strukturer på grunn av sin nærhet og felles historie.
+Tilsvarende kan landene i Gruppe 3, som Polen og Slovakia, dele lignende utfordringer med rurale karakterer og tidligere kommunistisk historie.
+Gruppe 2 viser imidlertid mer variasjon; Norge har en betydelig spredning av befolkning i mindre byer og spredtbygde områder, mens Irland og Sverige har mer markante bymessige og forstedlige bosettingsmønstre.
 
 **Gruppe 1: Urbaniserte land**
 
@@ -224,7 +272,8 @@ ggplot(aes(x = Year, y = Relative_Growth, color = Region_Type)) +
   scale_x_continuous(breaks = seq(2005, max(datapt1$Year), by = 5))
 ```
 
-[Figur 3](#fig-3) viser gjennomsnittlig relativ befolkningsvekst for de tre ulike regiontypene fra 2005 til 2022 for gruppe 1, og har en tendens til desentralisering hvor folk bosetter seg hovedsakelig i rurale områder og suburbs. Dette kan tyde på at det har vært et høyt press på boligpriser i disse landene, hvor man gjennom budrenteteorien som prinsipp for land velger å bosette seg utenfor sentrale områder.
+[Figur 3](#fig-3) viser gjennomsnittlig relativ befolkningsvekst for de tre ulike regiontypene fra 2005 til 2022 for gruppe 1, og har en tendens til desentralisering hvor folk bosetter seg hovedsakelig i rurale områder og suburbs.
+Dette kan tyde på at det har vært et høyt press på boligpriser i disse landene, hvor man gjennom budrenteteorien som prinsipp for land velger å bosette seg utenfor sentrale områder.
 
 **Gruppe 2: Mellomstore bosettingsland**
 
@@ -263,7 +312,9 @@ ggplot(aes(x = Year, y = Relative_Growth, color = Region_Type)) +
   scale_x_continuous(breaks = seq(2005, max(datapt1$Year), by = 5))
 ```
 
-[Figur 4](#fig-4) viser en gjennomsnittlig relativ befolkningsvekst for de tre ulige regiontypene fra 2005 til 2022 for gruppe 2, hvor man ser en tendens i befolkningsutviklingen at man bosetter seg i "suburbs" og "city". Ettersom man i gruppe 2 har en størst befolkningsvekt i suburb og en kontunuerlig vekst i byer kan forklaringen på dette skyldes at man har en spillover effekt fra byer til suburbs med teknologisk utvikling, samt man har en prinsippielt lavere boligpris ved bosettelse i suburb. Nedgangen i rural kan skyldes forsinket utvikling i rurale områder i henhold til sentralitets/periferitets-tilnærmingen.
+[Figur 4](#fig-4) viser en gjennomsnittlig relativ befolkningsvekst for de tre ulige regiontypene fra 2005 til 2022 for gruppe 2, hvor man ser en tendens i befolkningsutviklingen at man bosetter seg i "suburbs" og "city".
+Ettersom man i gruppe 2 har en størst befolkningsvekt i suburb og en kontunuerlig vekst i byer kan forklaringen på dette skyldes at man har en spillover effekt fra byer til suburbs med teknologisk utvikling, samt man har en prinsippielt lavere boligpris ved bosettelse i suburb.
+Nedgangen i rural kan skyldes forsinket utvikling i rurale områder i henhold til sentralitets/periferitets-tilnærmingen.
 
 **Gruppe 3: Rurale land**
 
@@ -302,7 +353,9 @@ ggplot(aes(x = Year, y = Relative_Growth, color = Region_Type)) +
   scale_x_continuous(breaks = seq(2005, max(datapt1$Year), by = 5))
 ```
 
-[Figur 5](#fig-5) viser en gjennomsnittlig relativ befolkningsvekst for de tre ulige regiontypene fra 2005 til 2022 for gruppe 3. Man ser her at den eneste regoinstypen som har hatt en positiv vekst i befolkningsutviklingen er suburb. Dette skyldes nok en støtte grad av spillover med teknologisk utvikling og et større press på boligpriser enn gruppe 2, som fører til en desentralisering av samfunnet.
+[Figur 5](#fig-5) viser en gjennomsnittlig relativ befolkningsvekst for de tre ulige regiontypene fra 2005 til 2022 for gruppe 3.
+Man ser her at den eneste regoinstypen som har hatt en positiv vekst i befolkningsutviklingen er suburb.
+Dette skyldes nok en støtte grad av spillover med teknologisk utvikling og et større press på boligpriser enn gruppe 2, som fører til en desentralisering av samfunnet.
 
 ### Oppsummering
 
@@ -429,7 +482,10 @@ merged <- merged %>%
   ))
 ```
 
-For å fortsette oppgaven, har vi laget oss 8 forskjellige grupper basert på 3 kriterium: arbeidsledighet (U), sysselsettingsvekst (∆E) og boligpriser (H); disse gruppene er basert på arbeidet av Andersson et al. (2019). Ved å se på disse gruppene, og sammenligne dem med byer, tettsteder og rurale områder, kan vi undersøke sentraliseringstrender over tid, samt få en dypere forståelse av regionenes økonomiske dynamikk. De 8 gruppene kan også gi oss et mer nyansert bilde av økonomisk vekst og boligmarkedstrender, ved å tilby en mer differensiert analyse av regionale utviklingsmønstre enn hva det å kun se på byer, tettsteder og rurale områder kan gi oss. Gruppene er delt inn i følgende format:
+For å fortsette oppgaven, har vi laget oss 8 forskjellige grupper basert på 3 kriterium: arbeidsledighet (U), sysselsettingsvekst (∆E) og boligpriser (H); disse gruppene er basert på arbeidet av Andersson et al. (2019).
+Ved å se på disse gruppene, og sammenligne dem med byer, tettsteder og rurale områder, kan vi undersøke sentraliseringstrender over tid, samt få en dypere forståelse av regionenes økonomiske dynamikk.
+De 8 gruppene kan også gi oss et mer nyansert bilde av økonomisk vekst og boligmarkedstrender, ved å tilby en mer differensiert analyse av regionale utviklingsmønstre enn hva det å kun se på byer, tettsteder og rurale områder kan gi oss.
+Gruppene er delt inn i følgende format:
 
 1.  Høy U, høy ∆E og høy H
 2.  Høy U, høy ∆E og lav H
@@ -440,7 +496,10 @@ For å fortsette oppgaven, har vi laget oss 8 forskjellige grupper basert på 3 
 7.  Lav U, lav ∆E og høy H
 8.  Lav U, lav ∆E og lav H
 
-Bestemmelsene for om verdiene er høye eller lave er basert på den relative størrelsen målt opp mot det samledet gjennomsnittet av alle land. En forutsetning for økonomisk vekst i en region er en høy boligpris ettersom dette reflekterer et attraktivt området som under vekst. Kategoriene 1-6 og 8 er høyst vektet av byer og viser en trend til sentralisering rundt bykjernen. Kategori 7 har flest suburb og rurale regioner med høy boligpris, og viser i andre retning mot en desentralisering.
+Bestemmelsene for om verdiene er høye eller lave er basert på den relative størrelsen målt opp mot det samledet gjennomsnittet av alle land.
+En forutsetning for økonomisk vekst i en region er en høy boligpris ettersom dette reflekterer et attraktivt området som under vekst.
+Kategoriene 1-6 og 8 er høyst vektet av byer og viser en trend til sentralisering rundt bykjernen.
+Kategori 7 har flest suburb og rurale regioner med høy boligpris, og viser i andre retning mot en desentralisering.
 
 ```{r}
 #| echo: false
@@ -461,7 +520,9 @@ ggplot(aes(x = Class, y = Count, fill = Region_Type)) +
     theme(axis.text.x = element_text(angle = 45, hjust = 1)) 
 ```
 
-[Figur 6](#fig-6) illustrerer variasjonen i geografiske områder basert på arbeidsledighet (U), sysselsettingsvekst (ΔE), og boligpriser (H). Vi kan se ut ifra figuren at kategorier preget av høy arbeidsledighet og sysselsettingsvekst, kombinert med enten høye eller lave boligpriser, har en tendens til å ha en større andel byområder. På en annen side viser kategorier med lav arbeidsledighet og sysselsettingsvekst, spesielt de med lave boligpriser, en høyere forekomst av tettsteder og rurale områder. ...
+[Figur 6](#fig-6) illustrerer variasjonen i geografiske områder basert på arbeidsledighet (U), sysselsettingsvekst (ΔE), og boligpriser (H).
+Kategori 1, 3 og 5 er dominert av byer.
+Dette kommer av at
 
 ## Refferanseliste
 

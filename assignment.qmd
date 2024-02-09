@@ -202,18 +202,20 @@ Det vil også være en nærliggende forklaring at dynamikken mellom etterspørse
 For resterende del av perioden trender i befolkningsveksten til en gradvis reduksjon av befolkningen i byer fra 2010 til 2016, før den flater ut i perioden 2017-2022.
 Forklaringen på dette kan være at nedgangen skyldes budrenteteorien med hensyn på desentralisering, teknologiskutvikling og «spillovers» fra regions typen «city» til «suburb».
 
-Skriv om suburb at trenden er kontunuerlig positiv; Dette kan skyldes spillover, teknologisk utvikling: infastuktur, tog og veinett til senturm, liffer suburb så langt fra sentrum i europeiske land?
+Av @fig-1 ser man at suburb-regioner har en tendens til å ha en kontinuerlig vekst i perioden.
+Forklaringen på dette kan være med hensyn på shift-share.
+Dette er den regiontypen som ligger tettes opp mot byer og vil ved hjelp av momenter i shift-share-analysen som teknologisk utvikling kan i denne sammenheng tolkes til å være utviklingen i i infrastuktur, som veinett og jernbane.
+Dette fører til økt effektivitet, hvor suburb drar nytte av spillovers fra byer.
+Et annet moment i budrenteteorien er at ved det økte presset vi så befolkningsveksten i byer frem til 2010, føre til at det er mer gunstig for befolkningen å bosette seg i suburbs, som drar i retning av desetralisering.
 
-og mer likhet i henhold til williamson teorien (bruk de som momenter)
-
-Vi ser en trend i befolkningsveksten fra 2016 til 2022 en markant nedgang i rurale områder. 
+Vi ser en trend i befolkningsveksten fra 2016 til 2022 en markant nedgang i rurale områder.
 Forklaringen på dette kan være sentralitets/periferitets-tilnærmingen, som betrakter avstanden fra sentrum av økonomiske aktiviteter som årsaken til forsinket utvikling.
 Den påpeker at geografisk sentralitet i seg selv er en faktor som fremmer utvikling, mens periferi hindrer det. Faktorer som avgjør dette er; (1) tilgang til informasjon, (2) teknologisk kunnskap, (3) tilgjengeligheten av markedene for varer og produksjonsfaktorer, (4) transportkostnader for ferdige varer, råvarer og halvfabrikata, og (5) forsinkelser i adopsjonen av innovasjoner (Capello, s. 111).
 
-Teorien om “The spatial diffusion of innovation” kan også være en mulig forklaring, som fokuserer på at distansen fra sentrale områder er en viktig del av teknologisk utvikling (Capello, s.188).
+Teorien om "The spatial diffusion of innovation" kan også være en mulig forklaring, som fokuserer på at distansen fra sentrale områder er en viktig del av teknologisk utvikling (Capello, s.188).
 Flytter man langt fra sentrum vil en gradvis falle bak utviklingen og som Capello gjorde kjent, vil det å vente med å ta i bruk ny teknologi koste mer jo lengre en venter (Camagni and Capello (1998).
 
-Oppsummerin/konklusjon: Desentralisering av europeiske land fra "city" til "suburd" dette skyldes momenter som budrente(mer for pengene), shift-share(teknologisk utvikling) og Williamson innverterte u (likheter)
+Gjennom momenter fra budrenteteorien og shift-share-analyse ved støtte fra litteraturen, ser man av @fig-1 en klar tendens til desentralisering fra "City" til "Suburb" ettersom man ser en økt teknologisk utvikling i Europa og et ekstremt press på boligmarkedet, som vil føre til en desentralisering.
 
 Vi vil videre bruke 2005 som et indeksår, som definerer befolkningen til å være 100 i 2005.
 Dette er på grunn av manglende observasjoner for år 2003 og 2004.
@@ -571,8 +573,7 @@ merged |>
 ```
 
 I [figur 7](#fig-7) kan vi se hvordan den relative veksten for hver av de 8 gruppene utvikler seg.
-Gruppe 2 har hatt en svært mye større vekst enn de andre gruppene...
-Dersom vi filtrerer og setter den relative veksten til under 200, ser vi at de fleste gruppene har hatt en relativ liten og stabil vekst.
+Gruppe 2 har hatt en svært mye større vekst enn de andre gruppene... Dersom vi filtrerer og setter den relative veksten til under 200, ser vi at de fleste gruppene har hatt en relativ liten og stabil vekst.
 
 ```{r}
 merged |> 
@@ -629,8 +630,7 @@ merged |>
 ```
 
 I [figur 7](#fig-7) kan vi se hvordan den relative veksten for hver av de 8 gruppene utvikler seg.
-Gruppe 2 har hatt en svært mye større vekst enn de andre gruppene...
-Dersom vi filtrerer og setter den relative veksten til under 200, ser vi at de fleste gruppene har hatt en relativ liten og stabil vekst.
+Gruppe 2 har hatt en svært mye større vekst enn de andre gruppene... Dersom vi filtrerer og setter den relative veksten til under 200, ser vi at de fleste gruppene har hatt en relativ liten og stabil vekst.
 
 ```{r}
 #| echo: false

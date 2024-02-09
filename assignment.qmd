@@ -369,11 +369,9 @@ ggplot(aes(x = Year, y = Relative_Growth, color = Region_Type)) +
   scale_x_continuous(breaks = seq(2005, max(datapt1$Year), by = 5))
 ```
 
-[Figur 5](#fig-5) viser den relative befolkningsveksten fra 2005, med basisår satt til 100.
-Byregionene viser en nedadgående trend i befolkningsvekst etter en periode med stabilitet, som kan indikere en utflytting eller mindre tilflytting til byene.
-Rurale områder har en svært liten endring, men med en svakt nedadgående trend, noe som kan speile en vedvarende netto utflytting.
-Tettsteder, derimot, viser en markant økning i befolkningstallene, noe som reflekterer en sterk suburbaniseringsprosess der flere velger å bosette seg i disse områdene.
-Samlet sett viser figur 5 ulike trender i befolkningsendringer i regiontyper, med en signifikant økning av befolkning i tettsteder, noe som står i kontrast til den nedadgående eller stabile utviklingen i by- og rurale områder.
+[Figur 5](#fig-5) viser en gjennomsnittlig relativ befolkningsvekst for de tre ulige regiontypene fra 2005 til 2022 for gruppe 3.
+Man ser her at den eneste regoinstypen som har hatt en positiv vekst i befolkningsutviklingen er suburb.
+Dette skyldes nok en støtte grad av spillover med teknologisk utvikling og et større press på boligpriser enn gruppe 2, som fører til en desentralisering av samfunnet.
 
 ### Oppsummering
 

@@ -202,11 +202,16 @@ Det vil også være en nærliggende forklaring at dynamikken mellom etterspørse
 For resterende del av perioden trender i befolkningsveksten til en gradvis reduksjon av befolkningen i byer fra 2010 til 2016, før den flater ut i perioden 2017-2022.
 Forklaringen på dette kan være at nedgangen skyldes budrenteteorien med hensyn på desentralisering, teknologiskutvikling og «spillovers» fra regions typen «city» til «suburb».
 
-Befolkningstrenden tyder på at frem til 2010 velger den største delen av befolkningen i Europa å bosette seg i byer, dvs.
-det har vært en økt sentralisering.
-Fra 2010 synker bosettingen i byer, som tyder på infrastrukturen i Europa har blitt bedre.
-Ved bruk av budrentemodellen kan dette tyde på at man får mer for pengene i kategoriene tettsteder/forsteder og rurale områder.
-Når vi ser på tettsteder/forsteder og rurale områder ser vi at disse to frem til 2016 tar over den største veksten i bosetting, hvor man fra 2016/2017 ser at det kun er tettsteder som har en vekst.
+Skriv om suburb at trenden er kontunuerlig positiv; Dette kan skyldes spillover, teknologisk utvikling: infastuktur, tog og veinett til senturm, liffer suburb så langt fra sentrum i europeiske land?
+
+og mer likhet i henhold til williamson teorien (bruk de som momenter)
+
+Vi ser en trend i befolkningsveksten fra 2016 til 2022 en markant nedgang i rurale områder. 
+Forklaringen på dette kan være sentralitets/periferitets-tilnærmingen, som betrakter avstanden fra sentrum av økonomiske aktiviteter som årsaken til forsinket utvikling.
+Den påpeker at geografisk sentralitet i seg selv er en faktor som fremmer utvikling, mens periferi hindrer det. Faktorer som avgjør dette er; (1) tilgang til informasjon, (2) teknologisk kunnskap, (3) tilgjengeligheten av markedene for varer og produksjonsfaktorer, (4) transportkostnader for ferdige varer, råvarer og halvfabrikata, og (5) forsinkelser i adopsjonen av innovasjoner (Capello, s. 111).
+
+Teorien om “The spatial diffusion of innovation” kan også være en mulig forklaring, som fokuserer på at distansen fra sentrale områder er en viktig del av teknologisk utvikling (Capello, s.188).
+Flytter man langt fra sentrum vil en gradvis falle bak utviklingen og som Capello gjorde kjent, vil det å vente med å ta i bruk ny teknologi koste mer jo lengre en venter (Camagni and Capello (1998).
 
 Vi vil videre bruke 2005 som et indeksår, som definerer befolkningen til å være 100 i 2005.
 Dette er på grunn av manglende observasjoner for år 2003 og 2004.

@@ -541,127 +541,11 @@ Vi kan se ut ifra figuren at kategorier preget av høy arbeidsledighet og syssel
 På en annen side viser kategorier med lav arbeidsledighet og sysselsettingsvekst, spesielt de med lave boligpriser, en høyere forekomst av tettsteder og rurale områder.
 ...
 
-```{r}
-#| echo: false
-#| warning: false
-#| message: false
-#| label: fig-7
-#| fig-cap: Relativ vekst for de 8 gruppene
-merged |> 
-  filter(Year >= 2005) |> 
-  ggplot(
-    aes(
-      x = Year,
-      y = Relative_Growth,
-      group = Class,
-      color = as.factor(Class)
-    )
-  ) +
-  geom_smooth(span = 1, se = FALSE) +
-  xlim(2005, 2022) 
-```
-
-I [figur 7](#fig-7) kan vi se hvordan den relative veksten for hver av de 8 gruppene utvikler seg.
-Gruppe 2 har hatt en svært mye større vekst enn de andre gruppene... Dersom vi filtrerer og setter den relative veksten til under 200, ser vi at de fleste gruppene har hatt en relativ liten og stabil vekst.
+## Refferanseliste
 
 ```{r}
-merged |> 
-    filter(
-    str_sub(Country, start = 1L, end = 2L) %in% c("AT", "BE", "DE", "DK", "ES", "FI", "FR", "IT", "NL")
-  ) |> 
-    filter(Year >= 2005) |> 
-  ggplot(
-    aes(
-      x = Year,
-      y = Relative_Growth,
-      group = Class,
-      color = as.factor(Class)
-    )
-  ) +
-  geom_smooth(span = 1, se = FALSE) +
-  xlim(2005, 2022) 
+
 ```
-
-```{r}
-merged |> 
-  filter(
-    str_sub(Country, start = 1L, end = 2L) %in% c("IE", "NO", "SE")
-  ) |> 
-    filter(Year >= 2005) |> 
-  ggplot(
-    aes(
-      x = Year,
-      y = Relative_Growth,
-      group = Class,
-      color = as.factor(Class)
-    )
-  ) +
-  geom_smooth(span = 1, se = FALSE) +
-  xlim(2005, 2022) 
-```
-
-```{r}
-merged |> 
-  filter(
-    str_sub(Country, start = 1L, end = 2L) %in% c( "PL", "PT", "SI", "SK")
-  ) |> 
-    filter(Year >= 2005) |> 
-  ggplot(
-    aes(
-      x = Year,
-      y = Relative_Growth,
-      group = Class,
-      color = as.factor(Class)
-    )
-  ) +
-  geom_smooth(span = 1, se = FALSE) +
-  xlim(2005, 2022)  
-```
-
-I [figur 7](#fig-7) kan vi se hvordan den relative veksten for hver av de 8 gruppene utvikler seg.
-Gruppe 2 har hatt en svært mye større vekst enn de andre gruppene... Dersom vi filtrerer og setter den relative veksten til under 200, ser vi at de fleste gruppene har hatt en relativ liten og stabil vekst.
-
-```{r}
-#| echo: false
-#| warning: false
-#| message: false
-#| label: fig-8
-#| fig-cap: Populasjonsvekst i de 8 forskjellige gruppene
-merged |> 
-  filter(Year >= 2005) |> 
-  ggplot(
-    aes(
-      x = Year,
-      y = Population,
-      group = Class,
-      color = as.factor(Class)
-    )
-  ) +
-  geom_smooth(span = 1, se = FALSE) +
-  xlim(2005, 2022) 
-```
-
-```{r}
-#| echo: false
-#| warning: false
-#| message: false
-#| label: fig-8
-#| fig-cap: Populasjonsvekst i de 8 forskjellige gruppene
-merged |> 
-  filter(Year >= 2005) |> 
-  ggplot(
-    aes(
-      x = Year,
-      y = Population,
-      group = Class,
-      color = as.factor(Class)
-    )
-  ) +
-  geom_smooth(span = 1, se = FALSE) +
-  xlim(2005, 2022) 
-```
-
-...
 
 ## Appendix
 
@@ -708,20 +592,62 @@ merged |>
     geom_smooth(span = 0.5, se = FALSE) 
 ```
 
-## Shift-Share analyse:
+## 
 
-$$
-y_r = y* + s
-$$
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-7
+#| fig-cap: Relativ vekst for de 8 gruppene
+merged |> 
+  filter(Year >= 2005) |> 
+  ggplot(
+    aes(
+      x = Year,
+      y = Relative_Growth,
+      group = Class,
+      color = as.factor(Class)
+    )
+  ) +
+  geom_smooth(span = 1, se = FALSE) +
+  xlim(2005, 2022)
+```
 
-$$
- M
-$$
+```{r}
+merged |> 
+  filter(
+    str_sub(Country, start = 1L, end = 2L) %in% c( "PL", "PT", "SI", "SK")
+  ) |> 
+    filter(Year >= 2005) |> 
+  ggplot(
+    aes(
+      x = Year,
+      y = Relative_Growth,
+      group = Class,
+      color = as.factor(Class)
+    )
+  ) +
+  geom_smooth(span = 1, se = FALSE) +
+  xlim(2005, 2022)  
+```
 
-$$
-\text{MIX} = \sum \left( \frac{E_{ir0}}{E_{r0}} \right) \left( \frac{E_{ir1}}{E_{in0}} - \frac{E_{n1}}{E_{n0}} \right)
-$$
-
-$$
-\text{DIF} = \sum \left( \frac{E_{in0}}{E_{r0}} \right) \left( \frac{E_{ir1}}{E_{in0}} - \frac{E_{n1}}{E_{n0}} \right)
-$$
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-8
+#| fig-cap: Populasjonsvekst i de 8 forskjellige gruppene
+merged |> 
+  filter(Year >= 2005) |> 
+  ggplot(
+    aes(
+      x = Year,
+      y = Population,
+      group = Class,
+      color = as.factor(Class)
+    )
+  ) +
+  geom_smooth(span = 1, se = FALSE) +
+  xlim(2005, 2022)
+```

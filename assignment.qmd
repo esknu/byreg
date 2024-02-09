@@ -1,6 +1,8 @@
 ---
 title: "assignment"
-format: html
+format:
+  html:
+    include-css: custom.css
 editor: visual
 bibliography: byreg.bib
 language: nb.yaml 
@@ -461,9 +463,13 @@ ggplot(aes(x = Class, y = Count, fill = Region_Type)) +
     theme(axis.text.x = element_text(angle = 45, hjust = 1)) 
 ```
 
-[Figur 6](#fig-6) illustrerer variasjonen i geografiske områder basert på arbeidsledighet (U), sysselsettingsvekst (ΔE), og boligpriser (H). Vi kan se ut ifra figuren at kategorier preget av høy arbeidsledighet og sysselsettingsvekst, kombinert med enten høye eller lave boligpriser, har en tendens til å ha en større andel byområder. På en annen side viser kategorier med lav arbeidsledighet og sysselsettingsvekst, spesielt de med lave boligpriser, en høyere forekomst av tettsteder og rurale områder. ...
+[Figur 6](#fig-6) illustrerer variasjonen i geografiske områder basert på arbeidsledighet (U), sysselsettingsvekst (ΔE), og boligpriser (H). Kategori 1, 3 og 5 er dominert av byer. Dette kommer av at med en Det som kjennetegner en by på sysselsetting er at det er bredt spekter av jobbmuligheter over ulike sektorer, hvor det er tilstedeværelse av store bedrifter og næringsliv. Byer har i utgangspunktet en lav arbeidsledighet pga. tilgang på varierte jobbmuligheter og høyt aktivitetsnivå. Imidlertid kan konkurransen for enkelte type stillinger føre til at spesifikke bransjer opplever høy arbeidsledighet. Det er en tendens til at boligprisene er høye ettersom arbeidsplasser ligger nærme arbeidsplasser, utdanningsinstitusjoner og kulturelle fasiliteter. Konkurransen om boliger kan drive prisen opp og tilbudet vil være begrenset. 
 
-## Refferanseliste
+Kategori 2, 4 og 7 domineres av suburbs, og er ofte preget av et mer variert arbeidsliv med mindre bedrifter og i noen tilfeller industriområder. Hvordan sysselsettingen er kan påvirkes av tilknytningen til byer og tilgjengeligheten til arbeidsplasser. Boligprisene varierer ut ifra tilgangen til byen. 
+
+Kategori 6 og 8 er preget av rural, hvor det er begrenset med jobber som finnes, og de er gjerne dominert av jordbruk, skogbruk og fiske. Muligheten for jobbdifferensiering kan være begrenset her. Arbeidsledigheten avhenger av de økonomiske aktivitetene i området, og sesongmessig arbeidsledighet kan være relevant. Boligprisene har en tendens til å være lavere sammenlignet med byer og suburb, som kommer av at tilgangen til bolig avhenger mer av etterspørsel og tilbud.
+
+## Referanseliste
 
 ```{r}
 

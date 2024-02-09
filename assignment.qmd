@@ -271,7 +271,7 @@ City |>
 ggplot(aes(x = Year, y = Relative_Growth, color = Region_Type)) +
   geom_smooth(level = 0.5, span = 1, linetype = 1) +
   geom_hline(yintercept = 100, linetype = "dashed", color = "black") +
-  labs(title = "Relative Population Growth from 2003",
+  labs(title = "Relative Population Growth from 2005",
        x = "Year",
        y = "Relative Growth",
        color = "Region_Type") +
@@ -319,7 +319,7 @@ Suburb |>
 ggplot(aes(x = Year, y = Relative_Growth, color = Region_Type)) +
   geom_smooth(level = 0.5, span = 1, linetype = 1) +
   geom_hline(yintercept = 100, linetype = "dashed", color = "black") +
-  labs(title = "Relative Population Growth from 2003",
+  labs(title = "Relative Population Growth from 2005",
        x = "Year",
        y = "Relative Growth",
        color = "Region_Type") +
@@ -361,7 +361,7 @@ Rural |>
 ggplot(aes(x = Year, y = Relative_Growth, color = Region_Type)) +
   geom_smooth(level = 0.5, span = 1, linetype = 1) +
   geom_hline(yintercept = 100, linetype = "dashed", color = "black") +
-  labs(title = "Relative Population Growth from 2003",
+  labs(title = "Relative Population Growth from 2005",
        x = "Year",
        y = "Relative Growth",
        color = "Region_Type") +
@@ -729,4 +729,3 @@ $$
 $$
 \text{DIF} = \sum \left( \frac{E_{in0}}{E_{r0}} \right) \left( \frac{E_{ir1}}{E_{in0}} - \frac{E_{n1}}{E_{n0}} \right)
 $$
-

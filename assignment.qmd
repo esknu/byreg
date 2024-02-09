@@ -330,6 +330,7 @@ ggplot(aes(x = Year, y = Relative_Growth, color = Region_Type)) +
 
 [Figur 4](#fig-4) viser en gjennomsnittlig relativ befolkningsvekst for de tre ulige regiontypene fra 2005 til 2022 for gruppe 2, hvor man ser en tendens i befolkningsutviklingen at man bosetter seg i "suburbs" og "city".
 Ettersom man i gruppe 2 har en størst befolkningsvekt i suburb og en kontunuerlig vekst i byer kan forklaringen på dette skyldes at man har en spillover effekt fra byer til suburbs med teknologisk utvikling, samt man har en prinsippielt lavere boligpris ved bosettelse i suburb.
+Nedgangen i rural kan skyldes forsinket utvikling i rurale områder i henhold til sentralitets/periferitets-tilnærmingen.
 
 **Gruppe 3: Rurale land**
 
@@ -563,8 +564,7 @@ merged |>
 ```
 
 I [figur 7](#fig-7) kan vi se hvordan den relative veksten for hver av de 8 gruppene utvikler seg.
-Gruppe 2 har hatt en svært mye større vekst enn de andre gruppene...
-Dersom vi filtrerer og setter den relative veksten til under 200, ser vi at de fleste gruppene har hatt en relativ liten og stabil vekst.
+Gruppe 2 har hatt en svært mye større vekst enn de andre gruppene... Dersom vi filtrerer og setter den relative veksten til under 200, ser vi at de fleste gruppene har hatt en relativ liten og stabil vekst.
 
 ```{r}
 merged |> 
@@ -621,8 +621,7 @@ merged |>
 ```
 
 I [figur 7](#fig-7) kan vi se hvordan den relative veksten for hver av de 8 gruppene utvikler seg.
-Gruppe 2 har hatt en svært mye større vekst enn de andre gruppene...
-Dersom vi filtrerer og setter den relative veksten til under 200, ser vi at de fleste gruppene har hatt en relativ liten og stabil vekst.
+Gruppe 2 har hatt en svært mye større vekst enn de andre gruppene... Dersom vi filtrerer og setter den relative veksten til under 200, ser vi at de fleste gruppene har hatt en relativ liten og stabil vekst.
 
 ```{r}
 #| echo: false

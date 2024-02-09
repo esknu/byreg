@@ -245,7 +245,7 @@ Gruppe 1, urbaniserte land, består av Østerrike (AT), Belgia (BE), Tyskland (D
 Gruppe 2, mellomstore bosettingsland, består av Irland (IE), Norge (NO) og Sverige (SE).
 Gruppe 3, rurale land, består av Polen (PL), Portugal (PT), Slovenia (SI) og Slovakia (SK).
 
-Disse landene har trolig lignende utvikling innenfor sine grupper grunnet geografiske og kulturelle likheter.
+Innenfor de nevnte gruppene av land synes det å være visse likheter i urbaniseringsmønstre og økonomiske strukturer, sannsynligvis påvirket av geografiske og kulturelle faktorer.
 F.eks.
 deler landene i Gruppe 1, som Tyskland, Frankrike og Italia, lignende urbaniseringsmønstre og økonomiske strukturer på grunn av sin nærhet og felles historie.
 Tilsvarende kan landene i Gruppe 3, som Polen og Slovakia, dele lignende utfordringer med rurale karakterer og tidligere kommunistisk historie.
@@ -288,16 +288,8 @@ ggplot(aes(x = Year, y = Relative_Growth, color = Region_Type)) +
   scale_x_continuous(breaks = seq(2005, max(datapt1$Year), by = 5))
 ```
 
-[Figur 3](#fig-3) viser gjennomsnittlig relativ befolkningsvekst for de tre ulike regiontypene fra 2005 til 2022 for gruppe 1: Vesteuropeiske land, hvor 2005 = 100.
-Populasjonen i rurale områder har opplevd en markant vekst fra 2005 til omtrent 2017, etterfulgt av en betydelig nedgang.
-Denne trenden kan tyde på perioder med økt attraktivitet for rural bosetting, etterfulgt av utfordringer eller endringer som fører til nedgangen.
-Tettsteder og forsteder har vist en jevn stigning i befolkningsvekst fra 2005 til 2022.
-Dette kan reflektere en pågående urbaniserings- og suburbaniseringsprosess, der disse områdene forblir attraktive for bosetting.
-Byområder har hatt en stabil befolkningsutvikling fra 2005 til omtrent 2010, etterfulgt av en nedgang frem til omtrent 2016.
-Deretter har det vært en moderat økning frem til 2022.
-Denne komplekse trenden kan indikere variasjoner i byenes attraktivitet eller endringer i byutviklingsmønstre over tid.
-
-Samlet sett gir figuren et bilde av dynamikken i befolkningsendringer i ulike regiontyper i Vesteuropeiske land, med spesiell vekt på den jevne veksten i tettsteder og forsteder og variabel utvikling i byområdene.
+[Figur 3](#fig-3) viser gjennomsnittlig relativ befolkningsvekst for de tre ulike regiontypene fra 2005 til 2022 for gruppe 1, og har en tendens til desentralisering hvor folk bosetter seg hovedsakelig i rurale områder og suburbs.
+Dette kan tyde på at det har vært et høyt press på boligpriser i disse landene, hvor man gjennom budrenteteorien som prinsipp for land velger å bosette seg utenfor sentrale områder.
 
 **Gruppe 2: Mellomstore bosettingsland**
 
@@ -336,10 +328,8 @@ ggplot(aes(x = Year, y = Relative_Growth, color = Region_Type)) +
   scale_x_continuous(breaks = seq(2005, max(datapt1$Year), by = 5))
 ```
 
-[Figur 4](#fig-4) viser en gjennomsnittlig relativ befolkningsvekst for de tre ulike regiontypene «byer», «tettsteder og forstander», og «rurale områder» fra 2005 -- 2022 for gruppe 2; Mellomliggende bosettingsland, hvor man har 2005 = 100 slik at den relative veksten har sitt utgangspunkt fra starten av perioden.
-Populasjonen i tettsteder og forstander viser en markant vekst fra 2010, hvor man ser at man har vekst i både byer, tettsteder og forsteder, men en nedgang i rurale områder.
-Fra gjennomgangen av dataene ser man at dersom man ikke hadde tatt med Sverige i denne gruppen hadde man fått en negativ relativ vekst i denne gruppen.
-Dette viser at i gruppe 2 er det en markant trend til bosetting i tettsteder og forstander, men at det også er en vis spredning i forhold til at man velger å sentralisere seg i byer.
+[Figur 4](#fig-4) viser en gjennomsnittlig relativ befolkningsvekst for de tre ulige regiontypene fra 2005 til 2022 for gruppe 2, hvor man ser en tendens i befolkningsutviklingen at man bosetter seg i "suburbs" og "city".
+Ettersom man i gruppe 2 har en størst befolkningsvekt i suburb og en kontunuerlig vekst i byer kan forklaringen på dette skyldes at man har en spillover effekt fra byer til suburbs med teknologisk utvikling, samt man har en prinsippielt lavere boligpris ved bosettelse i suburb.
 
 **Gruppe 3: Rurale land**
 
@@ -573,7 +563,8 @@ merged |>
 ```
 
 I [figur 7](#fig-7) kan vi se hvordan den relative veksten for hver av de 8 gruppene utvikler seg.
-Gruppe 2 har hatt en svært mye større vekst enn de andre gruppene... Dersom vi filtrerer og setter den relative veksten til under 200, ser vi at de fleste gruppene har hatt en relativ liten og stabil vekst.
+Gruppe 2 har hatt en svært mye større vekst enn de andre gruppene...
+Dersom vi filtrerer og setter den relative veksten til under 200, ser vi at de fleste gruppene har hatt en relativ liten og stabil vekst.
 
 ```{r}
 merged |> 
@@ -630,7 +621,8 @@ merged |>
 ```
 
 I [figur 7](#fig-7) kan vi se hvordan den relative veksten for hver av de 8 gruppene utvikler seg.
-Gruppe 2 har hatt en svært mye større vekst enn de andre gruppene... Dersom vi filtrerer og setter den relative veksten til under 200, ser vi at de fleste gruppene har hatt en relativ liten og stabil vekst.
+Gruppe 2 har hatt en svært mye større vekst enn de andre gruppene...
+Dersom vi filtrerer og setter den relative veksten til under 200, ser vi at de fleste gruppene har hatt en relativ liten og stabil vekst.
 
 ```{r}
 #| echo: false

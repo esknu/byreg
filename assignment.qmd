@@ -61,6 +61,10 @@ Pop <- demo_pjan_custom_9363002_linear <- read_csv("demo_pjan__custom_9363002_li
 
 ## Litteraturgjennomgang
 
+Manuel Wolff (2018) beskriver den økende polariseringen av både sentraliserende og desentraliserende voksende byer, samt en trend mot sentralisert tilbakegang.
+Dette fenomenet peker på behovet for ulike planleggingstiltak.
+Samtidig påpekes det at omlandet mister betydning, spesielt for synkende byer (Wolff, 2018).
+
 Urbanisering er et fenomen som i økende grad påvirker økonomier, samfunn, kulturer og miljøet.
 Ifølge OECD og Europakommisjonen (2020) forventes det at 55 % av verdens befolkning vil bo i byer innen 2050.
 Denne veksten i bybefolkningen har skapt økt interesse for både den raske utviklingen og formen på urbane områder, samt for de tette båndene som eksisterer mellom individuelle byer og mellom byer og landlige områder.
@@ -131,6 +135,8 @@ I følge Capello fører reduksjonen i livssyklusen til at områder som befinner 
 Ut i fra budrenteteorien velger befolknigen hvor de vil bosette seg i form av betalingsvillighet og distanse fra sentrum.
 Ettersom litteraturen viser til en større grad av teknologisk fremskritt på landsnivå, taler dette for at vi vil gjerne få en desentralisering av samfunnet, ettersom det er mindre trykk på boligprisen.
 Merknad; budrenteteorien har en bedre anvendelse på et bynivå og fungerer i dårligere grad på landsnivå, allikvel mener vi at prinsippet danner grunnlaget for en hypotese om desentralisering.
+
+Både litteraturen og teorien sett i lys av hverandre danner grunnlag for en hypotese om desentralisering.
 
 ### **Data-analyse:**
 

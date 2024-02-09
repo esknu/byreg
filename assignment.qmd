@@ -197,9 +197,10 @@ datapt1 |>
 ```
 
 [Figur 1](#fig-1) viser gjennomsnittlig befolkningsvekst for de tre ulike regiontypene fra 2003 til 2022.
-Vi ser at byer har hatt den største veksten i populasjon fra 2003 til omtrent 2010, hvor den fra 2010 synker gradvis før den flater ut fra 2017 til 2022.
-Tettsteder og forsteder har en jevn stigning fra året 2003 til 2022.
-Rurale områder har en jevn stigning frem til 2015, før man har en slak nedgang frem til 2022.
+Vi ser en trend i befolkningsutviklingen frem til 2010 at byer har en markant størst vekst, dette kan forklares ved hjelp av momentet i shift-share-analysen om at byer har en størst konkurransekraft og effektivitet gjennom klyngefordeler som kjennetegner å være i sentrum.
+Det vil også være en nærliggende forklaring at dynamikken mellom etterspørsel og forbruker preferanser skiller byer seg spesielt ut til å være kapabel til å tilpasse seg endringer ettersom sentrum gjerne kjennetegnes for å være ressurssterke, som fører til en sentralisering av samfunnet frem til 2010.
+For resterende del av perioden trender i befolkningsveksten til en gradvis reduksjon av befolkningen i byer fra 2010 til 2016, før den flater ut i perioden 2017-2022.
+Forklaringen på dette kan være at nedgangen skyldes budrenteteorien med hensyn på desentralisering, teknologiskutvikling og «spillovers» fra regions typen «city» til «suburb».
 
 Befolkningstrenden tyder på at frem til 2010 velger den største delen av befolkningen i Europa å bosette seg i byer, dvs.
 det har vært en økt sentralisering.
@@ -563,7 +564,8 @@ merged |>
 ```
 
 I [figur 7](#fig-7) kan vi se hvordan den relative veksten for hver av de 8 gruppene utvikler seg.
-Gruppe 2 har hatt en svært mye større vekst enn de andre gruppene... Dersom vi filtrerer og setter den relative veksten til under 200, ser vi at de fleste gruppene har hatt en relativ liten og stabil vekst.
+Gruppe 2 har hatt en svært mye større vekst enn de andre gruppene...
+Dersom vi filtrerer og setter den relative veksten til under 200, ser vi at de fleste gruppene har hatt en relativ liten og stabil vekst.
 
 ```{r}
 merged |> 
@@ -620,7 +622,8 @@ merged |>
 ```
 
 I [figur 7](#fig-7) kan vi se hvordan den relative veksten for hver av de 8 gruppene utvikler seg.
-Gruppe 2 har hatt en svært mye større vekst enn de andre gruppene... Dersom vi filtrerer og setter den relative veksten til under 200, ser vi at de fleste gruppene har hatt en relativ liten og stabil vekst.
+Gruppe 2 har hatt en svært mye større vekst enn de andre gruppene...
+Dersom vi filtrerer og setter den relative veksten til under 200, ser vi at de fleste gruppene har hatt en relativ liten og stabil vekst.
 
 ```{r}
 #| echo: false
@@ -726,3 +729,4 @@ $$
 $$
 \text{DIF} = \sum \left( \frac{E_{in0}}{E_{r0}} \right) \left( \frac{E_{ir1}}{E_{in0}} - \frac{E_{n1}}{E_{n0}} \right)
 $$
+

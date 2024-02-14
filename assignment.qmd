@@ -603,6 +603,9 @@ ggplot(datapt1, aes(x = Year, y = Relative_Growth, color = Region_Type, group = 
 ## 
 
 ```{r}
+#| echo: false
+#| warning: false
+#| message: false
 merged |> 
   filter(
     str_sub(Country, start = 1L, end = 2L) %in% c( "PL", "PT", "SI", "SK")

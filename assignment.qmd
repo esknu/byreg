@@ -32,7 +32,11 @@ library(plm)
 
 Formålet og motivasjonen for denne artikkelen er å se på mulige pådrivere som påvirker by-land-skillet i Europa.
 For å belyse dette skal vi kritisk undersøke hvordan faktorer påvirker by-land-skillet slik som arbeidsledighetsraten, sysselsettingsvekst og det lokale boligmarkedet påvirker mønstrene for befolkningsfordelingen og jobbskapingen på tvers av ulike europeiske land.
-Vi skal henholdsvis se nærmere på landene Østerrike, Belgia, Tyskland, Danmark, Estland, Hellas, Spania, Finland, Frankrike, Irland, Italia, Luxembourg, Norge, Nederland, Polen, Portugal, Sverige, Slovenia, og Slovakia.
+Dataene som er benyttet i denne studien er nøye samlet inn fra Eurostat, som er en pålitelig kilde for europeisk statistikk og økonomisk informasjon.
+Vi har spesifikt fokusert på andelene av den totale arbeidskraften til hvert land, som presenteres grundig gjennom Eurostats rapporter.
+For å kunne trekke konklusjoner og utføre en grundig analyse har vi valgt å sammenligne land som vi mener er best egnet for å belyse vår hypotese.
+Disse landene inkluderer Østerrike, Belgia, Tyskland, Danmark, Estland, Hellas, Spania, Finland, Frankrike, Irland, Italia, Luxembourg, Norge, Nederland, Polen, Portugal, Sverige, Slovenia, og Slovakia.
+Ved å ta i betraktning denne omfattende og varierte gruppen av land, sikter vi mot å få et dyptgående innblikk i de dynamiske kreftene bak by-land-skillet i Europa.
 
 ```{r}
 #| echo: false

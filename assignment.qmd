@@ -1,5 +1,5 @@
 ---
-title: "assignment"
+title: "Arbeidskrav"
 format:
   html:
     include-css: custom.css
@@ -32,7 +32,7 @@ library(plm)
 
 Formålet og motivasjonen for denne artikkelen er å se på mulige pådrivere som påvirker by-land-skillet i Europa.
 For å belyse dette skal vi kritisk undersøke hvordan faktorer påvirker by-land-skillet slik som arbeidsledighetsraten, sysselsettingsvekst og det lokale boligmarkedet påvirker mønstrene for befolkningsfordelingen og jobbskapingen på tvers av ulike europeiske land.
-Dataene som er benyttet i denne studien er nøye samlet inn fra Eurostat, som er en pålitelig kilde for europeisk statistikk og økonomisk informasjon.
+Dataene som er benyttet i denne studien er nøye samlet inn fra Eurostat [@zotero-187], som er en pålitelig kilde for europeisk statistikk og økonomisk informasjon.
 Vi har spesifikt fokusert på andelene av den totale arbeidskraften til hvert land, som presenteres grundig gjennom Eurostats rapporter.
 For å kunne trekke konklusjoner og utføre en grundig analyse har vi valgt å sammenligne land som vi mener er best egnet for å belyse vår hypotese.
 Disse landene inkluderer Østerrike, Belgia, Tyskland, Danmark, Estland, Hellas, Spania, Finland, Frankrike, Irland, Italia, Luxembourg, Norge, Nederland, Polen, Portugal, Sverige, Slovenia, og Slovakia.
@@ -602,45 +602,7 @@ ggplot(datapt1, aes(x = Year, y = Relative_Growth, color = Region_Type, group = 
   scale_x_continuous(breaks = seq(2003, max(datapt1$Year), by = 5)) + facet_wrap(~Country)
 ```
 
-```{r}
-#| echo: false
-#| warning: false
-#| message: false
-#| label: fig-10
-#| fig-cap: Arbeidsledige i de forskjellige regionene
-merged |> 
-  filter(Class == c(1:4)) |> 
-  ggplot(
-    aes(
-      x = Year,
-      y = unemploymentrate,
-      color = Region_Type
-    )
-  ) +
-    geom_smooth(span = 0.5, se = FALSE) 
-```
-
 ## 
-
-```{r}
-#| echo: false
-#| warning: false
-#| message: false
-#| label: fig-7
-#| fig-cap: Relativ vekst for de 8 gruppene
-merged |> 
-  filter(Year >= 2005) |> 
-  ggplot(
-    aes(
-      x = Year,
-      y = Relative_Growth,
-      group = Class,
-      color = as.factor(Class)
-    )
-  ) +
-  geom_smooth(span = 1, se = FALSE) +
-  xlim(2005, 2022)
-```
 
 ```{r}
 merged |> 
@@ -678,40 +640,4 @@ merged |>
   ) +
   geom_smooth(span = 1, se = FALSE) +
   xlim(2005, 2022)
-```
-
-```{r}
-#| echo: false
-Count_1 <- merged %>%
-  group_by(Class, Region_Type, Year) %>%
-  summarise(Count = n(), .groups = "drop") |>
-  filter(Year == "2005")
-
-all_classes <- as.factor(1:8)
-Count_1 |> 
-ggplot(aes(x = Class, y = Count, fill = Region_Type)) +
-    geom_bar(stat = "identity", position = "stack") +
-    scale_x_discrete(limits = all_classes) +
-    xlab("Class") +
-    ylab("Region Types") +
-    ggtitle("Stacked Bar Chart of Region Type Counts by Class") +
-    theme(axis.text.x = element_text(angle = 45, hjust = 1)) 
-```
-
-```{r}
-#| echo: false
-Count_2 <- merged %>%
-  group_by(Class, Region_Type, Year) %>%
-  summarise(Count = n(), .groups = "drop") |>
-  filter(Year == "2022")
-
-all_classes <- as.factor(1:8)
-Count_2 |> 
-ggplot(aes(x = Class, y = Count, fill = Region_Type)) +
-    geom_bar(stat = "identity", position = "stack") +
-    scale_x_discrete(limits = all_classes) +
-    xlab("Class") +
-    ylab("Region Types") +
-    ggtitle("Stacked Bar Chart of Region Type Counts by Class") +
-    theme(axis.text.x = element_text(angle = 45, hjust = 1)) 
 ```

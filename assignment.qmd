@@ -503,8 +503,7 @@ Kategori 7 har flest suburb og rurale regioner med høy boligpris, og viser i an
 
 ### Avgjørende faktorer som danner grunnlaget for å forstå befolkningsutviklingen
 
-1.**Eb (Basissektoren):** Dette refererer sannsynligvis til sysselsettingen i basissektoren.
-Basissektoren består av bransjer eller aktiviteter som er rettet mot eksterne markeder, for eksempel eksportindustrier.
+1.**Eb (Basissektoren):** Basissektoren består av bransjer eller aktiviteter som er rettet mot eksterne markeder, for eksempel eksportindustrier.
 Økningen eller reduksjonen i sysselsettingen innen basissektoren kan ha betydelige ringvirkninger på den totale økonomien og dermed på befolkningsutviklingen.
 
 2\.

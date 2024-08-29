@@ -567,8 +567,6 @@ Dette fenomenet kan forklares ved hjelp av fundamentale prinsipper som budrentet
 Resultatene gir dypere innsikt i samspillet mellom økonomiske prinsipper, geografiske faktorer og infrastrukturelle forbedringer som former byutviklingen i Europa.
 Desentraliseringen ser ut til å være en kompleks reaksjon på flere påvirkende faktorer, og forståelsen av disse dynamikkene er avgjørende for fremtidig byplanlegging og utvikling.
 
-## Referanseliste
-
 ```{r}
 
 ```
@@ -600,9 +598,10 @@ ggplot(datapt1, aes(x = Year, y = Relative_Growth, color = Region_Type, group = 
   scale_x_continuous(breaks = seq(2003, max(datapt1$Year), by = 5)) + facet_wrap(~Country)
 ```
 
-## 
-
 ```{r}
+#| echo: false
+#| warning: false
+#| message: false
 merged |> 
   filter(
     str_sub(Country, start = 1L, end = 2L) %in% c( "PL", "PT", "SI", "SK")
